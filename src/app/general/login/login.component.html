@@ -1,0 +1,115 @@
+<app-topnav></app-topnav>
+
+<section class="content login-div">
+    <div class="container">
+        <div class="login-top">
+            <h1 class="login-title">Take Charge Of Your Future Now.</h1>
+            <p>Log in or create an account to
+                <a href="javascript:void(0);">get started.</a>
+            </p>
+        </div>
+
+        <div class="login-form">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row clearfix">
+                    <form class="form-horizontal m-t-20" [formGroup]="login" (ngSubmit)="loginform(login.value)">
+                        <div class="col-sm-6 login-lft">
+                            <h2>Already have a Woozzl account?</h2>
+                            <div class="col-sm-12">
+                                <div class="row clearfix">
+                                    <div class="form-label">
+                                        <label>E-mail Address </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                                <input class="form-control" name="EmailAddress" type="text" required="" placeholder="Email Address"
+                                                formControlName="EmailAddress" [ngClass]="{ 'is-invalid': submitted && f.EmailAddress.errors }" >
+                                        </div>
+                                        <div *ngIf="submitted && f.EmailAddress.errors" class="text-danger">
+                                            <div *ngIf="f.EmailAddress.errors.required">Email is required</div>
+                                            <div *ngIf="f.EmailAddress.errors.email">Email must be a valid
+                                                email address</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="row clearfix">
+                                    <div class="form-label">
+                                        <label>Password</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                                <input class="form-control" name="password" type="password" required="" placeholder="Password"
+                                                formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+                                        </div>
+                                        <div *ngIf="submitted && f.password.errors" class="text-danger">
+                                            <div *ngIf="f.password.errors.required">Password is required</div>
+                                          
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row clearfix">
+                                    <div class="form-group form-check">
+                                        <div class="col-sm-6">
+                                            <div class="row clearfix">
+                                                <div class="form-line">
+                                                    <input id="checkbox-signup" type="checkbox" formControlName="remeberme" 
+                                                    name="rememberme">
+                                                    <label for="md_checkbox_33">Remember me</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="row clearfix">
+                                                <a href="javascript:void(0);"  [routerLink]="['/forgetpassword']" class="forget-pass">Forgot password ?</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row clearfix">
+                                    <div class="form-group btn-field">
+                                        <button type="submit" class="btn bg-amber m-t-0 waves-effect" id="loadbtn"
+                                        data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i>&nbsp;Authenticating"
+                                            >Log In</button>  
+                                        </div>                                        
+                                    </div>
+                                </div>
+                                <div  class="text-danger" *ngIf="loginsts== false">{{errMsg}}</div>
+                                
+
+                        </div>
+                        <div class="col-sm-6 login-rgt">
+                            <div class="login-logo">
+                                <img src="assets/images/login-logo.png" />
+                            </div>
+                            <h1>New to Woozzl?</h1>
+                            <div class="btn-create">
+                                <button type="button" class="btn btn-info m-t-0 waves-effect"
+                                    [routerLink]="['/register']">Create An Account</button>
+                            </div>
+
+                            <div class="or-line">
+                                <span>Or</span>
+                            </div>
+                            <a href="javascript:void(0);" class="g-link">
+                                <span>
+                                    <img src="assets/images/g-logo.png" />
+                                </span>Continue With Google</a>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<app-footer></app-footer>

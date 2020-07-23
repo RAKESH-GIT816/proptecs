@@ -1,0 +1,109 @@
+<section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar iner-page">
+          <!-- Menu -->
+          <div class="menu">
+            <ul class="list">
+              <li routerLinkActive="active" >
+                <a href="javascript:void(0);" class="menu-toggle">
+                  <i></i>
+                  <span>Set-up Your Listing</span>
+                </a>
+                <ul class="add-pro sub-m-1">
+                
+                  <li routerLinkActive="active">
+                    <a href="javascript:void(0);"  *ngIf="propertyId > 0"    [routerLink]="['/propertydetails',propertyId]">
+                      <i></i>Property Details</a>
+                      <a href="javascript:void(0);"  *ngIf="propertyId == 0" >
+                          <i></i>Property Details</a>
+                  </li>
+                  <li routerLinkActive="active">
+                    <a href="javascript:void(0);" *ngIf="propertyId > 0"    [routerLink]="['/propertydetails/wholesaleprofit',propertyId]">
+                      <i></i>Home Equity</a>
+                      <a href="javascript:void(0);" *ngIf="propertyId == 0"  >
+                          <i></i>Home Equity</a>
+                  </li>
+                  <li routerLinkActive="active">
+                    <a href="javascript:void(0);"    *ngIf="propertyId > 0"  [routerLink]="['/propertydetails/propertyphotosandvideos',propertyId]">
+                      <i></i>Photos & Videos</a>
+                      <a href="javascript:void(0);"   *ngIf="propertyId == 0"  >
+                        <i></i>Photos & Videos</a>
+                  </li>
+                  <li routerLinkActive="active">
+                    <a  href="javascript:void(0);"  *ngIf="propertyId > 0"  [routerLink]="['/propertydetails/confirmation',propertyId]" >
+                      <i></i>Confirmation</a>
+                      <a  href="javascript:void(0);" *ngIf="propertyId == 0"  >
+                          <i></i>Confirmation</a>
+                  </li>
+                </ul>
+              </li>
+              <li routerLinkActive="active" >
+                <a href="javascript:void(0);" class="menu-toggle">
+                  <i></i>
+                  <span>Set-up Your Auction</span>
+                </a>
+                <ul class="add-pro sub-m-2">
+                  <li routerLinkActive="active">
+                      <a href="javascript:void(0);"  *ngIf="propertyId > 0" [routerLink]="['/propertydetails/listingdetails',propertyId]"> 
+                        <i></i>Listing Details</a>
+                    <a href="javascript:void(0);"  *ngIf="propertyId == 0" > 
+                      <i></i>Listing Details</a>
+                  </li>
+                </ul>
+              </li>
+              <li routerLinkActive="active" >
+                <a href="javascript:void(0);" class="menu-toggle">
+                  <i></i>  
+                  <span>Complete Your Profile</span>
+                </a>
+                <ul class="add-pro sub-m-3">
+                  
+                  <li routerLinkActive="active"> 
+                      <a href="javascript:void(0);" *ngIf="propertyId > 0"  [routerLink]="['/propertydetails/userprofile',propertyId]"> 
+                     
+                        <i></i>Your Profile</a>
+                     <a href="javascript:void(0);" *ngIf="propertyId == 0"> 
+                     
+                      <i></i>Your Profile</a>
+                  </li>
+                </ul>
+              </li>
+              <li routerLinkActive="active" >
+                <a href="javascript:void(0);" class="menu-toggle">
+                  <i></i>
+                  <span>Add Payment Method</span>
+                </a>
+                <ul class="add-pro sub-m-4">
+                  <li routerLinkActive="active" >
+                      <a href="javascript:void(0);" *ngIf="propertyId > 0"  [routerLink]="['/propertydetails/propertypaymentmethod',propertyId]">
+                          <i></i>Credit Card or Bank Account</a>
+                    <a href="javascript:void(0);" *ngIf="propertyId == 0">
+                      <i></i>Credit Card or Bank Account</a>
+                  </li>
+                </ul>
+              </li>
+              <li routerLinkActive="active" >
+                <a href="javascript:void(0);" class="menu-toggle">
+                  <i></i>
+                  <span>Promote Your Listing</span>
+                </a>
+                
+                <ul class="add-pro sub-m-5">
+                  <li routerLinkActive="active" >
+                    <a *ngIf="propertyId > 0"
+                    [routerLink]="['/propertydetails/promoteemail',propertyId]">
+                      <i></i>Promote by E-mail</a>
+
+                      <a href="javascript:void(0);" *ngIf="propertyId == 0" >
+                      <i></i>Promote by E-mail</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- #Menu -->
+          <!-- Footer -->
+          <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+      </section>

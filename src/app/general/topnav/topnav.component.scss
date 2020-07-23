@@ -1,0 +1,106 @@
+/*----------------tabs slider---------------------*/
+
+$white-rock: #FFFFFF;
+$white-rock1: #000;
+$rum-swizzle: #F5F5F5;
+$buddha-gold: #25beea;
+$citrus: #25beea;
+$mountain-meadow: #25beea;
+$blue-green: #25beea;
+$medium-slate-blue: #25beea;
+
+$tabs-list: (
+  login: $buddha-gold, 
+  register: $citrus
+);
+
+// General styles
+
+
+// Tab styling
+.tabs {
+  height: 100%;
+  margin-top: 20px;
+
+}
+input[name="tabs"] {
+  float: left;
+  opacity: 0;
+  position: absolute;
+}
+input[name="tabs"] ~ label {
+    // padding: 1em;
+    width: 50%;
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+    height: 80px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition:background .3s;
+    &:hover {
+      background:#f0f0f0;
+    }
+    &:focus {
+      outline: 0;
+      text-shadow: 1px 1px 3px #888;
+    }
+}
+.tab {
+    height: 100%;
+    display: none;
+    padding: 6em 2em 2em;
+    
+    // border-top: 1px solid #cccccc;
+}
+
+@each $current-tab, $colour in $tabs-list {
+    label[for="toggle-#{$current-tab}"] {
+      border-top: 8px solid transparent;
+        background: $rum-swizzle;
+        // border-left: 1px solid darken($white-rock1, 20%);
+        text-transform: uppercase;
+        line-height: 50px;
+    }
+    #toggle-#{$current-tab}:checked ~ .tab-#{$current-tab} { 
+        display:block;
+        // background: $white-rock1;
+    }
+    #toggle-#{$current-tab}:checked ~ label[for="toggle-#{$current-tab}"] {
+        cursor: default;
+        // border-top: 8px solid #{$colour};
+        background: $white-rock;
+        color: $white-rock1;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+svg {
+  height: 2rem;
+  width: 2rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+.text-title {
+  display: none;
+  @media screen and (min-width: 900px) {
+    display: inline-block;
+    vertical-align: middle;
+    
+  }
+}
+.kaomoji {
+  white-space: nowrap;
+}      
+
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:not(:checked) + label:after {
+display: none;
+}
+
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:after { 
+display: none;
+}

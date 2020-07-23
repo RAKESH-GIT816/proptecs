@@ -1,0 +1,461 @@
+<div *ngIf="loading==true" class="overlay-gif">
+  <img src="assets/images/login-logo.png" alt="">
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+<app-topnav></app-topnav>
+
+<div class="container">
+  <div class="row">
+    <div class="web-form-prop">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-side">
+
+        <app-sell-sidemenu></app-sell-sidemenu>
+
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pr-main">
+        <section class="content woz-div add-pro">
+          <div class="">
+            <div class="">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                <div class="pro-detail p-b-10">
+                  <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 padding-0">
+                    <h1 class="margin-0 p-b-10">Listing Details</h1>
+                  </div>
+
+                  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 padding-0">
+                    <div class="form-group btn-field pr-li">
+                      <button type="button" class="btn bg-amber m-t-0 waves-effect right" data-toggle="modal"
+                        data-target="#changeEmail">Preview Listing</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="addre-prp p-t-15 col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-30 p-l-0">
+                  <!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 padding-0">
+                    <img src="assets/images/maskot.png">
+                  </div> -->
+                  <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 padding-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <h3 class="margin-0 p-l-20 font-20 p-t-15">{{property?.StreetAddress}}, {{property.City}},
+                        {{property.State}} {{property.ZipCode}}</h3>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 field-visible m-b-15">
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 padding-0">
+                    <img src="assets/images/eye-blue.png">
+                  </div>
+                  <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 padding-0">
+                    <p> These fields are visible to buyers looking at your listing</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="add-pro-form clearfix">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12 p-l-0">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="form-label">
+                      <label>Esimated After Repair Value (ARV):</label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input type="number" min="0" class="form-control" [(ngModel)]="equity.ARV"
+                            (input)="calculateEquityValue()" placeholder="$" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12 p-r-0">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="form-label">
+                      <label>Your Asking Price </label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input type="number" min="0" readonly name="price" [(ngModel)]="equity.MinimumStartBid"
+                            class="form-control" placeholder="$" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="form-label">
+                      <label>Estimated Escrow Cost </label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input type="number" min="0" class="form-control" placeholder="$"
+                            [(ngModel)]="equity.EstimatedEscrowCost" (input)="calculateEquityValue()" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="form-label">
+                      <label>Rehab / Repair Cost: </label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input type="number" min="0" class="form-control" placeholder="$" [(ngModel)]="equity.RepairCost"
+                            (input)="calculateEquityValue()" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="form-label">
+                      <label>Other costs </label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input type="text" class="form-control" name="ohtercost1name" [(ngModel)]="otherCost1Name"
+                            placeholder="Other costs, fees, etc" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="form-label">
+                      <label>Value </label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input type="number" min="0" class="form-control" name="othercost2name" [(ngModel)]="otherCost1Value"
+                            (input)="calculateEquityValue()" placeholder="$" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="form-label">
+                      <label>Other costs </label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input type="text" class="form-control" name="ohtercost1value" [(ngModel)]="otherCost2Name"
+                            placeholder="Other costs, fees, etc" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="form-label">
+                      <label>Value </label>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input type="number" min="0" class="form-control" name="othercost2value" [(ngModel)]="otherCost2Value"
+                            (input)="calculateEquityValue()" placeholder="$" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="col-lg-12 col-md-12 col-sm-6 col-xs-12 field-visible m-b-15 m-t-10 text-center bg-white no-border">
+                  <p>Buyer’s Estimated Equity: $ {{EstimatedEquityValue}}</p>
+
+                </div>
+
+
+
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-t-40">
+              <div class="pro-detail p-b-10">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <h1 class="margin-0 p-b-10">Auction Start and End Dates</h1>
+                </div>
+
+              </div>
+
+              <form [formGroup]="validaformm">  
+                <div class="add-pro-form clearfix">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="form-label">
+                      <label>Auction Start Date</label>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-line" id="bs_datepicker_container">
+                        <my-date-picker formControlName="statedate" [options]="myDatePickerOptions" name="AuctionStartDate" placeholder="Select Date"
+                          [(ngModel)]="startDate" (dateChanged)="onStartDateChanged($event)"></my-date-picker>
+                      </div>
+                      <div *ngIf="submitted && f.statedate.errors" class="text-danger">
+                        <div *ngIf="f.statedate.errors.required">Start Date is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="form-label">
+                      <label>Auction End Date</label>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-line" id="bs_datepicker_container">
+                        <my-date-picker formControlName="enddate" [options]="myDatePickerOptions" name="AuctionEndDate" placeholder="Select Date"
+                          [(ngModel)]="endDate" (dateChanged)="onEndDateChanged($event)"></my-date-picker>
+                      </div>
+                      <div *ngIf="submitted && f.enddate.errors" class="text-danger">
+                        <div *ngIf="f.enddate.errors.required">End Date is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="form-label">
+                      <label>Time</label>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-line">
+                        <ng-select [items]="timee" bindLabel="name" bindValue="id" placeholder="Select Time"
+                          formControlName="statetime" [(ngModel)]="equity.AuctionStartTime">
+                        </ng-select>
+                      </div>
+                      <div *ngIf="submitted && f.statetime.errors" class="text-danger">
+                        <div *ngIf="f.statetime.errors.required">Start time is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="form-label">
+                      <label>Time</label>
+                    </div>
+                    <div class="form-group">
+                      <div class="form-line">
+                        <!-- <select class="form-control" formControlName="endtime" name="AuctionEndTime" [(ngModel)]="equity.AuctionEndTime" >
+                                          </select>             -->
+
+                        <ng-select [items]="timee" bindLabel="name" bindValue="id" placeholder="Select Time"
+                          formControlName="endtime" [(ngModel)]="equity.AuctionEndTime">
+                        </ng-select>
+                      </div>
+                      <div *ngIf="submitted && f.endtime.errors" class="text-danger">
+                        <div *ngIf="f.endtime.errors.required">End time is required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <!-- <div class="pro-detail p-b-10 m-t-20">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <h1 class="margin-0 p-b-10">Other Supporting Documents</h1>
+                </div>
+              </div>
+              <div class="warning-div m-t-25">
+                <p> Including supporting documents makes your property more likely to sell by providing the buyer with
+                  information
+                  to support your After Repair Value (ARV) price
+                </p>
+              </div> -->
+              <!-- <div class="col-lg-12 documentwrap" *ngFor="let file of supportingDocs">
+                <div class="col-lg-1"><i class="fa fa-file-pdf-o" style="font-size:40px;color:#FF902B;"
+                    aria-hidden="true"></i></div>
+                <div class="col-lg-9 text-left">
+                  <span class="doc-name">{{ file.FileName }}</span><br />
+                  <span class="date">Uploaded {{file.UploadedDate | date:'MM/dd/yyyy'}}</span><br />
+                </div>
+                <div class="col-lg-2"><a (click)="removeDocument(file.Id)" class="editlink">Remove</a></div>
+              </div> -->
+              <!-- <div class="col-lg-12 documentwrap" *ngFor="let item of otherSupportingDocumentsuploader.queue">
+                <div class="col-lg-1"><i class="fa fa-file-pdf-o" style="font-size:40px;color:#FF902B;"
+                    aria-hidden="true"></i></div>
+                <div class="col-lg-9 text-left">
+                  <span class="doc-name">{{ item?.file?.name }}</span><br />
+                  <span class="date">&nbsp;</span><br />
+                </div>
+                <div class="col-lg-2"><a (click)="item.remove()" class="editlink">Remove</a></div>
+              </div> -->
+              <!-- <br>
+              <div class="custom-file mb-3">
+                <input type="file" #filePurchaseDocs ng2FileSelect [uploader]="otherSupportingDocumentsuploader"
+                  multiple id="file-2" class="inputfile inputfile-1" data-multiple-caption="{count} files selected"
+                  multiple="">
+                <label for="file-2" class="attach">
+                  <span class="font-17">Upload Supporting Document</span>
+                </label>
+              </div> -->
+
+              <!-- .container -->
+              <!-- <div class="pro-detail p-b-10 m-t-40">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <h1 class="margin-0 p-b-10">Additional Third Party Information</h1>
+                </div>
+
+
+              </div> -->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-40 interest-check m-t-20 l-det">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-t-5 p-l-0">
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-l-0">
+                    <input type="checkbox" id="md_checkbox_13" class="filled-in chk-col-yellow" checked="" />
+                    <label for="md_checkbox_13">Comparables </label>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-l-0">
+                    <input type="checkbox" id="md_checkbox_14" class="filled-in chk-col-yellow" />
+                    <label for="md_checkbox_14"> Price trends</label>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-l-0">
+                    <input type="checkbox" id="md_checkbox_15" class="filled-in chk-col-yellow" />
+                    <label for="md_checkbox_15"> Schools</label>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-l-0">
+                    <input type="checkbox" id="md_checkbox_16" class="filled-in chk-col-yellow" checked="" />
+                    <label for="md_checkbox_16">Crime rate </label>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-l-0">
+                    <input type="checkbox" id="md_checkbox_17" class="filled-in chk-col-yellow" />
+                    <label for="md_checkbox_17"> Price history</label>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 p-l-0">
+                    <h4 class="margin-0 font-20">Price: $0.00</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="pro-detail p-b-10 m-t-0">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <h1 class="margin-0 p-b-10">Request Appraisal</h1>
+                </div>
+
+
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-0 interest-check m-t-20 l-det">
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 p-t-5 p-l-0">
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-l-0">
+                    <input type="checkbox" id="md_checkbox_18" class="filled-in chk-col-yellow" checked="" />
+                    <label for="md_checkbox_18">Have appraiser contact me </label>
+                  </div>
+
+                </div>
+              </div>
+              <div class="warning-div m-t-0">
+                <p> Additional information helps make potential buyers more likely to consider your home. </p>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-50 m-t-20">
+                <div class="row clearfix">
+                  <div class="col-sm-4 pull-right">
+                    <div class="form-group btn-field">
+                      <button type="button" (click)="saveEquity()" class="btn bg-amber waves-effect big-s-c m-t-0">Save & Continue</button>
+                    </div>
+                  </div>
+                  <div class="col-sm-5"> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade modal-bg" id="changeEmail" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-list" role="document">
+    <div class="modal-content">
+
+
+      <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 bg-white p-t-20">
+        <div class="prop-div">
+          <div class="prop-img">
+            <img src="{{photoUrl}}" />
+
+            <div class="prop-over-txt">
+              <h2>{{property?.StreetAddress}}
+                <br> {{property.City}},{{property.State}} ,{{property.ZipCode}}</h2>
+            </div>
+          </div>
+          <div class="prop-cont">
+            <ul class="det-list">
+              <li>
+                <p>
+                  <span>
+                    <img src="assets/images/bed-icon-grey.png" />
+                  </span>{{propertyDetails.Bedrooms}} bedrooms</p>
+              </li>
+              <li>
+                <p>
+                  <span>
+                    <img src="assets/images/bath-icon-grey.png" />
+                  </span>{{propertyDetails.Bathrooms}} bath</p>
+              </li>
+              <li>
+                <p>
+                  <span>
+                    <img src="assets/images/sqft-icon-grey.png" />
+                  </span>{{propertyDetails.FinishedSqFt}} sqft</p>
+              </li>
+            </ul>
+
+            <ul class="rate-list">
+              <li class="head-li">
+                <p>Estimated ARV
+                  <span>{{equity?.ARV | currency :'USD':'symbol':'1.0-0'}}</span>
+                </p>
+              </li>
+              <li>
+                <p>Current Bid Price
+                  <span>-{{equity?.MinimumStartBid | currency :'USD':'symbol':'1.0-0'}}</span>
+                </p>
+              </li>
+              <!-- <li>
+                                  <p>Repair Cost
+                                      <span>- {{equity?.RepairCost | currency :'USD':'symbol':'1.0-0'}}</span>
+                                  </p>
+                              </li> -->
+              <li>
+                <p>Estimated Escrow Cost
+                  <span>{{equity?.EstimatedEscrowCost | currency :'USD':'symbol':'1.0-0'}}</span>
+                </p>
+              </li>
+              <li *ngIf="equity.RepairCost != null && equity.RepairCost != 0 ">
+                <p>Estimated Repair Cost
+                  <span>-{{ equity.RepairCost  | currency :'USD':'symbol':'1.0-0'}}</span>
+                </p>
+              </li>
+              <li *ngIf="equity.RepairCost == null || equity.RepairCost == 0 " style="height:16px;">
+                <span> </span>
+
+              </li>
+              <li class="foot-li">
+                <p>Potential Profit
+                  <span>{{EstimatedEquityValue| currency :'USD':'symbol':'1.0-0'}}</span>
+                </p>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

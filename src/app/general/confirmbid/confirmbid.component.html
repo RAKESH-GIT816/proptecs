@@ -1,0 +1,148 @@
+<div *ngIf="loading==true" class="overlay-gif">
+    <img src="assets/images/login-logo.png" alt="">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+<app-topnav></app-topnav>
+
+<section class="content login-div home-div">
+    <div class="container">
+        <div class="complete-profile">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row clearfix">
+                    <div class="main-title">
+                        <h1>Set-Up Your Bid in 3 Steps</h1>
+                        <p>We need a little more info to finish your bid</p>
+                    </div>
+
+                    <div class="bids-process">
+                        <div class="wizard clearfix">
+                            <div class="steps clearfix">
+                                <ul role="tablist">
+                                    <li role="tab" aria-disabled="false" aria-selected="true">
+                                        <a id="wizard_horizontal-t-0" href="javascript:void(0);"
+                                            (click)="confirmprofilestep1();" aria-controls="wizard_horizontal-p-0">
+                                            <span class="number">1.</span> <span class="num">1</span>
+                                            <span class="step-title">Profile Information</span>
+                                        </a>
+                                    </li>
+                                    <li role="tab" class="done" aria-disabled="false" aria-selected="false"><a
+                                            id="wizard_horizontal-t-1" href="javascript:void(0);"
+                                            (click)="paymentmethodstep2();" aria-controls="wizard_horizontal-p-1"> <span
+                                                class="number">2.</span>
+                                            <span class="num">2</span>
+                                            <span class="step-title">Payment Method</span>
+                                        </a>
+                                    </li>
+                                    <li role="tab" class="first current" aria-disabled="true"><a
+                                            id="wizard_horizontal-t-2" href="javascript:void(0);"
+                                            aria-controls="wizard_horizontal-p-2"><span
+                                                class="current-info audible">current step: </span><span
+                                                class="number">3.</span>
+                                            <span class="num">3</span>
+                                            <span class="step-title">Confirm Bid</span>
+                                        </a></li>
+                                </ul>
+                            </div>
+
+                            <section>
+                                <div class="step-3">
+                                    <h1>Confirmation</h1>
+                                    <p>You are entering into a legal contract to take over the seller's purchase
+                                        agreement to
+                                        buy this property according to wholequity's terms & conditions
+                                    </p>
+
+                                    <div class="accept-div">
+                                        <div class="form-line form-check">
+                                            <input type="checkbox" id="md_checkbox_33" [(ngModel)]="checkk"
+                                                class="filled-in chk-col-yellow">
+                                            <label for="md_checkbox_33">I accept these
+                                                <a href="javascript:void(0)">terms & conditions</a>
+
+                                            </label>
+                                            <div *ngIf="checkk==false && submitted==true">
+                                                <h4 class="text-danger">Accept Terms and Conditions</h4>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="accept-div-img">
+                                        <img src="{{propertyDetail?.filepath}}" />
+                                        <div class="bid-img-txt">
+                                            <h1>Single Family Home</h1>
+                                            <p>
+                                                <img src="assets/images/location-yellow.png">
+                                                {{propertyDetail.StreetAddress}} <br> {{propertyDetail.City}}
+                                                {{propertyDetail.State}} {{propertyDetail.ZipCode}} </p>
+                                            <h3 class="p-enddate">{{ propertyDetail.AuctionEndDate | date }} </h3>
+                                        </div>
+                                    </div>
+                                    <ul class="bid-pric">
+                                        <li>
+                                            <h2>Confirm Your Bid</h2>
+                                            <span>${{Bidvalue}}</span>
+                                        </li>
+                                    </ul>
+                                    <p>You agree to allow Wholequity to verify funds for
+                                        $249. You will only be charged if
+                                        the seller accepts your bid.</p>
+                                    <button id="openModalButton" hidden data-toggle="modal" data-target="#finish">Open
+                                        Modal</button>
+                                </div>
+                            </section>
+
+
+                            <div class="actions clearfix">
+                                <ul role="menu" aria-label="Pagination">
+                                    <li class="disabled"><a href="javascript:void(0);" (click)="paymentmethodstep2();"
+                                            class="">Cancel</a></li>
+                                    <li aria-hidden="true"><a href="javascript:void(0);" (click)="confirmbid();"
+                                            class="waves-effect">Submit Bid</a></li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Change Email popup -->
+
+<div id="showmodel" class="modal fade" role="dialog" >
+    <!-- style="display: block;margin-top: 6%;" -->
+    <div class="modal-dialog" style="display: block;padding-right: 17px;margin-top: 6%;">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body" >
+                <div class="col-lg-12 white-bg mrg-btm-30 m-t-20">
+                    <br>
+                    <br>
+                    <h4 class="main-tlt additional-details-list">
+                        Your bid for has been submitted.You will be notified if your bid is no longer in the top 3
+                        bids.If accepted, proptecs will charge $249 and you and the seller
+                        can proceed to escrow
+                    </h4>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-12"> <button type="button" class="btn bg-yellow waves-effect" data-dismiss="modal"
+                        (click)="dismissmodal()">Ok</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<app-footer></app-footer>

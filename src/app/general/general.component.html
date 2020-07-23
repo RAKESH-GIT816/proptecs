@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+  <div id="wrapper">
+
+    <app-topnav-menu></app-topnav-menu>
+
+    <!-- Section: intro -->
+    <section id="intro" class="intro">
+      <!-- Top Bar -->
+      <!-- #Top Bar -->
+      <div class="intro-content intro-overlay">
+        <div class="container">
+          <div class="row">
+            <div class="home_content">
+              <div class="home-text text-center">
+                <h2 class="fz55">Find Your Dream Home</h2>
+                <p class="fz18 color-white">From as low as $10 per day with limited time offer discounts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Section: intro -->
+
+    <!-- Section: FeaturedProperties -->
+    <section id="FeaturedProperties" class="home-section paddingbot-40 parallax">
+      <div class="container marginbot-50">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="section-heading text-center">
+              <p>LATEST PROPERTIES</p>
+              <div class="small_p">Handpicked properties by our team</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="item">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" *ngFor="let prop of properties | slice:0:3">
+              <div class="prop-div">
+                <a [routerLink]="['/viewproperty',prop.PropertyId]">
+                  <div class="person-text rel text-light">
+                    <div class="thumb">
+                      <img src="{{prop?.FilePath}}" style="height: 237px;">
+                    </div>
+                    <div class="prop-over-txt">
+                      <h2>$ {{prop?.ARV}}</h2>
+                      <!-- <h2>{{prop?.PropertyType}} <br>
+                    <span>{{prop?.City}}, {{prop?.State}} {{prop?.ZipCode}}</span></h2> -->
+                    </div>
+                  </div>
+                </a>
+
+                <div class="addressdetail">
+                  <div class="detail1">
+                    {{ prop?.PropertyType }}
+                  </div>
+                  <div class="detail_content">
+                    <!-- Renovated Apartment -->
+                    {{prop?.StreetAddress}}
+                  </div>
+                  <div class="tc_content">
+                    <!-- <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p> -->
+                    <p><span class="flaticon-placeholder" *ngIf="prop.ShowAddress">
+                        {{ prop?.City }}, {{ prop?.State }}, {{ prop?.ZipCode }}
+                      </span></p>
+                  </div>
+                </div>
+
+                <div class="prop-cont">
+               
+                  <ul class="det-list">
+                    <li>
+                      <p>
+                        <span>
+                          <img src="assets/images/bed-icon-grey.png" />
+                        </span>{{prop.Bedrooms}} bedrooms</p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>
+                          <img src="assets/images/bath-icon-grey.png" />
+                        </span>{{ prop.Bathrooms}} bath</p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>
+                          <img src="assets/images/sqft-icon-grey.png" />
+                        </span>{{ prop.FinishedSqFt }} sqft</p>
+                    </li>
+                  </ul>
+
+                  <ul class="rate-list">
+                    <li class="head-li">
+                      <p>Estimated ARV
+                        <span>{{ prop.ARV  | currency :'USD':'symbol':'1.0-0'}}</span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>Seller Asking Price
+                        <span>-{{ prop.MinimumStartBid  | currency :'USD':'symbol':'1.0-0'}}</span>
+                      </p>
+                    </li>
+                    <li *ngIf="prop.RepairCost != null && prop.RepairCost != 0 ">
+                      <p>Estimated Repair Cost
+                        <span>-{{ prop.RepairCost  | currency :'USD':'symbol':'1.0-0'}}</span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>Estimated Escrow Cost
+                        <span>-{{ prop.EstimatedEscrowCost  | currency :'USD':'symbol':'1.0-0'}}</span>
+                      </p>
+                    </li>
+
+                    <li *ngIf="prop.RepairCost == null || prop.RepairCost == 0 " style="height:16px;">
+                      <span> </span>
+
+                    </li>
+                    <li class="foot-li">
+                      <p>Potential Profit
+                        <span>
+                          {{ prop.ARV - prop.MinimumStartBid - prop.RepairCost- prop.EstimatedEscrowCost  | currency :'USD':'symbol':'1.0-0'}}
+                        </span>
+                      </p>
+                    </li>
+                  </ul>
+                  <div class="fp_footer">
+                    <ul class="fp_meta float-left mb0">
+                      <li class="list-inline-item">
+                        <a href="#"><img src="../../assets/images/5.png" alt="pposter1.png"></a>
+                      </li>
+                      <li class="list-inline-item"><a href="#">{{prop?.UserName}}</a></li>
+                    </ul>
+                    <div class="float-right">
+                      <a class="fp_pdate float-right">{{prop?.AddedDate | date}}</a>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <span *ngIf="prop.ISUserSavedProperty==0" class="heart-icon">
+                  <img (click)="saveProperty(prop.PropertyId)" src="assets/images/wishlist-ico.png" />
+                </span>
+                <span *ngIf="prop.ISUserSavedProperty==1 && checklogout!=0" class="heart-icon heart-icon-pink">
+                  <img (click)="unsaveProperty(prop.PropertyId)" src="assets/images/wishlist-ico1.png" />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+
+            <div class="cta-btn">
+              <a [routerLink]="['/Viewallproperties']" class="btn btn-skin btn-lg">View All Properties</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Section: FeaturedProperties -->
+
+    <!-- Section: PlatformBenefits -->
+    <section id="PlatformBenefits" class="home-section paddingbot-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="section-heading text-center paddingbot-50">
+              <p>Why Choose Us</p>
+              <div class="small_p">We provide full service at every step.</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 col-xl-4">
+            <div class="why_chose_us">
+              <div class="icon">
+                <span class="flaticon-high-five"></span>
+              </div>
+              <div class="details">
+                <h4>Trusted By Thousands</h4>
+                <p>Aliquam dictum elit vitae mauris facilisis at dictum urna dignissim donec vel lectus vel felis.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-4">
+            <div class="why_chose_us">
+              <div class="icon">
+                <span class="flaticon-home-1"></span>
+              </div>
+              <div class="details">
+                <h4>Wide Renge Of Properties</h4>
+                <p>Aliquam dictum elit vitae mauris facilisis at dictum urna dignissim donec vel lectus vel felis.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-xl-4">
+            <div class="why_chose_us">
+              <div class="icon">
+                <span class="flaticon-profit"></span>
+              </div>
+              <div class="details">
+                <h4>Financing Made Easy</h4>
+                <p>Aliquam dictum elit vitae mauris facilisis at dictum urna dignissim donec vel lectus vel felis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+    <!-- /Section: PlatformBenefits -->
+
+    <!-- Section: Experience -->
+    <section id="Experience" class="Experience home-section paddingbot-10">
+      <div class="container marginbot-0">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="main-title text-center">
+              <h2 class="color-white">Contents</h2>
+              <p class="color-white">Here could be a nice sub title</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="testimonial_grid">
+              <div class="thumb">
+                <img src="../../assets/images/3.jpg" alt="1.jpg">
+              </div>
+              <div class="details">
+                <h4>Augusta Silva</h4>
+                <p>Sales Manager</p>
+                <p class="mt25">Aliquam dictum elit vitae mauris facilisis at dictum urna dignissim donec vel lectus vel
+                  felis.</p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+
+
+    </section>
+    <!-- /Section: Experience -->
+
+    <!-- Section: Articles&Tips -->
+    <!-- <section id="Articles&Tips" class="article_tips home-section paddingbot-40 parallax">
+      <div class="container marginbot-0">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="section-heading text-center">
+              <p>Articles & Tips</p>
+              <div class="small_p">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-reviews broun-block">
+        <div class="container">
+          <div class="row">
+            <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+
+              <div class="carousel-inner">
+                <div class="item active">
+
+                  <div class="col-md-4 col-sm-6" *ngFor="let prop of properties | slice:0:3">
+                    <div class="article_property">
+                      <div class="block-text rel zmin">
+                        <a [routerLink]="['/viewproperty',prop.PropertyId]">
+                          <div class="person-text rel text-light">
+                         
+                            <div class="thumb">
+                              <img src="../../assets/images/4.jpg" style="height: 237px;">
+
+                            </div>
+                            <div class="prop-over-txt">
+                              <h2>$13000</h2>
+                           
+                            </div>
+                          </div>
+                        </a>
+
+                        <div style="padding: 20px;">
+                          <div class="articledetail1">
+                            Business
+                          </div>
+
+                          <div class="articledetail_content">
+                            Skills That You Can Learn In The Real Estate Market
+                          </div>
+
+                          <div class="prop-cont">
+                            <div class="fp_footer">
+                              <ul class="fp_meta float-left mb0">
+                                <li class="list-inline-item"><a href="#"><img src="../../assets/images/5.png"
+                                      alt="pposter1.png"></a></li>
+                                <li class="list-inline-item"><a href="#">Ali Tufan</a></li>
+                                <li class="list-inline-item">
+                                  <a class="fp_pdate float-right" href="#">7 August 2019</a>
+                                </li>
+                              </ul>
+
+                            </div>
+
+                          </div>
+
+                        </div>
+                        <span class="heart-icon"><img src="../../assets/images/heart-icon.png"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- /Section: Articles&Tips -->
+
+
+
+    <!---OUR Partners-->
+    <!-- 
+    <section id="partner" class="home-section paddingbot-60">
+      <div class="container marginbot-50">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="section-heading text-center paddingbot-50">
+              <p>OUR Partners</p>
+              <div class="small_p">We only work with the best companies around the globe</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-md-3">
+          <div class="partner">
+            <a href="#"><img src="../../assets/images/partners/1.png" alt="" /></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="partner">
+            <a href="#"><img src="../../assets/images/partners/2.png" alt="" /></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="partner">
+            <a href="#"><img src="../../assets/images/partners/3.png" alt="" /></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="partner">
+            <a href="#"><img src="../../assets/images/partners/4.png" alt="" /></a>
+          </div>
+        </div>
+
+      </div>
+    </section> -->
+    <!-----------END-->
+
+
+    <section *ngIf="userdetails ==null" [hidden] id="callaction"
+      class="callaction home-section paddingtop-40 paddingbot-40">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="cta-text">
+                  <h3>Sign Up Today</h3>
+                  <p>
+                    Use the PropTecs to accelerate your real estate transactions
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="parner_reg_btn text-right tac-smd">
+                  <a class="btn btn-thm2" onclick="openForm()">Get Started</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section: footers -->
+    <app-footer></app-footer>
+    <!-- /Section: footers -->
+  </div>
+  <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+</body>
+
+</html>

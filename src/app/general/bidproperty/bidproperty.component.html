@@ -1,0 +1,290 @@
+<div *ngIf="loading==true" class="overlay-gif">
+        <img  src="assets/images/login-logo.png" alt="">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      </div>
+<app-topnav></app-topnav>
+
+
+
+    <section class="content login-div home-div">
+        <div class="container">
+              
+            <div class="bid-profile">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row clearfix bid-top">
+                            <div class="col-md-6 col-sm-12 bid-lft">
+                                <div class="col-sm-12">
+                                    <div class="row clearfix">
+                                        <div class="bid-calc-img">
+                                            <img src="{{propertyDetail.filepath}}" />
+
+                                            <div class="bid-home-txt">
+                                                <h1>{{propertyDetail.PropertyType}}</h1>
+                                                <p *ngIf ="propertyDetail.ShowAddress==true">
+                                                    <img src="assets/images/location-yellow.png" /> 
+                                                    {{propertyDetail.StreetAddress}},{{ propertyDetail.City}},{{ propertyDetail.State}},{{ propertyDetail.ZipCode}} </p>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-12 bid-rgt">
+                                
+                                <h1>This Property Under Contract On {{propertyDetail.AuctionEndDate| date: 'dd/MM/yyyy'}}</h1>
+                                <!-- <div class="bid-member">
+                                    <div class="bid-mem-in">
+                                        <div class="bidder-per">
+                                            <div class="bidder-img">
+                                                <img src="assets/images/bidder-img.png" />
+                                            </div>
+                                            <div class="bidder-det">
+                                                <div>
+                                                    <h1>{{propertyDetail.UserName}}
+                                                        <span>( Home Builder )</span>
+                                                    </h1>
+                                                    <p>
+                                                        <a href="javascript:void(0);">
+                                                            <img src="assets/images/star.png" /> </a>
+                                                        <a href="javascript:void(0);">
+                                                            <img src="assets/images/star.png" /> </a>
+                                                        <a href="javascript:void(0);">
+                                                            <img src="assets/images/star.png" /> </a>
+                                                        <a href="javascript:void(0);">
+                                                            <img src="assets/images/star.png" /> </a>
+                                                        <a href="javascript:void(0);">
+                                                            <img src="assets/images/star-half.png" /> </a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="bidder-det">
+                                            <li>
+                                                <h2>Member for</h2>
+                                                <p>2 Years</p>
+                                            </li>
+                                            <li>
+                                                <h2>Flipped</h2>
+                                                <p>27 Homes</p>
+                                            </li>
+                                            <li>
+                                                <h2>Assigned</h2>
+                                                <p>5 Homes</p>
+                                            </li>
+                                        </ul>
+                                        <div class="ask-div">
+                                            <a href="javascript:void(0);">
+                                                <img src="assets/images/faq-img.png" /> Ask this seller a question </a>
+                                        </div>
+
+                                    </div>
+                                </div> -->
+
+                                <div class="home-offer home-offer-price">
+                                    <h2>Home Offer
+                                        <span>(Bidding ends on {{propertyDetail.AuctionEndDate | date: 'dd/MM/yyyy' }})</span>
+                                    </h2>
+                                    <ul *ngIf = "userdetails == null " >
+                                        <li>
+                                            <div class="btn-field"> 
+                                                <button type="button"  onclick="openForm()" class="btn bg-amber m-t-0 waves-effect">Log In</button>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="btn-create">
+                                                <button type="button"  onclick="openForm()" class="btn btn-info m-t-0 waves-effect">Create An Account</button>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+
+                                    <ul *ngIf = "userdetails != null" class="price-update">
+                                        <li>
+                                            <div class="bid-price-arrow-container">
+                                                <button type="button" class="btn btn-info m-t-0 waves-effect" (click)=increaseAmount() >
+                                                    <i class="material-icons">
+                                                        keyboard_arrow_up
+                                                        </i></button>
+                                                <button type="button"  class="btn btn-info m-t-0 waves-effect" (click)= decreaseAmount() >
+                                                    <i class="material-icons">
+                                                        keyboard_arrow_down
+                                                        </i></button>
+                                               
+                                            </div>
+                                            <div class="btn-field">
+                                                <i class="glyphicon glyphicon-usd icon"></i>
+                                                <input type="text" min="0" [(ngModel)]="bidvalue"   #bidvalues="ngModel"  [value]= "propertyDetail.MinimumStartBid"
+                                                 (input)="checkAmount()" (keydown)="onKeydown($event)" >
+                                                <span >Bid in $100 increments</span>  <br>
+                                                <span  class="error" *ngIf="!bidAmountValid" class="text-danger" >Bid amount should be incremented by $100</span>
+                                               
+                                            </div>
+                                        </li>
+                                        <li>
+                                            
+                                            <div class="btn-field">                                                    
+                                                <button type="button" [disabled]="!bidAmountValid"  (click)="submitabid();" class="btn bg-amber m-t-0 waves-effect">Submit A bid</button>
+                                                <!-- <button type="button" [disabled]="!bidAmountValid" (click)="submitabid()" class="btn bg-amber m-t-0 waves-effect" *ngIf="propertyDetail.Status!=3 && propertyDetail.BidAmount != null">Re-submit Bid</button> -->
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row clearfix">
+                            <div class="col-md-6 col-sm-12 bid-btm-lft">
+                                <div class="col-sm-12">
+                                    <div class="row clearfix">
+                                        <div class="bid-price">
+                                            <h1>Escrow Costs</h1>
+                                            <ul>
+                                                <li>
+                                                    <h2>{{bidvalue | currency :'USD':'symbol':'1.0-0'}}</h2>
+                                                        <span>Home Offer
+                                                            <img src="assets/images/ylw-written.png" />
+                                                        </span>                                                    
+                                                </li>
+                                                <li>
+                                                    <h2>-{{propertyDetail.WholequityFee | currency :'USD':'symbol':'1.0-0'}}</h2>
+                                                        <span>Wholequity Marketplace Fee
+                                                            <img src="assets/images/ylw-written.png"/>
+                                                        </span>
+                                                    
+                                                </li>
+                                                <li>
+                                                    <h2>{{bidvalue-propertyDetail.WholequityFee | currency :'USD':'symbol':'1.0-0'}}</h2>
+                                                    <span>Total Cost Due at Escrow Close
+                                                        <img src="assets/images/ylw-written.png"/>
+                                                    </span>
+                                                    
+                                                </li>
+                                            </ul>
+                                            
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-sm-12 bid-btm-rgt">
+                                <h1>Profit Potential From Selling This Property</h1>
+                                <h2 class="price-tit">
+                                    <span>Equity Opportunity</span>
+                                </h2>
+
+                                <ul>
+                                    <li>
+                                        <h2>ARV*</h2>
+                                        <span>{{propertyDetail.ARV | currency :'USD':'symbol':'1.0-0'}}</span>
+                                    </li>
+                                    <li>
+                                        <h2>Home Offer</h2>
+                                        <span>-{{bidvalue | currency :'USD':'symbol':'1.0-0'}}</span>
+                                    </li>
+                                    <li>
+                                        <h2>Estimated Escrow Cost</h2>
+                                        <span>-{{propertyDetail.EstimatedEscrowCost | currency :'USD':'symbol':'1.0-0'}}</span>
+                                    </li>
+                                    <li *ngIf = "propertyDetail.RepairCost != null && propertyDetail.RepairCost != 0 "   >  
+                                            <p>Estimated Repair Cost
+                                                <span>-{{ propertyDetail.RepairCost | currency :'USD':'symbol':'1.0-0'}}</span>
+                                            </p>
+                                        </li>
+                                        <li *ngIf = "propertyDetail.RepairCost == null || propertyDetail.RepairCost == 0 " style="height:16px;" > 
+                                                <span> </span>
+
+                                            </li>
+                                    <li>
+                                        <h2>Income From Selling</h2>
+                                        <span>{{propertyDetail.ARV-bidvalue-propertyDetail.EstimatedEscrowCost-propertyDetail.RepairCost | currency :'USD':'symbol':'1.0-0'}}</span>
+                                    </li>
+                                </ul>
+
+                                <h1>Profit Potential From Renting This Property</h1>
+                                <h2 class="price-tit">$1,950
+                                    <span>Monthly Rent</span>
+                                </h2>
+                                <ul class="no-margin">
+                                    <li class="no-border">
+                                        <h2>12 Month Rental Income</h2>
+                                        <span>$23,400</span>
+                                    </li>
+                                </ul>
+                                <p>Based on public data & similar rentals listed in your area</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="clearfix">
+                    <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                        <div class="clearfix">
+                            <div class="col-md-12 col-sm-12 bid-btm-rgt">
+                                <h1>Profit Potential From Selling This Property</h1>
+                                <h2 class="price-tit">
+                                    <span>Equity Opportunity</span>
+                                </h2>
+
+                                <ul>
+                                    <li>
+                                        <h2>ARV*</h2>
+                                        <span>{{propertyDetail.ARV | currency :'USD':'symbol':'1.0-0'}}</span>
+                                    </li>
+                                    <li>
+                                        <h2>Home Offer</h2>
+                                        <span>-{{bidvalue | currency :'USD':'symbol':'1.0-0'}}</span>
+                                    </li>
+                                    <li>
+                                        <h2>Estimated Escrow Cost</h2>
+                                        <span>-{{propertyDetail.EstimatedEscrowCost | currency :'USD':'symbol':'1.0-0'}}</span>
+                                    </li>
+                                    <li *ngIf = "propertyDetail.RepairCost != null && propertyDetail.RepairCost != 0 "   >  
+                                            <p>Estimated Repair Cost
+                                                <span>-{{ propertyDetail.RepairCost | currency :'USD':'symbol':'1.0-0'}}</span>
+                                            </p>
+                                        </li>
+                                        <li *ngIf = "propertyDetail.RepairCost == null || propertyDetail.RepairCost == 0 " style="height:16px;" > 
+                                                <span> </span>
+
+                                            </li>
+                                    <li>
+                                        <h2>Income From Selling</h2>
+                                        <span>{{propertyDetail.ARV-bidvalue-propertyDetail.EstimatedEscrowCost-propertyDetail.RepairCost | currency :'USD':'symbol':'1.0-0'}}</span>
+                                    </li>
+                                </ul>
+
+                                <h1>Profit Potential From Renting This Property</h1>
+                                <h2 class="price-tit">$1,950
+                                    <span>Monthly Rent</span>
+                                </h2>
+                                <ul class="no-margin">
+                                    <li class="no-border">
+                                        <h2>12 Month Rental Income</h2>
+                                        <span>$23,400</span>
+                                    </li>
+                                </ul>
+                                <p>Based on public data & similar rentals listed in your area</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </section>
+ 
+    <app-footer></app-footer>
+
+    

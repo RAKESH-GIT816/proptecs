@@ -1,0 +1,713 @@
+﻿/* custom media css */
+
+@media screen and (min-width:1170px) and (max-width:1300px) {
+ul.bid-action li {width:50%; margin-bottom:10px;}
+ul.post-date li {width: 100%;margin-bottom: 20px;}
+ul.post-date li:last-child{margin-bottom:0px;}
+
+ul.bid-listing li span{width:100%;}
+
+}
+
+@media screen and (min-width:992px) and (max-width:1199px) {
+/* login css */
+.login-div .login-top h1 {font-size:30px;}
+.login-lft h2 {font-size: 24px;}
+.g-link {padding:7px 20px;}
+
+.select-area.in-prp.login {margin-left: 15px;}
+.sign-up .navbar-nav > li > a {padding: 3px 11px 5px 11px;}
+
+.bid-price h1 { font-size: 24px;}
+.bid-price ul li{margin: 0px 0px 8px 0px;}
+.bid-price ul li h2 {font-size: 16px;}
+.bid-price ul li h2 span { font-size: 16px;}
+.bid-price ul li:last-child h2 {font-size: 18px;}
+.bid-btm-rgt h1 { font-size: 20px;}
+.bid-btm-rgt h2.price-tit { font-size: 22px;}
+.bid-btm-rgt ul li {margin: 0px 0px 5px 0px;}
+.bid-btm-rgt ul li h2 { font-size: 16px;}
+.bid-btm-rgt ul li span { font-size: 16px;}
+.bid-btm-rgt ul li:last-child h2 {font-size: 18px;}
+.bid-btm-rgt ul li:last-child span {font-size: 18px;}
+.bid-btm-rgt p {font-size: 16px;}
+
+.bid-home-txt {padding: 0px 25px;}
+.bid-home-txt h1 {font-size: 26px;line-height: 30px;}
+.bid-home-txt p {font-size: 15px;line-height: 18px;}
+.bid-rgt h1 {font-size: 20px;line-height: 22px;}
+.bid-mem-in { padding: 15px 18px;}
+.bidder-det h1 {font-size: 18px;line-height: 20px;}
+.bidder-det h1 span {font-size: 15px;}
+.home-offer h2 {font-size: 18px;line-height: 20px;}
+.home-offer ul li .btn-field .btn:not(.btn-link):not(.btn-circle) {font-size: 18px;}
+.home-offer ul li .btn-create .btn:not(.btn-link):not(.btn-circle) {font-size: 18px;}
+
+.select-area.in-prp {margin-left: 15px;}
+.navbar-nav.dashboard.web-pa > li > a { padding: 7px 11px 7px 11px; font-size:16px;}
+
+.step-2 {width:100%;}
+
+/*add pro*/
+.web-form-prop .sidebar.iner-page{width:100%;}
+.navbar-nav.dashboard.web-pa > li > a{padding: 7px 9px 7px 10px;}
+.select-area.in-prp{margin-left:0;}
+.web-form-prop .sidebar.iner-page .menu .list a span{font-size:16px;}
+.wh-ttp{margin-top:50px;}
+.med-devv{margin-top:0px;}
+.pro-detail h1{font-size:24px;line-height:24px;}
+.addre-prp h3 {font-size: 20px;}
+.web-form-prop{padding-top:100px;}
+
+
+/* index page */
+.download-app .down-lft h1 {font-size: 30px;line-height: 40px;}
+.down-rgt img {width: 100%;}
+
+.offer-lft h1 {font-size: 30px;line-height: 40px;}
+
+.counter-div .number {font-size: 25px;}
+
+.auction-div .action-rgt img{width:100%;}
+.auction-div .action-lft h1 {font-size: 40px;line-height: 45px;}
+.auction-div .action-lft p {font-size: 22px;line-height: 30px;}
+
+ul.det-list li {width:50%; margin-bottom: 10px;}
+ul.det-list li:nth-child(2) {text-align:left;}
+ul.det-list li:last-child {text-align:left;}
+
+
+}
+
+@media screen and (min-width:1170px) and (max-width:1200px) {
+ul.offers li {width: 100%; margin-bottom: 10px;}
+ul.action-btns li {width:48%;margin-bottom: 10px;}
+.web-form-prop .sidebar.iner-page .menu .list a {padding: 18px 20px;}
+
+}
+
+@media screen and (max-width:1169px) {
+/*add pro*/
+.sidebar.iner-page{position:fixed; top:50px;}
+.web-form-prop .sidebar.iner-page{width: 300px; top:73px; height: calc(100vh - 70px); background:#2d2d2d;}
+.p-side{position:absolute;}
+.pr-main{width:100%;}
+.web-form-prop .sidebar.iner-page .menu .list a span{font-size:16px;}
+.wh-ttp{margin-top:30px;}
+.med-devv{margin-top:0px;}
+
+}
+
+@media screen and (min-width:992px) and (max-width:1169px) {
+.navbar.login > .container .navbar-brand {margin-left: 0px;}
+.navbar.bid-head > .container .navbar-brand {margin-left: 0px;}
+
+.navbar.bid-head.main-head > .container-fluid .navbar-brand {margin-left: 30px;}
+.navbar.bid-head.main-head > .container .navbar-brand {margin-left:20px;}
+
+/*add pro*/
+.web-form-prop .sidebar.iner-page .menu .list a {padding: 18px 20px;}
+
+/*property-detail*/
+.prop-detail{ padding:50px 0;}
+.prop-detail .prop-det-lft{ width:65%;}
+.prop-detail .prop-det-rgt{ width:35%;}
+.prop-tab .nav-tabs + .tab-content	{ padding:10px 20px;}
+.summary-list ul li	{ padding:0 13px;}
+.prop-tab .nav-tabs + .tab-content .tab-pane h2	{ font-size:17px;}
+.addrs-section h2 {font-size: 22px;}
+.addrs-section h3.price-pad	{ font-size:26px;}
+.addrs-section .location-ico, .under-cont h4, .estimat-price li p, 
+.purchase-section li a, .learning-div li a { font-size:15px;}
+.addrs-section .location-ico br	{ display:none;}
+.bidder-det	{ width:61%;}
+.bid-mem-in.bid-jim	{ padding:20px 15px;}
+.bid-jim ul.bidder-det li{ padding-left:0;}
+.addrs-section a {font-size: 16px;}
+}
+
+@media screen and (min-width:768px) and (max-width:991px) {
+/* login css */
+.navbar.login > .container .navbar-brand {margin-left: 0px;}
+section.content.login-div {margin:120px 0px 0px 0px;}
+.login-div .login-top h1 {font-size:30px;}
+.login-lft {padding: 0px 25px 0px 0px;}
+.login-lft h2 {font-size: 20px; margin: 0px 0px 30px;}
+.login-rgt {padding: 0px 25px 0px 25px;}
+.login-rgt h1 {font-size:22px;line-height:28px;}
+.btn-create .btn:not(.btn-link):not(.btn-circle) {font-size: 18px;}
+.login-form .btn-field .btn:not(.btn-link):not(.btn-circle) {padding:14px 20px;font-size:18px;}
+.g-link {padding:7px 15px;font-size: 17px;}
+.email-pop-cont h1 {font-size:24px;}
+
+.navbar-right {margin-right: 0px; padding: 5px 0px;}
+.sign-up .navbar-nav > li > a { margin-top:0px;}
+
+.navbar-collapse{padding-right:0px;}
+
+.foot-div .min-hgt { min-height: 175px;}
+.foot-div {padding-bottom:0px;}
+
+.bid-btm-lft{margin-bottom:45px;}
+.bid-btm-rgt {border-left:none;}
+
+.bid-price h1 { font-size: 22px;margin: 0px 0px 15px 0px;}
+.bid-price ul li {margin: 0px 0px 8px 0px;}
+.bid-price ul li h2 {font-size: 16px;}
+.bid-price ul li h2 span { font-size: 16px;}
+.bid-price ul li:last-child h2 {font-size: 18px;}
+.bid-btm-rgt h1 { font-size: 20px;}
+.bid-btm-rgt h2.price-tit { font-size: 24px;}
+.bid-btm-rgt ul li {margin: 0px 0px 10px 0px;}
+.bid-btm-rgt ul li h2 { font-size: 17px;}
+.bid-btm-rgt ul li span { font-size: 16px;}
+.bid-btm-rgt ul li:last-child h2 {font-size: 18px;}
+.bid-btm-rgt ul li:last-child span {font-size: 18px;}
+.bid-btm-rgt p {font-size: 16px;}
+
+.bid-lft{margin-bottom:45px;}
+.bid-home-txt {padding: 0px 25px;}
+.bid-home-txt h1 {font-size: 26px;line-height: 30px;}
+.bid-home-txt p {font-size: 15px;line-height: 18px;}
+.bid-rgt h1 {font-size: 20px;line-height: 22px;}
+.bid-mem-in { padding: 15px 18px;}
+.bidder-det h1 {font-size: 18px;line-height: 20px;}
+.bidder-det h1 span {font-size: 15px;}
+.home-offer h2 {font-size: 18px;line-height: 20px;}
+.home-offer ul li .btn-field .btn:not(.btn-link):not(.btn-circle) {font-size:16px;}
+.home-offer ul li .btn-create .btn:not(.btn-link):not(.btn-circle) {font-size:16px;}
+ 
+.navbar.bid-head > .container .navbar-brand {margin-left: 0px;}
+.navbar.bid-head.main-head > .container .navbar-brand {margin-left:20px;}
+.select-area.in-prp {margin-left: 15px;}
+.navbar-nav.dashboard.web-pa > li > a {padding: 7px 20px 7px 20px; margin-top: 0px; font-size:16px;}
+.navbar-nav.dashboard li:last-child a {margin-top: -8px;}
+
+.nav.dashboard > li > a.dash {font-size: 16px;}
+
+.main-title h1 {font-size: 28px;}
+.bids-process h1 {font-size: 22px;}
+.bids-process .wizard .content .body {padding: 35px 0px 30px;}
+.step-1 {width:100%;}
+
+.step-2 {width:100%;}
+.step-3 {width:100%;}
+.step-3 p { font-size: 17px;line-height: 27px;}
+
+.payment-title h2 {font-size: 18px;}
+ul.card-list li h2 {font-size: 22px;}
+
+.modal.modal-submit .modal-content .modal-body { padding: 0px 30px 20px 30px;}
+.submit-pop-cont h1 {font-size: 22px;margin: 0px 0px 20px 0px;padding: 0px 0px 10px 0px;}
+.submit-pop-cont p {font-size: 17px;}
+.submit-pop-cont h3 {font-size: 17px;line-height: 27px;}
+
+.navbar-nav > li > a { margin-top:0px;}
+.navbar-nav .user-log .dropdown-menu {margin-top: 5px !important;}
+
+section.content {margin: 150px 0px 0px 0px;}
+.ls-closed section.content {margin-left: 0;}
+.navbar.bid-head.main-head > .container-fluid .navbar-brand {margin-left: 30px;}
+.navbar-header{ width: 100%;padding: 8px 7px 8px;}
+
+ul.price-post{ flex-wrap: wrap;}
+ul.price-post li{width:47%; margin-bottom:20px;}
+ul.status-post {flex-wrap: wrap;}
+ul.status-post li {width: 45%; margin-bottom: 20px;}
+ul.status-post li:last-child {width: 100%;}
+.hotel-rooms {padding: 0px 12px;}
+
+.navbar-nav.dashboard > li > a {padding: 7px 23px 2px 23px;margin-top: 0px;}
+.navbar-nav .dropdown-menu {margin-top: 5px !important;}
+.navbar-nav.dashboard .dropdown-menu {margin-top:5px !important;}
+.navbar-nav.dashboard .user-log .dropdown-menu {margin-top: 5px !important;}
+.sidebar { top:107px;}
+.sidebar .menu .list a.dash-link {padding: 14px 28px;}
+
+/*add pro*/
+.pro-detail h1{font-size:24px;line-height:24px;}
+.web-form-prop{padding-top:140px;}
+.addre-prp h3 {font-size: 20px;}
+
+.web-form-prop .sidebar.iner-page { top: 121px;}
+.web-form-prop .sidebar.iner-page .menu .list a {padding: 18px 20px;}
+
+/* index page */
+.download-app .down-lft {padding-top:0px; margin-bottom: 50px;}
+.download-app .down-lft h1 {font-size:28px;line-height:30px;}
+.download-app .down-lft h1 br {display: none;}
+.down-rgt{text-align: center;}
+
+.offer-lft {margin-bottom: 50px;}
+.offer-lft h1 {font-size: 30px;line-height: 40px;}
+.offer-lft h1 br {display: none;}
+
+.counter-div {padding: 50px 0px 50px;}
+.counter-div .number {font-size: 25px;}
+.counter-div p {margin: 0px 0px 50px 0px;}
+
+.auction-div .action-lft {padding-top:0px;margin-bottom: 50px;}
+.auction-div .action-rgt{text-align: center;}
+.auction-div .action-lft h1 {font-size: 40px;line-height: 45px;}
+.auction-div .action-lft p {font-size: 22px;line-height: 30px;}
+.auction-div .action-lft p br {display: none;}
+.search-loc .btn {padding: 12px 40px;}
+
+.latest-property {padding: 50px 0px 170px;}
+.title-div h1 {font-size: 24px;line-height: 32px;}
+.prop-over-txt h2 {font-size: 18px;}
+
+ul.det-list li {width:50%; margin-bottom: 10px;}
+ul.det-list li:nth-child(2) {text-align:left;}
+ul.det-list li:last-child {text-align:left;}
+
+.add-pro-form .m-b-20 {margin-bottom: 0px;}
+
+.email-pop-cont.ad-p-cont .p-l-0 { padding: 0px 0px;}
+
+/*property-detail*/
+.prop-detail .prop-det-lft	{ width:100%;}
+.prop-detail .prop-det-rgt	{ width:100%; margin-top:30px;}
+.prop-tab .nav-tabs + .tab-content	{ padding:10px 20px;}
+.summary-list ul li	{ padding:0 13px;}
+.prop-tab .nav-tabs + .tab-content .tab-pane h2	{ font-size:17px;}
+#accordion_1 .graph-div .col-md-4 { width:32%; display:inline-block;}
+
+.addrs-section h2{ font-size:24px;}
+.addrs-section h3.price-pad	{ font-size:30px;}
+.addrs-section .location-ico, .under-cont h4, .estimat-price li p, 
+.purchase-section li a, .learning-div li a { font-size:15px;}
+.addrs-section .location-ico br	{ display:none;}
+.bidder-det	{ width:61%;}
+.bid-mem-in.bid-jim	{ padding:20px 15px;}
+.bid-jim ul.bidder-det li{ padding-left:15px;}
+
+}
+
+@media screen and (max-width:767px) {
+/* login css */
+.navbar.login > .container .navbar-brand {margin-left:0px;}
+section.content.login-div {margin: 90px 0px 0px 0px;}
+.login-div .login-top {padding-top:10px;}
+.login-div .login-top h1 {font-size:22px;}
+.login-div .login-top p {font-size: 16px;}
+.login-form {margin-top:35px;}
+.login-lft {padding: 0px 0px 0px 0px;}
+.login-lft h2 {font-size: 18px;margin: 0px 0px 25px;}
+.login-form .form-label label {margin-bottom: 8px;}
+.login-form .form-group {margin-bottom: 20px;}
+.login-form .form-group .form-control {height: 45px;}
+.login-form .btn-field .btn:not(.btn-link):not(.btn-circle) {padding:14px 20px;font-size:16px;}
+.login-rgt {padding: 0px 0px 0px 0px;margin-top:25px; border-left:none;}
+.login-rgt h1 {font-size:20px;line-height:26px;}
+.login-rgt h1 br{display:none;}
+.btn-create .btn:not(.btn-link):not(.btn-circle) {font-size:16px;}
+
+.email-pop-cont h1 {font-size: 24px;}
+.email-pop-cont p br {display: none;}
+.btns-div{text-align: center;}
+
+.form-group {margin-bottom: 12px;}
+
+.g-link {padding:7px 10px; font-size:16px;}
+.g-link span {padding: 5px 10px 5px 0px; margin-right: 10px;}
+
+.navbar .navbar-nav {margin-top:0px; float: left; width: 100%;}
+.navbar-right {
+    /* margin-right: 0px;padding: 10px 0px; border-top: 1px solid #cfcfcf; */
+}
+.sign-up .navbar-nav > li > a { margin-top:0px;padding: 3px 11px 5px 11px;}
+.sign-up .navbar .nav > li {display:block; margin-bottom:8px;}
+.select-area.in-prp {margin-left: 10px; width:100%;}
+.select-area.in-prp .form-group { float: left; width:auto; }
+
+.sign-up .navbar .dropdown-menu {margin-left:0px;}
+.navbar.bid-head .select-area .dropdown-menu {margin-left:0px;}
+
+.navbar-header {padding: 5px 7px 5px;}
+.bid-btm-lft{margin-bottom:45px;}
+.bid-btm-rgt {border-left:none;}
+.bid-profile {padding:10px 0px 25px;}
+.bid-top { padding: 0px 0px 45px 0px;}
+.bid-price h1 { font-size: 24px;}
+.bid-price ul li h2 {font-size: 18px;}
+.bid-price ul li h2 span { font-size: 16px;}
+.bid-price ul li:last-child h2 {font-size: 18px;}
+.bid-btm-rgt h1 { font-size: 20px;}
+.bid-btm-rgt h2.price-tit { font-size: 22px;}
+.bid-btm-rgt ul li {margin: 0px 0px 5px 0px;}
+.bid-btm-rgt ul li h2 { font-size: 16px;}
+.bid-btm-rgt ul li span { font-size: 16px;}
+.bid-btm-rgt ul li:last-child h2 {font-size:18px;}
+.bid-btm-rgt ul li:last-child span {font-size: 20px;}
+.bid-btm-rgt p {font-size: 16px;}
+
+.bid-lft{margin-bottom:45px;}
+.bid-home-txt {padding: 0px 20px;}
+.bid-home-txt h1 {font-size: 24px;line-height: 28px;}
+.bid-home-txt p {font-size: 15px;line-height: 18px;}
+.bid-rgt h1 {font-size: 20px;line-height: 22px;}
+.bid-mem-in { padding: 15px 18px;}
+.bidder-det h1 {font-size: 20px;line-height: 22px;}
+.home-offer h2 {font-size: 20px;line-height: 22px;}
+.home-offer ul li .btn-field .btn:not(.btn-link):not(.btn-circle) {font-size: 16px;}
+.home-offer ul li .btn-create .btn:not(.btn-link):not(.btn-circle) {font-size: 16px;}
+
+.foot-div .min-hgt { min-height:inherit; margin-bottom: 15px;}
+.navbar.bid-head > .container .navbar-brand {margin-left: 20px;}
+.navbar-nav.dashboard.web-pa > li.user-log {width:100%;margin-top:8px;}
+.navbar-nav.dashboard.web-pa > li > a { padding: 7px 20px 7px 20px; margin-top: 0px;}
+.navbar-nav.dashboard.web-pa > li > a::after {height:0px;}
+.navbar .navbar-nav.dashboard.web-pa > li {display:block; margin-bottom:5px; width: 100%;}
+
+.navbar.bid-head.bid-head1 > .container .navbar-brand {margin-left:0px;}
+.navbar.bid-head.bid-head1 > .container .navbar-brand > img {margin-left: 10px;}
+
+.main-title h1 {font-size: 24px;}
+.bids-process h1 {font-size: 20px;}
+.complete-profile {padding: 10px 0px 0px;}
+.bids-process .wizard .content .body {padding: 35px 0px 30px;}
+.step-1 {width:100%;}
+.step-1 .form-group {margin-bottom: 20px;}
+.step-1 .form-label label {margin-bottom:8px;}
+.step-1 .col-sm-12 {padding: 0px 0px;}
+
+.step-2 {width:100%;}
+.step-3 {width:100%;}
+.step-3 p { font-size:16px;line-height:26px;}
+ul.bid-pric li h2 { font-size:18px;}
+ul.bid-pric li span {font-size:18px;}
+
+.bid-img-txt {bottom: 10px;padding: 0px 15px;}
+.bids-process .bid-img-txt h1 {font-size: 20px; margin-bottom: 10px;}
+.bid-img-txt p {padding-bottom: 5px;}
+
+.payment-title h2 {font-size:16px;}
+.select-payment .panel-group .panel-primary .panel-title {font-size: 16px;}
+.select-payment .panel-group .panel-primary .panel-title .card-txt {width:100%; margin-bottom:8px;}
+
+ul.card-list li h2 {font-size:20px;}
+ul.card-list li .card-lft {width:100%;}
+ul.card-list li .card-rgt {width:100%;text-align:left;padding-top: 45px;}
+ul.card-list li p{font-size: 14px;}
+ul.card-list li p a {font-size: 14px; margin: 0px 0px 0px 0px; display: block;}
+ul.card-list li .card-rgt a img {margin: 0px 3px 3px 0px;}
+
+.bids-process .wizard > .steps > ul > li {width:33.3333%;height:auto; background: none !important; padding: 0px 10px; }
+.bids-process .wizard > .steps a span.step-title {font-size: 15px;bottom: -40px;}
+.bids-process .wizard > .steps {margin-bottom: 80px;}
+.bids-process .wizard .steps a { width: 100px; height: 100px;font-size: 35px; padding: 0px;}
+
+.modal.modal-submit .modal-content .modal-body { padding: 0px 25px 20px 25px;}
+.submit-pop-cont h1 {font-size:20px;margin: 0px 0px 20px 0px;padding: 0px 0px 10px 0px;}
+.submit-pop-cont p {font-size: 16px;}
+.submit-pop-cont h3 {font-size: 16px;line-height: 26px;}
+.modal.modal-submit .close-btn {right: -20px;top: -20px;}
+.modal.modal-submit .close-btn img{width: 34px;}
+.modal .modal-header { padding: 20px 15px 15px 15px;}
+.modal .modal-footer {padding: 0px 15px 15px;}
+
+section.content {margin:90px 0px 0px 0px;}
+.ls-closed section.content {margin-left: 0;}
+.block-header { margin-bottom: 20px;}
+.account-setting .form-div {margin-bottom: 15px;}
+.ls-closed section.content { margin-left: 0px;}
+.navbar.bid-head.main-head > .navbar-brand {margin-left: 45px;}
+
+ul.price-post{ flex-wrap: wrap;}
+ul.price-post li{width:47%; margin-bottom:20px;}
+ul.status-post {flex-wrap: wrap;}
+ul.status-post li {width: 45%; margin-bottom: 20px;}
+ul.status-post li:last-child {width: 100%;}
+
+.buyer-lft {width: 100%;}
+.buyer-lft img {border-radius: 8px 8px 0px 0px;}
+.buyer-rgt {width:100%;padding: 30px 10px 30px 10px;}
+.active-bids {margin-bottom:0px;}
+.hotel-rooms {padding: 0px 15px;}
+.buyer-det {padding: 8px;}
+
+.navbar .navbar-nav.dashboard > li {float: left; width: auto;}
+.navbar .navbar-nav.dashboard > li > a {padding: 7px 15px 2px 15px;margin-top:5px;}
+.navbar .navbar-nav.dashboard li:last-child a {margin-top: -2px;}
+.navbar .navbar-nav.dashboard .user-log .dropdown-menu {margin-top: 11px !important;}
+.navbar .nav.dashboard > li > a.dash img{display:inline-block;}
+.navbar .nav.dashboard > li > a.dash .dash-txt{display:none;}
+.navbar .nav.dashboard > li > a.user-ico {padding:0px 8px;}
+.navbar .navbar-nav .dropdown-menu {margin-top: 12px !important;}
+
+.sidebar { top:60px; height: calc(100vh - 60px);}
+.sidebar .menu .list a.dash-link {padding:10px 28px;}
+.sidebar .legal {bottom: 20px;}
+
+/*add pro*/
+.addre-prp{padding-right:0;}  
+.add-pro-form .col-xs-12{padding:0;}
+.add-pro-form .m-b-20 {margin-bottom: 0px;}
+.add-pro-form label{margin-top:0;}
+
+.web-form-prop .sidebar.iner-page { top: 61px; height: calc(100vh - 61px);}
+.web-form-prop .sidebar.iner-page .menu .list a {padding: 14px 20px;}
+.web-form-prop .sidebar.iner-page .menu .list .menu-toggle::before { width: 30px;height: 30px; padding-top: 2px;}
+
+.web-form-prop section.content{margin-right:0;}
+.addre-prp h3{font-size:20px;}
+.addre-prp .col-xs-12{padding:0;}
+.content.woz-div.add-pro .m-b-60{margin-bottom:30px;}
+.email-pop-cont.ad-p-cont h1{font-size:24px;}
+.modal.m-pro-pop .close-btn {right: -20px;top: -20px;}
+.modal.m-pro-pop .close-btn img{width: 34px;}
+.pro-detail h1{font-size:22px; padding-bottom:0; line-height:24px;}
+.add-pro-form{float: left; width: 100%; margin-top: 20px;}
+.add-pro-form .pro-detail h1 {font-size: 24px;}
+.select-area.in-prp{display:none;}
+.mob-bl{display:block;}
+.mob-bl .select-area.in-prp{display:block; margin-left:0;}
+.navbar-nav.dashboard.web-pa > li > a{margin-left:0; padding:2px 23px 2px 23px;}
+.navbar-brand > img{margin-left:20px;}
+.navbar.login .navbar-brand > img{margin-left:8px;}
+.web-form-prop{padding-top:90px;}
+.navbar .nav > li{width:100%;}
+.mob-bl .select-area.in-prp .dropdown-menu{right:0; left:inherit;}
+.navbar .navbar-collapse.in{padding-bottom:0px;}
+.content.woz-div.add-pro .m-t-40{margin-top:20px;}
+.web-form-prop .sidebar.iner-page .menu .list ul.add-pro li a{padding-left:30px;}
+.add-pro-form .col-xs-12.field-visible{padding:12px 10px 12px 14px;}
+.field-visible p{font-size:14px; line-height: 22px;}
+.m-t-50{margin-top:25px;}
+.wh-ttp{margin-top:0px;}
+.file-upload-div .dropzone{padding:30px 5px;}
+.dz-message .btn.btn-info{font-size:15px; padding: 0px 20px;}
+.acco-confirmation {padding-bottom: 30px;}
+.acco-confirmation .panel-group .panel-primary .panel-title{font-size:20px;}
+.acco-confirmation .panel-group .panel-primary{margin-bottom:0px;}
+.interest-check h2{font-size:20px; margin-bottom:15px;}
+.m-b-40{margin-bottom:20px;}
+.copy-link .btn-create{padding-top:20px;}
+.font-monst{padding-bottom:20px;}
+.add-pro-form .dropdown-menu.inner > li > a{font-size:14px;}
+.pro-detail .btn-field .btn:not(.btn-link):not(.btn-circle){margin-top:10px;}
+.copy-link p{width:100%; line-height:20px; padding:10px 0;}
+.copy-link .btn-create{padding:10px 0;}
+.copy-link.visa-card .card-rgt {margin-left:0px;}
+.mail-ico .col-lg-2 {    width: 33.33%;}
+.mail-ico img{width:80px;}
+
+.select-area.in-prp .bootstrap-select.form-control, .select-area.in-prp .bootstrap-select { margin-bottom: 10px;}
+
+.warning-div p {font-size: 14px;}
+.acco-property .panel-primary > .panel-heading + .panel-collapse > .panel-body h3 {font-size: 20px;line-height: 20px;}
+
+img.l-pp {top: -89px;width: 100px;}
+
+.account-setting .form-label label {line-height: 30px;}
+
+/* index page */
+.download-app .down-lft {padding-top:0px; margin-bottom: 50px;}
+.download-app .down-lft h1 {font-size:24px;line-height:26px; margin-bottom: 10px;}
+.download-app .down-lft p {font-size: 16px;}
+.download-app .down-lft h1 br {display: none;}
+.down-rgt img{width: 100%;}
+
+.offer-lft {margin-bottom: 50px;}
+.offer-lft h1 {font-size:24px;line-height:26px;}
+.offer-lft h1 br {display: none;}
+
+.counter-div {padding: 50px 0px 20px;}
+.counter-div .number {font-size: 25px;}
+.counter-div p {margin: 0px 0px 50px 0px; font-size: 15px;}
+.img-div {height: 100px;}
+.img-div img {width: 100px;}
+
+.auction-div {padding: 0px 0px 50px;}
+.auction-div .action-lft {padding-top:0px;margin-bottom: 50px;}
+.auction-div .action-rgt img{width: 100%}
+.auction-div .action-lft h1 {font-size:26px;line-height:28px;}
+.auction-div .action-lft p {font-size: 18px;line-height: 20px;}
+.auction-div .action-lft p br {display: none;}
+.search-loc .btn {padding: 12px 35px;}
+
+.latest-property {padding: 50px 0px 170px;}
+.title-div h1 {font-size: 20px;line-height: 28px;}
+.prop-over-txt h2 {font-size: 16px;}
+
+.copy-link.visa-card .add-bank a {font-size: 18px;}
+.offer-maskot {top: -162px;left: 16px; width: 120px;}
+
+.email-pop-cont.ad-p-cont .p-l-0 { padding: 0px 0px;}
+
+footer.footer.footer-fixed{position: relative; bottom:auto;}
+
+/*property-detail*/
+section.content.login-div.prop-head {margin: 60px 0px 0px 0px;}
+.prop-detail{ padding:40px 0;}
+.prop-detail .prop-det-lft{ width:100%;}
+.prop-detail .prop-det-rgt{ width:100%; margin-top:30px;}
+.prop-tab .nav-tabs + .tab-content{ padding:10px 20px;}
+.summary-list ul li	{ padding:0 10px;}
+.prop-tab .nav-tabs + .tab-content .tab-pane h2{ font-weight:normal;}
+#accordion_1 .graph-div .col-md-4{ width:32%; display:inline-block;}
+.summary-list ul.list-three li{ width:49.333%; margin-bottom:15px;}
+.summary-list ul li:first-child {padding-left: 10px;}
+.summary-list ul.list-three li:nth-child(2n){ border-right:none;}
+.summary-list ul.list-three li:last-child{ border-bottom:none; padding-bottom:0;}
+.summary-list ul.list-svn li{ width:25%; padding-bottom:20px;}
+
+.summary-list ul.list-four li { width: 50%; margin-bottom: 15px;}
+.summary-list ul.list-four li:nth-child(2n-2) {border-right:none;}
+
+.addrs-section h2{ font-size:24px;}
+.addrs-section h3.price-pad	{ font-size:30px;}
+.addrs-section .location-ico, .under-cont h4, .estimat-price li p, .purchase-section li a, .area-det ul li, .learning-div li a{ font-size:15px;}
+.addrs-section .location-ico br{ display:none;}
+.bidder-det	{ width:61%;}
+.bid-mem-in.bid-jim	{ padding:20px 15px;}
+.bid-jim ul.bidder-det li{ padding-left:15px;}
+
+.ampli-pad {padding: 15px 25px;}
+.hover-div {left: 25px;}
+.learning-div h3 {padding-bottom: 20px;}
+.learning-div li {margin-bottom: 15px;}
+.latest-property.similar-property {padding: 30px 0px 20px 0px;}
+
+.addrs-section a {font-size: 16px;line-height: 50px;}
+
+.feature-rgt img{width:100%;}
+
+.modal-md {width: 80%; margin: auto;}
+
+}
+
+@media screen and (max-width:639px) {
+.offer-rgt ul li { width: 100%; margin-bottom:10px; }
+
+.search-loc .input-group .form-line + .input-group-addon { float: left; width: 100%;}
+.search-loc .btn:not(.btn-link):not(.btn-circle) {width: 100%; border-radius: 4px 4px 4px 4px; font-size: 16px;}
+.search-loc .input-group {border: none;}
+.search-loc .input-group .form-line { border: 1px solid #282828; border-radius: 4px 4px 4px 4px;}
+.search-loc .btn {padding: 12px 35px;}
+
+/*property-detail*/
+.detail-list ul.det-list1 {margin: 0px 0px 20px;}
+.detail-list ul.det-list1 li {width:50%;margin-bottom: 10px;}
+.area-det-lft {width:100%;}
+.area-det-rgt {width:100%;}
+
+.feature-lft {width:100%; margin-bottom: 30px;}
+.feature-rgt {width: 100%; text-align: center;}
+.feature-rgt img{width:auto;}
+.prop-tab .nav-tabs + .tab-content .tab-pane h2 {margin: 0px 0px 20px 0px;}
+#img-titol img {margin: 3px 10px 0 0;}
+#big-img .slides > li .ampliar img {margin: 2px 10px 0 0;}
+
+.prop-tab .nav-tabs {height:auto;}
+.prop-tab .nav-tabs > li {width:100%; border-bottom: 1px solid #ddd;}
+.prop-tab .nav-tabs > li:last-child { border-bottom:none;}
+
+#accordion_1 .graph-div .col-md-4 {width: 50%; margin-bottom:25px;}
+
+}
+
+@media screen and (max-width:479px) {
+
+ul.bidder-det { padding:0px 0px 15px;}
+ul.bidder-det li {width:100%;text-align: left;border-right:none; border-bottom: 1px solid #e7e7e7; padding: 0px 0px 10px 0px; margin: 0px 0px 10px 0px;}
+ul.bidder-det li:last-child{border-bottom: none; margin-bottom: 0px;}
+ul.bidder-det li h2 {margin: 0px 0px 6px;}
+.bidder-det{width: 100%; margin-top: 20px;}
+.bidder-det h1 {font-size: 18px;}
+.home-offer ul li {width:100%;margin:0px 0px 10px 0px;}
+
+
+.wizard > .actions > ul {width:100%}
+.bids-process .wizard > .actions > ul > li {margin: 0 2%; width:46%;}
+.bids-process .wizard > .actions a { font-size: 17px; padding: 12px 10px;}
+
+ul.bid-pric li h2 {width: 100%;}
+ul.bid-pric li span {display: block;}
+
+.accept-div-img img { height: 200px;}
+.bid-img-txt p img {height: auto;}
+
+.accept-div .form-check {text-align:left;}
+.payment-title h2 {font-size: 14px;}
+
+.bids-process .wizard .steps a { width:70px; height:70px;}
+.bids-process .wizard > .steps a span.step-title {font-size:13px;bottom: -70px;position: relative;}
+.bids-process .wizard .steps a span.num{font-size:25px; position: absolute;}
+
+ul.client-offer li{width: 100%; margin-bottom: 10px;}
+
+ul.price-post li{width:100%; margin-bottom:20px;}
+ul.status-post li {width:100%; margin-bottom: 20px;}
+ul.bid-btns li {width:100%;}
+
+.active-bids .card .body {padding: 20px 20px 32px;}
+ul.post-date li {width:100%; margin-bottom: 20px;}
+ul.post-date li:last-child {margin-bottom: 0px;}
+.active-bids .card .foot {padding: 25px 8px 25px;}
+ul.bid-action li {padding: 0px 6px;}
+ul.bid-action li a {font-size: 13px;}
+span.action-title {padding: 3px 8px 3px 20px; position: relative; float: left; width:100%;}
+span.action-title::after {border-left:0px;}
+
+ul.offers li {width: 100%; margin-bottom: 10px;}
+ul.action-btns li {width:100%;margin:0px 0px 8px;}
+
+.navbar .navbar-nav.dashboard > li > a {padding: 7px 10px 2px 10px;margin-top: 5px;}
+
+/*add pro*/
+.btn-field .btn.big-s-c, .btn-field .btn.big-s-c:not(.btn-link):not(.btn-circle){width:100%; }
+.pro-detail .btn-field .btn{width:100%;}
+.email-pop-cont.ad-p-cont p::before, .email-pop-cont.ad-p-cont p::after{display:none;}
+.acco-property .panel-heading [data-toggle="collapse"]::after{width:30px; height:30px; margin-top:-8px;}
+.acco-property .panel-primary > .panel-heading + .panel-collapse > .panel-body [type="checkbox"] + label, 
+.acco-property .panel-primary > .panel-heading + .panel-collapse > .panel-body [type="radio"] + label{font-size:14px;margin-bottom:8px;}
+.acco-property .panel-group .panel .panel-heading a{padding:18px 15px 18px 55px;}
+.inputfile + label span{font-size:15px;}
+.dz-message .btn.btn-info{width:100%;}
+.acco-confirmation .panel-group .panel-primary .panel-title span a{position:static;}
+.acco-confirmation .panel-group .panel .panel-heading a{padding:0px 0px 15px 0px;}
+.btn-field.pr-li .bg-amber{width:100%; margin-top:15px;}
+.copy-link .btn-create{float:none;}
+.copy-link.visa-card .add-bank{margin-top:30px;}
+.save-email .btn.bg-amber.m-t-45.waves-effect {font-size:18px; height: 65px;line-height: 65px;}
+.copy-link .btn.btn-info.m-t-0.waves-effect{height:50px; line-height:45px; margin-bottom:20px;}
+.addre-prp h3{font-size:18px;}
+.save-email{width:100%;}
+.copy-link.visa-card .add-bank a {font-size: 18px;}
+
+.pro-detail h1 {font-size: 22px;}
+
+/* index page */
+.download-app .down-lft ul{display: flex;}
+.download-app .down-lft ul li { width: 48%; margin-right:4%;}
+.download-app .down-lft ul li:nth-child(2n) { margin-right:0px;}
+.download-app .down-lft ul li a{display: flex; height: 100%;}
+.download-app .down-lft ul li a img{ width:100%;}
+
+.counter-div .number {font-size: 22px;}
+.img-div {height: 80px;}
+.img-div img {width: 80px;}
+
+a.view-all {position: relative; bottom: auto; font-size: 15px;margin: 0px 0px 20px 0px;float: right;}
+ul.det-list li {width:50%; margin-bottom: 10px;}
+ul.det-list li:nth-child(2) {text-align:left;}
+ul.det-list li:last-child {text-align:left;}
+
+/*property-detail*/
+.bid-jim ul.bidder-det {padding-top: 0px;}
+.bid-jim ul.bidder-det li {width:100%;padding-left:0px;}
+
+.under-cont h4 span {width: 100%;margin-top: 10px;}
+
+.detail-list ul.det-list1 li {width:100%;}
+.feature-lft ul { width:100%;}
+
+.summary-list ul.list-three li{ width: 100%;border-right:none;}
+.summary-list ul.list-four li {width:100%;}
+.summary-list ul.list-svn li {width: 50%;}
+
+#accordion_1 .graph-div .col-md-4 {width:100%;}
+
+}

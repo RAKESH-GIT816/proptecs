@@ -1,0 +1,875 @@
+<app-topnav></app-topnav>
+
+<div *ngIf="loading==true" class="overlay-gif">
+  <img src="assets/images/login-logo.png" alt="">
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="web-form-prop">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-side">
+
+        <app-sell-sidemenu></app-sell-sidemenu>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pr-main">
+
+        <section class="content woz-div add-pro">
+          <div class="">
+            <form [formGroup]="propertyform">
+
+              <div class="">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <div class="pro-detail p-b-10">
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 padding-0">
+                      <h1 class="margin-0 p-b-10">Property Details</h1>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 padding-0">
+                      <div class="form-group btn-field">
+                        <button type="button" class="btn bg-amber m-t-0 waves-effect right" data-toggle="modal"
+                          data-target="#addressmodal">Edit Section</button>
+
+                        <!-- ,'editSection' -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="addre-prp p-t-15 col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-40 p-l-0">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 padding-0">
+                      <!-- <img src="assets/images/maskot.png">  -->
+                    </div>
+                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 padding-0">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <h3 class="margin-0 p-l-20 font-20 p-b-15">
+                          {{property?.StreetAddress}},{{property?.City}},{{this.property?.State}},{{this.property?.ZipCode}}
+                        </h3>
+                        <!-- <h3  class="margin-0 p-l-20 font-20 p-b-15"> {{ property?.StreetAddress +","+property?.City +","+this.property?.State +","+this.property?.ZipCode }} </h3> -->
+
+                      </div>
+                      <!-- this.property.StreetAddress, this.property.City, this.property.State, this.property.ZipCode -->
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                          <input type='radio' class="with-gap radio-col-light-blue" formControlName="showaddress"
+                            name="showaddress" [(ngModel)]="property.ShowAddress" id="radio_36" checked
+                            [value]="true" />
+                          <label for="radio_36">Show address</label>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 padding-0">
+                          <input type='radio' class="with-gap radio-col-light-blue" formControlName="showaddress"
+                            id="radio_37" name="showaddress" [(ngModel)]="property.ShowAddress" [value]="false" />
+                          <label for="radio_37">Don’t show address</label>
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="add-pro-form clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Home type
+                          <span>*</span>
+                        </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <!-- <select name="PropertyType" class="form-control show-tick"  formControlName="hometype" [(ngModel)]="propertydetails.PropertyType" >
+                            <option value="">Select Type</option>
+                            <option  *ngFor="let typee of HomeTypes; let i = index" value="typee{{i}}">{{typee}}</option>
+                                                  
+                          </select> -->
+                            <ng-select [items]="HomeTypes" [ngClass]="{ 'is-invalid': submitted && f.hometype.errors }"
+                              bindLabel="HomeTypes" placeholder="Select Hometype" formControlName="hometype"
+                              [(ngModel)]="propertydetails.PropertyType">
+                            </ng-select>
+                          </div>
+                          <div *ngIf="submitted && f.hometype.errors" class="invalid-feedback" class="text-danger">
+                            <div *ngIf="f.hometype.errors.required">Home Type is required</div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Finished Square feet
+                          <span>*</span>
+                        </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" name="FinishedSqFt" min="0"
+                              [ngClass]="{ 'is-invalid': submitted && f.squrefeet.errors }"
+                              [(ngModel)]="propertydetails.FinishedSqFt" formControlName="squrefeet"
+                              class="form-control" placeholder="" />
+                          </div>
+                          <div *ngIf="submitted && f.squrefeet.errors" class="invalid-feedback" class="text-danger">
+                            <div *ngIf="f.squrefeet.errors.required">Square feet is required</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Bedrooms
+                          <span>*</span>
+                        </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" name="Bedrooms" min="0" [(ngModel)]="propertydetails.Bedrooms"
+                              formControlName="Bedrooms" class="form-control" placeholder=""
+                              [ngClass]="{ 'is-invalid': submitted && f.Bedrooms.errors }" />
+                          </div>
+                          <div *ngIf="submitted && f.Bedrooms.errors" class="invalid-feedback" class="text-danger">
+                            <div *ngIf="f.Bedrooms.errors.required">Bedrooms is required</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Bathrooms
+                          <span>*</span>
+                        </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" name="Bathrooms" min="0" [(ngModel)]="propertydetails.Bathrooms"
+                              formControlName="Bathrooms" class="form-control" placeholder=""
+                              [ngClass]="{ 'is-invalid': submitted && f.Bathrooms.errors }" />
+                          </div>
+                          <div *ngIf="submitted && f.Bathrooms.errors" class="invalid-feedback" class="text-danger">
+                            <div *ngIf="f.Bathrooms.errors.required">Bathrooms is required</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="col-lg-7 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                        <div class="form-label">
+                          <label>Lot size </label>
+                        </div>
+                      </div>
+                      <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                        <div class="form-label">
+                          <div class="right">
+                            <input name="Lotsize_st" value="SqFt" [(ngModel)]="propertydetails.LotUnits"
+                              formControlName="Lotsize_st" type="radio" id="radio_38"
+                              class="with-gap radio-col-light-blue" />
+                            <label for="radio_38">Sq ft</label>
+                            <input name="Lotsize_st" value="Acres" [(ngModel)]="propertydetails.LotUnits"
+                              formControlName="Lotsize_st" type="radio" id="radio_39"
+                              class="with-gap radio-col-light-blue" />
+                            <label for="radio_39">Acres</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-group">
+                        <div class="form-line">
+                          <input type="number" min="0" formControlName="Lotsize" name="Lotsize_unit"
+                            [(ngModel)]="propertydetails.LotSize" class="form-control" placeholder="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Year Built
+                          <span>*</span>
+                        </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="YearBuilt" [(ngModel)]="propertydetails.YearBuilt"
+                              formControlName="YearBuilt" class="form-control" placeholder=""
+                              [ngClass]="{ 'is-invalid': submitted && f.YearBuilt.errors }" />
+                          </div>
+                          <div *ngIf="submitted && f.YearBuilt.errors" class="invalid-feedback" class="text-danger">
+                            <div *ngIf="f.YearBuilt.errors.required">Year Built is required</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Garage Sq ft </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="GarageSqFt" [(ngModel)]="propertydetails.GarageSqFt"
+                              formControlName="Garage_Sq_ft" class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Basement Square feet </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="BasementSqFt" [(ngModel)]="propertydetails.BasementSqFt"
+                              formControlName="Basement_Square_feet" class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Units </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="BasementSqFt" [(ngModel)]="propertydetails.units"
+                              formControlName="units" class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Buildings </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="BasementSqFt" [(ngModel)]="propertydetails.buildings"
+                              formControlName="buildings" class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Stories</label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="BasementSqFt" [(ngModel)]="propertydetails.stories"
+                              formControlName="stories" class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Occupancy</label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="BasementSqFt" [(ngModel)]="propertydetails.occupancy"
+                              formControlName="occupancy" class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Broker Co-up</label>
+                      </div>
+                   
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <ng-select [items]="brokerco_op"
+                            bindLabel="brokerco_op" formControlName="brokerco_op"
+                            [(ngModel)]="propertydetails.brokerco_op">
+                          </ng-select>
+                          </div>
+                          <!-- <div *ngIf="submitted && f.hometype.errors" class="invalid-feedback" class="text-danger">
+                            <div *ngIf="f.hometype.errors.required">Home Type is required</div>
+                          </div> -->
+
+                        </div>
+                      </div>
+
+                      
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Cap Rate</label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="BasementSqFt" [(ngModel)]="propertydetails.caprate"
+                              formControlName="caprate" class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>NOI</label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="BasementSqFt" [(ngModel)]="propertydetails.noi"
+                              formControlName="noi" class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Zoning</label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="BasementSqFt" [(ngModel)]="propertydetails.zoning"
+                              formControlName="zoning" class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Monthly HOA dues </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input type="number" min="0" name="MonthlyHOADues"
+                              [(ngModel)]="propertydetails.MonthlyHOADues" formControlName="Monthly_HOA_dues"
+                              class="form-control" placeholder="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Property description
+                          <span>*</span>
+                        </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <textarea name="RepairDetails" [(ngModel)]="propertydetails.PropertyDetails1"
+                              formControlName="Propert_des" class="form-control rounded-0" pattern="[^ ~!$%*()^][ --,=^~`#/&_@0-9A-Za-z.]*"
+                              [ngClass]="{ 'is-invalid': submitted && f.Propert_des.errors }"></textarea>
+                          </div>
+                          <div *ngIf="submitted && f.Propert_des.errors" class="invalid-feedback" class="text-danger">
+                            <div *ngIf="f.Propert_des.errors.required">Property description is required</div>
+                            <div *ngIf="f.Propert_des.errors.pattern">Spaces are not allowed at starting</div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                      <div class="form-label">
+                        <label>Repair description
+                          <span>*</span>
+                        </label>
+                      </div>
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="form-group">
+                          <div class="form-line">
+                            <textarea name="RepairDetails" [(ngModel)]="propertydetails.RepairDetails"
+                              formControlName="Repair_des" class="form-control rounded-0" pattern="[^ ~!$%*()^][ --,=^~`#/&_@0-9A-Za-z.]*"
+                              [ngClass]="{ 'is-invalid': submitted && f.Repair_des.errors }"></textarea>
+                          </div>
+                          <div *ngIf="submitted && f.Repair_des.errors" class="invalid-feedback" class="text-danger">
+                            <div *ngIf="f.Repair_des.errors.required">Repair description is required</div>
+                            <div *ngIf="f.Repair_des.errors.pattern">Spaces are not allowed at starting</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-t-40">
+              <div class="pro-detail p-b-10">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <h1 class="margin-0 p-b-10">Optional Details</h1>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-t-35 acco-property">
+                <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" role="tab" id="headingOne_1">
+                      <h4 class="panel-title">
+                        <a class="collapsed acc-1" role="button" data-toggle="collapse" data-parent="#accordion_1"
+                          href="#collapseOne_1" aria-expanded="false" aria-controls="collapseOne_1"> ROOM DETAILS </a>
+                        <span></span>
+                      </h4>
+                    </div>
+                    <div id="collapseOne_1" class="panel-collapse collapse" role="tabpanel"
+                      aria-labelledby="headingOne_1">
+                      <div class="panel-body p-l-40 p-r-40">
+                        <h3 class="margin-0">Appliances</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of AppliancesList; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_APPLIANCES_{{item}}"
+                                value="{{item}}" name="{{item}}"
+                                [checked]="(selectedHomeappliances && (-1 !== selectedHomeappliances.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('homeappliances', $event)" />
+                              <label for="checkbox_APPLIANCES_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+
+                        <h3 class="margin-0">Basement</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of Basements; let i = index">
+
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 padding-0">
+                              <input type="radio" id="checkbox_BASEMENT_{{item}}" name="BasementDetails"
+                                class="with-gap radio-col-light-blue" value="{{item}}" [(ngModel)]="selectedBasement"
+                                [checked]="((propertydetails.BasementDetails == item) ? 'checked' : '')" />
+                              <label for="checkbox_BASEMENT_{{item}}">{{item}}</label>
+                            </div>
+
+
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">Floor Covering</h3>
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                          *ngFor="let item of FloorCovering; let i = index">
+                          <div class="checkbox checkbox-theme checkbox-circle">
+                            <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_FLOORCOVERING_{{item}}"
+                              value="{{item}}" name="{{item}}"
+                              [checked]="(selectedfloorcovering && (-1 !== selectedfloorcovering.indexOf(item)) ? 'checked' : '')"
+                              (change)="updateSelectedCheckboxListDetails('floorcovering', $event)" />
+                            <label for="checkbox_FLOORCOVERING_{{item}}">
+                              {{item}}
+                            </label>
+                          </div>
+                        </div>
+
+                        <h3 class="margin-0">Rooms</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of RoomDetailsList; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_ROOMS_{{item}}"
+                                value="{{item}}" name="{{item}}"
+                                [checked]="(selectedroomtypes && (-1 !== selectedroomtypes.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('roomtype', $event)" />
+                              <label for="checkbox_ROOMS_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">Indoor Features</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of IndoorFeatures; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" class="filled-in chk-col-yellow"
+                                id="checkbox_INDOORFEATURES_{{item}}" value="{{item}}" name="{{item}}"
+                                [checked]="(selectedindoorfeatures && (-1 !== selectedindoorfeatures.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('indoorfeatures', $event)" />
+                              <label for="checkbox_INDOORFEATURES_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" role="tab" id="headingTwo_1">
+                      <h4 class="panel-title">
+                        <a class="collapsed acc-2" role="button" data-toggle="collapse" data-parent="#accordion_1"
+                          href="#collapseTwo_1" aria-expanded="false" aria-controls="collapseTwo_1"> UTILITY DETAILS
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo_1" class="panel-collapse collapse" role="tabpanel"
+                      aria-labelledby="headingTwo_1">
+                      <div class="panel-body">
+                        <h3 class="margin-0">Cooling Type</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of CoolingTypes; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_COOLINGTYPE_{{item}}"
+                                value="{{item}}" name="{{item}}"
+                                [checked]="(selectedCoolingType && (-1 !== selectedCoolingType.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('coolingtype', $event)" />
+                              <label for="checkbox_COOLINGTYPE_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">Heating Type</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of HeatingTypes; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_HEATINGTYPE_{{item}}"
+                                value="{{item}}" name="{{item}}"
+                                [checked]="(selectedHeatingTypes && (-1 !== selectedHeatingTypes.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('heatingtype', $event)" />
+                              <label for="checkbox_HEATINGTYPE_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">Heating Fuel</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of HeatingFuels; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_HEATINGFUEL_{{item}}"
+                                value="{{item}}" name="{{item}}"
+                                [checked]="(selectedHeatingFuels && (-1 !== selectedHeatingFuels.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('heatingfuel', $event)" />
+                              <label for="checkbox_HEATINGFUEL_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" role="tab" id="headingThree_1">
+                      <h4 class="panel-title">
+                        <a class="collapsed acc-3" role="button" data-toggle="collapse" data-parent="#accordion_1"
+                          href="#collapseThree_1" aria-expanded="false" aria-controls="collapseThree_1"> BUILDING
+                          DETAILS </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree_1" class="panel-collapse collapse" role="tabpanel"
+                      aria-labelledby="headingThree_1">
+                      <div class="panel-body">
+                        <h3 class="margin-0">Building Amenities</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of BuildingDetails; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow"
+                                id="checkbox_BUILDINGAMENITIES_{{item}}" value="{{item}}" name="{{item}}"
+                                [checked]="(selectedBuildingDetails && (-1 !== selectedBuildingDetails.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('buildingdetails', $event)" />
+                              <label for="checkbox_BUILDINGAMENITIES_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">Architectural Style</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of ArchitecteralStyles; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow"
+                                id="checkbox_ARCHITECTURALSTYLE_{{item}}" value="{{item}}" name="{{item}}"
+                                [checked]="(selectedArchitecteralStyles && (-1 !== selectedArchitecteralStyles.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('architecteralstyles', $event)" />
+                              <label for="checkbox_ARCHITECTURALSTYLE_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">Exterior</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of Exteriors; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_EXTERIOR_{{item}}"
+                                value="{{item}}" name="{{item}}"
+                                [checked]="(selectedExteriors && (-1 !== selectedExteriors.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('exteriors', $event)" />
+                              <label for="checkbox_EXTERIOR_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">Outdoor Amenities</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of OutDoorAmenities; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow"
+                                id="checkbox_OUTDOORAMENITIES_{{item}}" value="{{item}}" name="{{item}}"
+                                [checked]="(selectedOutDoorAmenities && (-1 !== selectedOutDoorAmenities.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('outdooramenities', $event)" />
+                              <label for="checkbox_OUTDOORAMENITIES_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">Parking</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of Parkings; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_PARKING_{{item}}"
+                                value="{{item}}" name="{{item}}"
+                                [checked]="(selectedParkings && (-1 !== selectedParkings.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('parkings', $event)" />
+                              <label for="checkbox_PARKING_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">Roof</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 padding-0"
+                            *ngFor="let item of Roofs; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_ROOF_{{item}}"
+                                value="{{item}}" name="{{item}}"
+                                [checked]="(selectedRoofs && (-1 !== selectedRoofs.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('roofs', $event)" />
+                              <label for="checkbox_ROOF_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                        <h3 class="margin-0">View</h3>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20">
+                          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12padding-0 "
+                            *ngFor="let item of Views; let i = index">
+                            <div class="checkbox checkbox-theme checkbox-circle">
+                              <input type="checkbox" class="filled-in chk-col-yellow" id="checkbox_VIEW_{{item}}"
+                                value="{{item}}" name="{{item}}"
+                                [checked]="(selectedViews && (-1 !== selectedViews.indexOf(item)) ? 'checked' : '')"
+                                (change)="updateSelectedCheckboxListDetails('views', $event)" />
+                              <label for="checkbox_VIEW_{{item}}">
+                                {{item}}
+                              </label>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- .container -->
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-50">
+                <div class="row clearfix">
+                  <div class="col-sm-4 padding-0">
+                    <!-- [disabled]="propertyform.invalid" -->
+                    <div class="form-group btn-field">
+                      <button type="button" (click)="saveCountine()"
+                        class="btn bg-amber waves-effect big-s-c m-t-0">Save & Continue</button>
+                    </div>
+                  </div>
+                  <div class="col-sm-5"> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Change Email popup -->
+<div class="modal fade modal-bg m-pro-pop" id="addressmodal" tabindex="-1" role="dialog" data-backdrop="static"
+  data-keyboard="false">
+  <div class="modal-dialog modal-md" role="document">
+
+    <div class="modal-content">
+      <form #modalForm="ngForm">
+        <div class="modal-header head-center">
+          <button type="button" class="btn btn-link close-btn" (click)="dismiss()" data-dismiss="modal">
+            <img src="assets/images/pop-close.png" alt=""> </button>
+        </div>
+        <div class="modal-body email-pop-cont ad-p-cont">
+          <h1>Property Details</h1>
+          <p>
+            <span>Enter the property address to get started.</span>
+          </p>
+          <div class="add-pro-form">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-r-0 p-l-0 m-b-10">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                <div class="form-label">
+                  <label>Street address
+                    <span>*</span>
+                  </label>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <div class="form-group">
+                    <div class="form-line">
+                      <input type='text' name="StreetAddress" [(ngModel)]="property.StreetAddress" class="form-control"
+                        autocomplete="off" list-formatter="formatted_address" pattern="[^ ~!$%*()^][ --,#/&_@0-9A-Za-z.]*"
+                        required />
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-r-0 p-l-0">
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 p-l-0">
+                <div class="form-label">
+                  <label>City
+                    <span>*</span>
+                  </label>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <div>
+                    <div class="form-line">
+                      <input type='text' class="form-control" autocomplete="off" [(ngModel)]="property.City" name="City"
+                        pattern="[^ ~0-9!#$%&*()^][ A-Za-z.]*" required />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 p-l-0">
+                <div class="form-label">
+                  <label>State
+                    <span>*</span>
+                  </label>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <div class="form-group">
+                    <div class="form-line">
+                      <ng-select [items]="States" bindLabel="name" bindValue="id" placeholder="Select State"
+                        name="statee" [(ngModel)]="property.State" required>
+                      </ng-select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 p-l-0 p-r-0">
+                <div class="form-label">
+                  <label>ZIP
+                    <span>*</span>
+                  </label>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <div class="form-group">
+                    <div class="form-line">
+                      <input type="text" name="ZipCode" class="form-control" autocomplete="off"
+                        [(ngModel)]="property.ZipCode" required style="display:inline-block;" pattern="[0-9]*">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="modal-footer ad-fo-poo">
+
+
+          <button type="button" class="btn bg-yellow waves-effect" (click)="dismiss()"
+            data-dismiss="modal">Cancel</button>
+
+          <button type="button" class="btn btn-primary waves-effect" [disabled]="modalForm.form.invalid"
+            (click)="getPropertyDetailsFromHouseCanary()">Continue</button>
+
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<app-footer></app-footer>

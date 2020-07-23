@@ -1,0 +1,446 @@
+<div *ngIf="loading==true" class="overlay-gif">
+    <img src="assets/images/login-logo.png" alt="">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+<app-topnav></app-topnav>
+
+<div class="container">
+    <div class="row">
+        <div class="web-form-prop">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-side">
+
+                <app-sell-sidemenu></app-sell-sidemenu>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pr-main">
+                <section class="content woz-div add-pro">
+                    <div class="">
+                        <div class="">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                <div class="pro-detail p-b-10">
+                                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 padding-0">
+                                        <h1 class="margin-0 p-b-10">Confirmation</h1>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 padding-0">
+                                        <div class="form-group btn-field">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="addre-prp p-t-15 col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-40 p-l-0">
+                                    <!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 padding-0">
+                                        <img src="assets/images/maskot.png"> 
+                                    </div> -->
+                                    <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 padding-0">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                            <h3 class="margin-0 p-l-20 font-20 p-b-15">
+                                                {{ property.StreetAddress +","+property.City +","+this.property.State +","+this.property.ZipCode }}
+                                            </h3>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                <input type='radio' disabled="true"
+                                                    class="with-gap radio-col-light-blue" name="showaddress"
+                                                    [(ngModel)]="property.ShowAddress" id="radio_36" checked
+                                                    [value]="true" />
+                                                <label for="radio_36">Show address</label>
+                                            </div>
+                                            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 padding-0">
+                                                <input type='radio' disabled="true" readonly
+                                                    class="with-gap radio-col-light-blue" id="radio_37"
+                                                    name="showaddress" [(ngModel)]="property.ShowAddress"
+                                                    [value]="false" />
+                                                <label for="radio_37">Don’t show address</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 ">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 acco-confirmation">
+                                <div class="panel-group" id="accordion_2" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading" role="tab" id="headingOne_1">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed acc-1" role="button" data-toggle="collapse"
+                                                    data-parent="#accordion_2" href="#collapseOne_1"
+                                                    aria-expanded="false" aria-controls="collapseOne_1">
+                                                    Property Details
+                                                </a>
+                                                <span>
+                                                    <a href="" [routerLink]="['/propertydetails',property.Id]">Edit
+                                                        Section</a>
+                                                </span>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne_1" class="panel-collapse collapse in" role="tabpanel"
+                                            aria-labelledby="headingOne_1">
+                                            <div class="panel-body">
+                                                <h3>Property description</h3>
+                                                <p class="m-b-40">
+                                                    {{propertydetail.PropertyDetails1}}
+                                                </p>
+                                                <h3>Repair description</h3>
+                                                <p>{{propertydetail.RepairDetails}}
+                                                </p>
+                                                <div class="add-pro-form clearfix">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Home type </label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly
+                                                                                class="form-control" name="hometype"
+                                                                                [(ngModel)]="propertydetail.PropertyType"
+                                                                                placeholder="Multi-Family">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Finished Square feet </label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly
+                                                                                class="form-control" name="hometype"
+                                                                                [(ngModel)]="propertydetail.FinishedSqFt"
+                                                                                placeholder="69215 sq ft">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Bedrooms </label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly
+                                                                                class="form-control" name="bedroom"
+                                                                                [(ngModel)]="propertydetail.Bedrooms"
+                                                                                placeholder="2">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Bathrooms </label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly
+                                                                                class="form-control" name="bathrooms"
+                                                                                [(ngModel)]="propertydetail.Bathrooms"
+                                                                                placeholder="2">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Lot size </label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly
+                                                                                class="form-control" name="lotsize"
+                                                                                [(ngModel)]="propertydetail.LotSize"
+                                                                                placeholder="1 Acres">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Year Built </label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly
+                                                                                class="form-control" name="yearbulit"
+                                                                                [(ngModel)]="propertydetail.YearBuilt"
+                                                                                placeholder="3">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading" role="tab" id="headingTwo_1">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed acc-2" role="button" data-toggle="collapse"
+                                                    data-parent="#accordion_2" href="#collapseTwo_1"
+                                                    aria-expanded="false" aria-controls="collapseTwo_1">
+                                                    Home Equity
+                                                </a>
+                                                <span>
+                                                    <a href=""
+                                                        [routerLink]="['/propertydetails/wholesaleprofit',property.Id]">Edit
+                                                        Section</a>
+                                                </span>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo_1" class="panel-collapse collapse in" role="tabpanel"
+                                            aria-labelledby="headingTwo_1">
+                                            <div class="panel-body">
+                                                <div class="add-pro-form clearfix">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Property Asking Price</label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly name="price"
+                                                                                [(ngModel)]="propertyequity.MinimumStartBid"
+                                                                                class="form-control" placeholder="$6">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Wholesale Fee</label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly
+                                                                                class="form-control" name="wholesale"
+                                                                                [(ngModel)]="propertyequity.WholesaleFee"
+                                                                                placeholder="$3">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Purchase Price</label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly
+                                                                                class="form-control" name="pricee"
+                                                                                [(ngModel)]="propertyequity.PurchasePrice"
+                                                                                placeholder="$6">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                                                            <div
+                                                                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                <div class="form-label">
+                                                                    <label>Profit</label>
+                                                                </div>
+                                                                <div
+                                                                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                                    <div class="form-group">
+                                                                        <div class="form-line">
+                                                                            <input type="text" readonly
+                                                                                class="form-control" name="profit"
+                                                                                [(ngModel)]="propertyequity.ProfitfromSale"
+                                                                                placeholder="-$697">
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading" role="tab" id="headingThree_1">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed acc-3" role="button" data-toggle="collapse"
+                                                    data-parent="#accordion_2" href="#collapseThree_1"
+                                                    aria-expanded="false" aria-controls="collapseThree_1">
+                                                    Supporting Docs
+                                                </a>
+                                                <span>
+                                                    <a href="" [routerLink]="['/propertydetails/wholesaleprofit',property.Id]">Edit Section</a>
+                                                </span>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree_1" class="panel-collapse collapse in" role="tabpanel"
+                                            aria-labelledby="headingThree_1">
+                                            <div class="panel-body">
+                                                <div class="add-pro-form clearfix">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                                        <div class="col-lg-6 documentwrap"
+                                                            *ngFor="let file of property.PropertySupportingDocs">
+                                                            <div class="row col-lg-12">
+                                                                <div class="col-lg-2"><i class="fa fa-file-pdf-o"
+                                                                        style="font-size:40px;color:#FF902B;"
+                                                                        aria-hidden="true"></i></div>
+                                                                <div class="col-lg-10 phototitle">
+                                                                    <span
+                                                                        class="title doc-name pdg-top-10">{{ file.FileName }}</span><br />
+                                                                    <span class="date">Uploaded
+                                                                        {{file.UploadedDate | date:'MM/dd/yyyy'}}</span><br />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading" role="tab" id="headingFour_1">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed acc-2" role="button" data-toggle="collapse"
+                                                    data-parent="#accordion_2" href="#collapseFour_1"
+                                                    aria-expanded="false" aria-controls="collapseFour_1">
+                                                    Photos and Videos
+                                                </a>
+
+                                                <span>
+                                                    <a href=""
+                                                        [routerLink]="['/propertydetails/propertyphotosandvideos',property.Id]">Edit
+                                                        Section</a>
+                                                </span>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseFour_1" class="panel-collapse collapse in" role="tabpanel"
+                                            aria-labelledby="headingFour_1">
+                                            <div class="panel-body">
+                                                <div class="add-pro-form clearfix">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+
+                                                        <div class="col-lg-6 photovideowrap"
+                                                            *ngFor="let image of property.PropertyPhotosAndVideos">
+                                                            <div class="col-lg-4 row">
+                                                                <img src="{{image?.FilePath}}" alt="{{image?.FileName}}"
+                                                                    style='height: 100%; width: 100%; object-fit: contain' />
+                                                            </div>
+                                                            <div class="col-lg-8 phototitle">
+                                                                <span
+                                                                    class="title doc-name">{{image?.FileName}}</span><br />
+                                                                <span class="date">Uploaded
+                                                                    {{image?.UploadedDate| date: 'MM/dd/yyyy'}}</span><br />
+                                                                <b *ngIf="image.IsMainPhoto" class="mainPhoto">Main
+                                                                    Photo</b>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- .container -->
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-50">
+                                <div class="row clearfix">
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-0">
+                                        <div class="form-group btn-field">
+                                            <button type="button" (click)="SaveConfirmation()"
+                                                class="btn bg-amber waves-effect big-s-c m-t-0">Save & Continue</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>

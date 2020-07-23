@@ -1,0 +1,648 @@
+<div *ngIf="loading==true" class="overlay-gif">
+    <img src="assets/images/login-logo.png" alt="">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+<app-topnav></app-topnav>
+<app-sidemenu></app-sidemenu>
+
+
+
+<section class="content woz-div">
+    <div class="container-fluid">
+        <div class="block-header">
+            <p>Want to edit your preferences? Change your
+                <a href="javascript:void(0);" class="change-link" data-toggle="modal"
+                    data-target="#changePass">password</a>,
+                <a href="javascript:void(0);" class="change-link" data-toggle="modal"
+                    data-target="#changeEmail">email</a>, or
+                <a href="javascript:void(0);" class="change-link" data-toggle="modal"
+                    data-target="#changemoblie">contact preferences.</a>
+            </p>
+
+            <!-- <div class="alert alert-success alert-dismissible fade in">
+                <a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Indicates a successful or positive action.
+              </div>
+              
+              <div class="alert alert-info alert-dismissible fade in">
+                <a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="close">&times;</a>  
+                <strong>Info!</strong> Indicates a neutral informative change or action.
+              </div>
+              
+              <div class="alert alert-warning alert-dismissible">
+                <a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="close">&times;</a>  
+                <strong>Warning!</strong> Indicates a warning that might need attention.
+              </div>
+              
+              <div class="alert alert-danger alert-dismissible">
+                <a href="javascript:void(0);" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+              </div> -->
+
+        </div>
+
+        <div class="row clearfix account-setting">
+            <form [formGroup]="userform">
+                <div class="col-lg-12">
+                    <div class="row clearfix">
+                        <div class="col-sm-3">
+                            <div class="form-label">
+                                <label>First Name
+                                    <sup>*</sup>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" formControlName="fname" class="form-control" 
+                                        placeholder="First Name" name="firstname" [(ngModel)]="UserValues.FirstName"
+                                        [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" />
+                                </div>
+                                <div *ngIf="submitted && f.fname.errors" class="text-danger">
+                                    <div *ngIf="f.fname.errors.required">First Name is required </div>
+                                        <div *ngIf="f.fname.errors.pattern">Spaces are not allowed at starting</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-12">
+                    <div class="row clearfix">
+                        <div class="col-sm-3">
+                            <div class="form-label">
+                                <label>Last Name
+                                    <sup>*</sup>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" formControlName="lastName" class="form-control"
+                                        placeholder="Last Name" name="lastname" [(ngModel)]="UserValues.LastName"
+                                        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                                </div>
+                                <div *ngIf="submitted && f.lastName.errors" class="text-danger">
+                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                        <div *ngIf="f.lastName.errors.pattern">Spaces are not allowed at starting</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-12">
+                <div class="row clearfix">
+                    <div class="col-sm-3">
+                        <div class="form-label">
+                            <label>User Name
+                                <sup>*</sup>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text"formControlName="username"  class="form-control" name="username" placeholder="User Name" [(ngModel)]="UserValues.UserName" 
+                                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            </div>
+                            <div *ngIf="submitted && f.username.errors" class="text-danger">
+                                    <div *ngIf="f.username.errors.required">User Name is
+                                        required</div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <p class="info-msg">
+                            <img src="assets/images/info-img.png" /> Only your user name is visible to other users</p>
+                    </div>
+
+                </div>
+            </div> -->
+                <div class="col-lg-12">
+                    <div class="row clearfix">
+                        <div class="col-sm-3">
+                            <div class="form-label">
+                                <label>Email
+                                    <sup>*</sup>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" readonly formControlName="email" class="form-control"
+                                        name="email" [(ngModel)]="UserValues.EmailAddress"
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                </div>
+                                <div *ngIf="submitted && f.email.errors" class="text-danger">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.email">Email must be a valid
+                                        email address</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <p class="info-msg">
+                                <img src="assets/images/info-img.png" /> This is the email used when you created the
+                                account</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="row clearfix">
+                        <div class="col-sm-3">
+                            <div class="form-label">
+                                <label>Phone Number
+                                    <sup>*</sup>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-line" *ngIf="!isPhoneNumber">
+                                    <input type="text" class="form-control" formControlName="phone"
+                                        placeholder="Mobile Number" name="phone" [(ngModel)]="UserValues.PhoneNumber"
+                                        [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                                </div>
+                                <div class="form-line" *ngIf="isPhoneNumber">
+                                    <input type="text" class="form-control" readonly formControlName="phone"
+                                        placeholder="Mobile Number" name="phone" [(ngModel)]="UserValues.PhoneNumber"
+                                        [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                                </div>
+                                <div *ngIf="submitted && f.phone.errors" class="text-danger">
+                                    <div *ngIf="f.phone.errors.required">Phone Number is
+                                        required</div>
+
+                                    <div *ngIf="f.phone.errors.pattern">Only accepted Numbers</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+
+
+                    <div class="col-lg-12">
+                        <div class="row clearfix">
+                            <div class="col-sm-3">
+                                <div class="form-label">
+                                    <label>Street Address 1
+                                        <sup>*</sup>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" formControlName="address1" class="form-control"
+                                            placeholder="Address 1" name="streetaddress1"
+                                            [(ngModel)]="UserValues.Address1"
+                                            [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" />
+                                    </div>
+                                    <div *ngIf="submitted && f.address1.errors" class="text-danger">
+                                        <div *ngIf="f.address1.errors.required">Address 1 is required</div>
+                                        <div *ngIf="f.address1.errors.pattern">Spaces are not allowed at starting</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="row clearfix">
+                            <div class="col-sm-3">
+                                <div class="form-label">
+                                    <label>Street Address 2</label>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" formControlName="address2" class="form-control"
+                                            placeholder="Address 2" name="streetaddress2"
+                                            [(ngModel)]="UserValues.Address2"
+                                            [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" />
+                                    </div>
+                                    <div *ngIf="submitted && f.address2.errors" class="text-danger">
+                                        <div *ngIf="f.address2.errors.required">Address 2 is required</div>
+                                        <div *ngIf="f.address2.errors.pattern">Spaces are not allowed at starting</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="row clearfix">
+                            <div class="col-sm-3">
+                                <div class="form-label">
+                                    <label>City
+                                        <sup>*</sup>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" formControlName="city" class="form-control"
+                                            placeholder="City" name="city" [(ngModel)]="UserValues.City"
+                                            [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                                    </div>
+                                    <div *ngIf="submitted && f.city.errors" class="text-danger">
+                                        <div *ngIf="f.city.errors.required">City is required</div>
+                                        <div *ngIf="f.city.errors.pattern">Spaces are not allowed at starting</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="row clearfix">
+                            <div class="col-sm-3">
+                                <div class="form-label">
+                                    <label>State
+                                        <sup>*</sup>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <ng-select [items]="States"
+                                            [ngClass]="{ 'is-invalid': submitted && f.state.errors }" bindLabel="name"
+                                            bindValue="id" placeholder="Select State" formControlName="state"
+                                            [(ngModel)]="UserValues.State">
+                                        </ng-select>
+                                    </div>
+                                    <div *ngIf="submitted && f.state.errors" class="text-danger">
+                                        <div *ngIf="f.state.errors.required">State is required</div>
+                                        <!-- <div *ngIf="f.state.errors.pattern">Spaces are not allowed at starting</div> -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="row clearfix">
+                            <div class="col-sm-3">
+                                <div class="form-label">
+                                    <label>Zip
+                                        <sup>*</sup>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" formControlName="zipcode" placeholder="Zip Code"
+                                            class="form-control" value="70420" name="zip"
+                                            [(ngModel)]="UserValues.ZipCode"
+                                            [ngClass]="{ 'is-invalid': submitted && f.zipcode.errors }" />
+                                    </div>
+                                    <div *ngIf="submitted && f.zipcode.errors" class="text-danger">
+                                        <div *ngIf="f.zipcode.errors.required">Zipcode is required</div>
+                                        <div *ngIf="f.zipcode.errors.pattern">Spaces are not allowed at starting</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-12">
+                    <div class="row clearfix">
+                        <div class="col-sm-3">
+                            <div class="form-label">
+                                <label> Optional profile information</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 check-option">
+                            <p>I'm primarily interested in
+                                <p>
+                                    <div class="form-group check-field">
+                                        <ul>
+                                            <li>
+                                                <input type="checkbox" id="basic_checkbox_2" class="filled-in">
+                                                <label for="basic_checkbox_2">Buying Property</label>
+                                            </li>
+                                            <li>
+                                                <input type="checkbox" id="basic_checkbox_3" class="filled-in">
+                                                <label for="basic_checkbox_3">Selling Property</label>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                        </div>
+                        <div class="col-sm-5">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row clearfix">
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group btn-field">
+                                <button type="button" class="btn bg-amber m-t-15 waves-effect"
+                                    (click)="SaveChanges()">Save Changes</button>
+                            </div>
+                            <div *ngIf="successmsg==true">
+                                <div class="text-danger">{{errMsg}}</div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+<!-- Change Email popup -->
+<div class="modal fade modal-bg" id="changeEmail" tabindex="-1" role="dialog" style="margin-top: 5%;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <img src="assets/images/modal-bg1.png" class="m-bg1" />
+            <img src="assets/images/modal-bg2.png" class="m-bg2" />
+            <div class="modal-header head-center">
+                <img src="assets/images/change-email-icon.png" />
+                <button type="button" class="btn btn-link close-btn" data-dismiss="modal">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+
+            <form [formGroup]="newemailvalidation">
+                <div class="modal-body email-pop-cont">
+                    <h1>Edit email address</h1>
+                    <div class="col-lg-12 form-div">
+                        <div class="row clearfix">
+                            <div class="col-sm-5">
+                                <div class="form-label">
+                                    <label>Current email address</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="form-group">
+                                    <label>{{UserValues.EmailAddress}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 form-div">
+                        <div class="row clearfix">
+                            <div class="col-sm-5">
+                                <div class="form-label">
+                                    <label>New email address
+                                        <sup>*</sup>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" formControlName="emaillnew" name="email"
+                                            [(ngModel)]="NewEmail" />
+                                    </div>
+                                    <div *ngIf="newemailsub && emailvalidation.emaillnew.errors" class="text-danger">
+                                        <div *ngIf="emailvalidation.emaillnew.errors.required">Email is required</div>
+                                        <div *ngIf="emailvalidation.emaillnew.errors.email">Email must be a valid
+                                            email address</div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-yellow waves-effect" data-dismiss="modal"
+                        style="float: right;">Cancel</button>
+                    <button type="button" class="btn bg-blue waves-effect" style="float: right;"
+                        [disabled]="!newemailvalidation.valid" (click)="updateemail(NewEmail)">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Change Email popup end/-->
+
+<!-- Change Email popup -->
+<div class="modal fade modal-bg" id="changePass" tabindex="-1" role="dialog" style="margin-top: 5%;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <img src="assets/images/modal-bg1.png" class="m-bg1" />
+            <img src="assets/images/modal-bg2.png" class="m-bg2" />
+            <div class="modal-header head-center">
+                <img src="assets/images/change-pass-icon.png" />
+                <button type="button" class="btn btn-link close-btn" data-dismiss="modal">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body email-pop-cont">
+                <h1>Change Password</h1>
+                <p>A password must be between 6-20 characters long, cannot be the same as
+                    <br> your e-mail alias or address, and capitalization matters. All fields are required.</p>
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+                        <div class="col-sm-5">
+                            <div class="form-label">
+                                <label>Old Password</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="Old password"
+                                        name="oldpassword" [(ngModel)]="OldPassword" />
+                                </div>
+
+                                <div *ngIf="!checkpassword " class="text-danger">
+                                    <div>Please Enter Correct Old Password.</div>
+                                    <!-- <div>PLEASE ENTER VALID OLD PASSWORD.</div> -->
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+                        <div class="col-sm-5">
+                            <div class="form-label">
+                                <label>New Password
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="New password"
+                                        name="newpassword" [(ngModel)]="NewPassword" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+                        <div class="col-sm-5">
+
+                        </div>
+                        <div class="col-sm-7 btns-div" style="float: right;">
+                            <button type="button" class="btn bg-yellow waves-effect"
+                                data-dismiss="modal">Cancel</button>
+                            <button type="button" [disabled]="!OldPassword || !NewPassword"
+                                class="btn bg-blue waves-effect"
+                                (click)="changepassword(NewPassword,OldPassword)">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Change Mobile number -->
+<div class="modal fade modal-bg" id="changemoblie" tabindex="-1" role="dialog" style="margin-top: 5%;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <img src="assets/images/modal-bg1.png" class="m-bg1" />
+            <img src="assets/images/modal-bg2.png" class="m-bg2" />
+            <div class="modal-header head-center">
+                <img src="assets/images/change-pass-icon.png" />
+                <button type="button" class="btn btn-link close-btn" data-dismiss="modal">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+
+            <div class="modal-body email-pop-cont">
+                <h1>Edit Phone Number</h1>
+                <br>
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+                        <div class="col-sm-3">
+                            <div class="form-label">
+                                <label> Phone Number
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <div class="form-line ph-no">
+                                    <select class="form-control" [(ngModel)]="country">
+                                        <option selected="selected" value="1">+1</option>
+                                        <option value="91">+91</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="Mobile Number"
+                                        [(ngModel)]="newMobile" name="phone" />
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn waves-effect" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn bg-blue waves-effect" data-dismiss="modal"
+                    (click)="sendotp(newMobile,country)">Send OTP</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Change Email popup end/-->
+
+
+
+
+<!-- Change Mobile number -->
+<div class="modal fade modal-bg" id="verifyotpp" tabindex="-1" role="dialog" style="margin-top: 5%;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <img src="assets/images/modal-bg1.png" class="m-bg1" />
+            <img src="assets/images/modal-bg2.png" class="m-bg2" />
+            <div class="modal-header head-center">
+                <img src="assets/images/change-pass-icon.png" />
+                <button type="button" class="btn btn-link close-btn" data-dismiss="modal">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+
+            <div class="modal-body email-pop-cont">
+                <h1>Edit Phone Number</h1>
+                <br>
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+                        <div class="col-sm-4">
+                            <div class="form-label">
+                                <label> Please enter OTP
+                                    <sup>*</sup>
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="Enter OTP Number"
+                                        [(ngModel)]="otp" name="phone" />
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn waves-effect" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn bg-blue waves-effect" (click)="verifyotp(otp)">Verify</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

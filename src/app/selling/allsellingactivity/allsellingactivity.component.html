@@ -1,0 +1,151 @@
+<app-topnav></app-topnav>
+<app-sidemenu></app-sidemenu>
+<section class="content woz-div">
+    <div class="container-fluid">
+        <div class="buyer-div">
+            <h2 class="buy-title">Activity</h2>
+
+            <div class="row clearfix active-bids active-client">
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+
+
+                        <!--Active bids div -->
+                        <p-dataView [value]="sellerallactivity" [paginator]="paginination" [rows]="6" layout="grid"
+                            [loading]="loading" [emptyMessage]="emptyMessage"
+                            loadingIcon="fa fa-spinner fa-pulse fa-3x fa-fw">
+
+                            <ng-template let-sellall pTemplate="gridItem">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="card">
+                                        <div class="head">
+                                            <h2>
+                                                <span>Single Family Residential</span>
+                                            </h2>
+                                            <div class="bid-place">
+                                                <div class="bid-img">
+                                                    <img src="{{sellall.filepath}}" />
+                                                </div>
+                                                <div class="bid-area">
+                                                    <p>{{sellall.StreetAddress}}, {{sellall.City}},<br />
+                                                        {{sellall.State}} {{sellall.ZipCode}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="body">
+                                            <!-- <span class="status-tag">
+                                                            <img src="assets/images/complete-icon.png" /> Complete</span> -->
+                                            <ul class="offers">
+                                                <li class="day">Offer Close
+                                                    <span class="off">{{sellall.AuctionEndDate | date: 'dd/MM/yyyy'}}
+
+                                                        <!-- {{timeConvert('29/12/2019').days}}
+                                                                        {{timeConvert(sellall.AuctionEndDate).hours}}
+                                                                         {{timeConvert(sellall.AuctionEndDate).minutes}} -->
+
+                                                    </span>
+                                                </li>
+                                                <li class="tag">Maximum Bid
+                                                    <span class="off">${{sellall.MaxBidAmount}}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="foot">
+                                            <ul class="action-btns">
+                                                <li>
+                                                    <a href="javascript:void(0);" class="blu-btn" data-toggle="modal"
+                                                        (click)="getnoofBids(sellall.Id)" data-target="#gridpopup">No of
+                                                        Bids {{sellall.NoOfBids}}</a>
+                                                </li>
+                                                <li>
+                                                    <!-- <a href="javascript:void(0);" class="blu-btn">Bid is in top
+                                                                    {{sellall.BidPosition}}</a> -->
+                                                </li>
+                                                <!-- <li>
+                                                                <a href="javascript:void(0);" class="ylw-btn" [routerLink]="['/propertydetails',sellall.Id]" >
+                                                                    <img src="assets/images/increase-icon.png"/> Edit Property </a>
+                                                            </li> -->
+                                                <!-- <li *ngIf="sellall.IsBidAccepted==true ">
+                                                                <a href="javascript:void(0);" class="ylw-btn" [routerLink]="['/bidsellallerty',sellall.Id]" >
+                                                                    <img src="assets/images/increase-icon.png" /> Bid Accepted</a>
+                                                            </li> -->
+
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </ng-template>
+
+                        </p-dataView>
+
+
+                        <!--Active bids div end-->
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
+
+<div class="modal fade modal-bg" id="gridpopup" tabindex="-1" role="dialog" style="margin-top: 15%;">
+    <div class="modal-dialog" role="document" style="width: 760px;">
+        <div class="modal-content">
+            <div class="modal-header head-center">
+                <button type="button" class="btn btn-link close-btn" data-dismiss="modal">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body email-pop-cont" style="width: 100%;">
+                <h1 style="font-size: 18px; color: rgb(102, 99, 99); text-align: left;">Listing Activity</h1>
+
+
+                <table class="table">
+                    <thead style="background-color: #E8EDF7; font-size: 14px;">
+                        <tr>
+                            <th scope="col">FORM</th>
+                            <th scope="col">PROPERTY</th>
+                            <th scope="col">LISTING PRICE</th>
+                            <th scope="col">CLIENT OFFER</th>
+                            <th scope="col">OFFER CLOSE</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let bids of Noofbids">
+                            <td scope="row" *ngIf="IsnofoBids==null">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <!-- <img src="../../assets/images/5.png" alt="pposter1.png"> -->
+                                {{bids.UserName}}</td>
+                            <td scope="row" *ngIf="IsnofoBids!=null">
+                                <img src="{{bids.userProfileImageURL}}" style="height: 237px;">
+                                {{bids.UserName}}</td>
+                            <td>--</td>
+                            <td>{{bids.ListingPrice | currency :'USD':'symbol':'1.0-0'}}</td>
+                            <td>{{bids.BidAmount | currency :'USD':'symbol':'1.0-0'}}</td>
+                            <td>{{bids.BidDate | date}}</td>
+                            <button class="btn1 bg-amber1">Accept Bid</button>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

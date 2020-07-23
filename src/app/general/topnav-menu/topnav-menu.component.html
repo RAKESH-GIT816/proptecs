@@ -1,0 +1,298 @@
+<!-- Top Bar -->
+
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+  <div class="container_nav navigation">
+
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand" href="index.html">
+        <!-- <img src="../../assets/images/logo.png" alt="" width="150" height="40" /> -->
+        <div class="borderLogo"></div>
+        <div class="logotext">PROPTECS</div>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active">
+          <a [routerLink]="['/']">Buy Properties</a>
+        </li>
+
+        <li routerLinkActive="active" *ngIf="checklogout ==0"  [hidden]>
+          <a href="javascript:void(0);" onclick="openForm()">Sell Properties</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="checklogout ==1">
+          <a href="javascript:void(0);" [routerLink]="['/propertydetails/new']">Sell Properties</a>
+        </li>
+
+        <li routerLinkActive="active">
+          <a href="javascript:void(0);" [routerLink]="['/howitworks']">How it Works</a>
+        </li>
+
+        <li routerLinkActive="active" *ngIf="checklogout ==1">
+          <a [routerLink]="['/mydashboard/Buying/activebids']">My Dashboard</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="checklogout ==0" [hidden]>
+          <a href="javascript:void(0);" onclick="openForm()">
+            LogIn/Resigter</a>
+        </li>
+        <li routerLinkActive="active" *ngIf="checklogout ==1" [hidden]>
+          <a href="javascript:void(0);" (click)="logout()">Log Out</a>
+        </li>
+      </ul>
+    </div>
+    <div id="loginPopup">
+
+      <div class="form-popup" id="popupForm">
+
+        <form action="/action_page.php" class="form-container">
+          <div class="row">
+            <div class="">
+              <button type="button" class="btn_close" onclick="closeForm()">X</button>
+            </div>
+          </div>
+
+          <section class="content login-div">
+            <div class="container" *ngIf="createloginflag">
+                <div class="login-top">
+                    <h1 class="login-title">Take Charge Of Your Future Now.</h1>
+                    <p>Log in or create an account to
+                        <a href="javascript:void(0);">get started.</a>
+                    </p>
+                </div>
+        
+                <div class="login-form">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="row clearfix">
+                            <form class="form-horizontal" [formGroup]="login" (ngSubmit)="loginform(login.value)">
+                                <div class="col-sm-5 login-lft">
+                                    <h2>Already have a PROPTECS account?</h2>
+                                    <div class="col-sm-12">
+                                        <div class="row clearfix">
+                                            <div class="form-label">
+                                                <label>E-mail Address </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                        <input class="form-control" name="EmailAddress" type="text" required="" placeholder="Email Address"
+                                                        formControlName="EmailAddress" [ngClass]="{ 'is-invalid': submitted && f1.EmailAddress.errors }" >
+                                                </div>
+                                                <div *ngIf="submitted && f1.EmailAddress.errors" class="text-danger">
+                                                    <div *ngIf="f1.EmailAddress.errors.required">Email is required</div>
+                                                    <div *ngIf="f1.EmailAddress.errors.email">Email must be a valid
+                                                        email address</div>
+        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="col-sm-12">
+                                        <div class="row clearfix">
+                                            <div class="form-label">
+                                                <label>Password</label>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                        <input class="form-control" name="password" type="password" required="" placeholder="Password"
+                                                        formControlName="password" [ngClass]="{ 'is-invalid': submitted && f1.password.errors }">
+                                                </div>
+                                                <div *ngIf="submitted && f1.password.errors" class="text-danger">
+                                                    <div *ngIf="f1.password.errors.required">Password is required</div>
+                                                  
+        
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row clearfix">
+                                            <div class="form-group form-check">
+                                                <div class="col-sm-6">
+                                                    <div class="row clearfix">
+                                                        <div class="form-line">
+                                                         
+                                                            <input id="checkbox-signup" type="checkbox" formControlName="rememberme" 
+                                                            name="rememberme" class="filled-in">
+                                                            <label for="checkbox-signup">Remember me</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="row clearfix">
+                                                        <a href="javascript:void(0);"  [routerLink]="['/forgetpassword']" class="forget-pass">Forgot password ?</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row clearfix">
+                                            <div class="form-group btn-field">
+                                                <button type="submit" class="btn bg-amber m-t-0 waves-effect" id="loadbtn"
+                                                data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i>&nbsp;Authenticating"
+                                                    >Log In</button>  
+                                                </div>                                        
+                                            </div>
+                                        </div>
+                                        <div  class="text-danger" *ngIf="loginsts== false">{{errMsg}}</div>
+                                        
+        
+                                </div>
+                                <div class="col-sm-5 login-rgt">
+                                    <div class="login-logo">
+                                        <img src="../assets/images/proptecslogo.jpg" />
+                                    </div>
+                                    <h1>New to PROPTECS?</h1>
+                                    <div class="btn-create">
+                                        <button type="button" class="btn btn-info m-t-0 waves-effect"
+                                        id="toggle-register" (click)="createaccount()">Create An Account</button>
+                                    </div>
+        
+                                    <div class="or-line">
+                                        <span>Or</span>
+                                    </div>
+                                    <a href="javascript:void(0);" class="g-link">
+                                        <span>
+                                            <img src="assets/images/g-logo.png" />
+                                        </span>Continue With Google</a>
+        
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+
+            <div class="container" *ngIf="register">
+              <div class="login-top">
+                  <h1 class="login-title">Create An Account</h1>
+                  <p>Becoming a buyer or seller on PROPTECS is easy.</p>
+              </div>
+              <form [formGroup]="registerForm">
+                  <div class="login-form">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                          <div class="row clearfix">
+      
+                              <div class="col-sm-5 login-lft">
+                                  <div class="col-sm-12">
+                                      <div class="row clearfix">
+                                          <div class="form-label">
+                                              <label>Your E-mail </label>
+                                          </div>
+                                          <div class="form-group">
+                                              <div class="form-line">
+                                                  <input type="email" formControlName="EmailAddress" class="form-control"
+                                                      placeholder="Email Address"
+                                                      [ngClass]="{ 'is-invalid': submitted && f.EmailAddress.errors }" />
+                                              </div>
+                                              <div *ngIf="submitted && f.EmailAddress.errors" class="text-danger">
+                                                  <div *ngIf="f.EmailAddress.errors.required">Email is required</div>
+                                                  <div *ngIf="f.EmailAddress.errors.email">Email must be a valid
+                                                      email address</div>
+      
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+      
+                                  <div class="col-sm-12">
+                                      <div class="row clearfix">
+                                          <div class="form-label">
+                                              <label>Create Password</label>
+                                          </div>
+                                          <div class="form-group">
+                                              <div class="form-line">
+                                                  <input type="password" formControlName="password" class="form-control"
+                                                      placeholder="Password"
+                                                      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                              </div>
+                                              <div *ngIf="submitted && f.password.errors" class="text-danger">
+                                                  <div *ngIf="f.password.errors.required">Password is required</div>
+                                                  <div *ngIf="f.password.errors.minlength">Password Should be Minimum 6
+                                                      characters</div>
+                                                  <div *ngIf="f.password.errors.maxlength">Password Should Not be Maxmimum 20
+                                                      characters</div>
+      
+      
+                                              </div>
+      
+      
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-12">
+                                      <div class="row clearfix">
+                                          <div class="form-label">
+                                              <label>Confirm Password</label>
+                                          </div>
+                                          <div class="form-group">
+                                              <div class="form-line">
+                                                  <input type="password" formControlName="cpassword" class="form-control"
+                                                      placeholder="Confirm Password"
+                                                      [ngClass]="{ 'is-invalid': submitted && f.cpassword.errors }" />
+                                              </div>
+                                              <div *ngIf="submitted && f.cpassword.errors" class="text-danger">
+                                                  <div *ngIf="f.cpassword.errors.required">Confirm Password is required</div>
+      
+                                              </div>
+                                              <div class="text-danger" *ngIf="checkpassword==false">password and confirm
+                                                  password should be same</div>
+      
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-12">
+                                      <div class="row clearfix">
+                                          <div class="form-group btn-field">
+                                              <button type="button" (click)="onsignup()"
+                                                  class="btn bg-amber m-t-0 waves-effect" id="loadbtn"
+                                                  data-loading-text=" <i class='fa fa-circle-o-notch fa-spin'></i>&nbsp;Signing Up">
+                                                  Sign Up</button>
+                                          </div>
+                                          <div *ngIf="Emailcheck==false">
+                                              <div class="text-danger">{{errMsg}}</div>
+                                          </div>
+                                      </div>
+                                  </div>
+      
+                              </div>
+                              <div class="col-sm-5 login-rgt">
+                                  <div class="login-logo">
+                                      <img src="assets/images/proptecslogo.jpg" />
+                                  </div>
+                                  <h2>Already have a PROPTECS account ?</h2>
+                                  <a class="login-link" (click)="createlogin()">Log In</a>
+                                  <div class="or-line">
+                                      <span>Or</span>
+                                  </div>
+                                  <a href="javascript:void(0);" class="g-link">
+                                      <span>
+                                          <img src="assets/images/g-logo.png" />
+                                      </span>Continue With Google</a>
+      
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </form>
+      
+          </div>
+        </section>
+        </form>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+
+  <!-- /.container -->
+</nav>
+
+
+
+
+<!-- #Top Bar -->

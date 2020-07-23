@@ -1,0 +1,190 @@
+<app-topnav></app-topnav>
+<app-sidemenu></app-sidemenu>
+<section class="content woz-div">
+    <div class="container-fluid">
+        <div class="buyer-div">
+            <h2 class="history-title">History</h2>
+            <div class="row clearfix sellhistory active-client">
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+                        <!--Active bids div -->
+                        <p-dataView [value]="sellerhistorylist" [paginator]="paginination" [rows]="6" layout="grid"
+                            [loading]="loading" [emptyMessage]="emptyMessage"
+                            loadingIcon="fa fa-spinner fa-pulse fa-3x fa-fw">
+                            <ng-template let-sell pTemplate="gridItem">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="card">
+                                        <div class="head">
+                                            <h2>
+                                                <span>Single Family Residential</span>
+                                            </h2>
+                                            <div class="bidhistory-place">
+                                                <div class="bidhistory-img">
+                                                    <img src="{{sell.filepath}}" />
+                                                    <!-- <img src="../assets/images/accept-bid-img.jpg"> -->
+                                                </div>
+                                                <div class="bidhistory-area">
+                                                    <p>{{sell.StreetAddress}}, {{sell.City}},<br /> {{sell.State}}
+                                                        {{sell.ZipCode}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <div class="sellhistorybids">
+                                                <ul class="active-list">
+                                                    <li class="head-li">
+                                                        <p>Listing Status:
+                                                            <span>{{sell.PropertyStatus}}</span>
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="border-bottom: 1px solid rgb(209, 208, 208);
+                                                        border-bottom-style: dashed;"></p>
+                                                    </li>
+                                                    <li>
+                                                        <p>#Time Saved:
+                                                            <span>{{sell.NoOfSaves}}</span>
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="border-bottom: 1px solid rgb(209, 208, 208);
+                                                        border-bottom-style: dashed;"></p>
+                                                    </li>
+                                                    <li>
+                                                        <p>Bids Received:
+                                                            <span>{{sell.NoOfBids}}</span>
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="border-bottom: 1px solid rgb(209, 208, 208);
+                                                        border-bottom-style: dashed;"></p>
+                                                    </li>
+                                                    <li>
+                                                        <p>User Views:
+                                                            <span>0</span>
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="border-bottom: 1px solid rgb(209, 208, 208);
+                                                            border-bottom-style: dashed;"></p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <ul class="offers">
+                                                <li class="day">Posted
+                                                    <span class="off">--</span>
+                                                    <!-- <span class="off">{{prop.AuctionEndDate | date: 'dd/MM/yyyy'}}</span> -->
+                                                </li>
+                                                <li class="day">Ending
+                                                    <span
+                                                        class="off">{{sell.AuctionEndDate | date: 'dd/MM/yyyy'}}</span>
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="foot">
+                                            <div class="messageSticky">
+                                                What else do we need to let the user do? </div>
+                                            <ul class="actionhistory-btns">
+                                                <li>
+                                                    <a href="javascript:void(0);" *ngIf="sell.PropertyStatusId==null || sell.PropertyStatusId==0 || sell.PropertyStatusId==1"
+                                                    [routerLink]="['/propertydetails',sell.Id]">
+                                                        <img src="assets/images/edit-icon.png" style="margin:0 10px" />Edit</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);" *ngIf="sell.PropertyStatusId==null || sell.PropertyStatusId==0 || sell.PropertyStatusId==1">
+                                                        <img src="assets/images/delete-icon.png" style="margin:0 10px" />Delete</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);" data-toggle="modal"  data-target="#gridpopup">
+                                                        <img src="assets/images/promote-icon.png" style="margin:0 10px" /> Promote</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- <div class="foot">
+                                                    <ul class="action-btns">
+                                                        <li>
+                                                            <a href="javascript:void(0);" class="blu-btn">Bid on 
+                                                                    {{sell.AuctionEndDate| date: 'dd/MM/yyyy'}}</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0);" class="blu-btn">Bid is in top
+                                                                {{sell.BidPosition}}</a>
+                                                        </li>
+                                                        <li *ngIf="sell.IsBidAccepted==false">
+                                                            <a href="javascript:void(0);" class="ylw-btn" [routerLink]="['/bidsellerty',sell.Id]" >
+                                                                <img src="assets/images/increase-icon.png" /> Increase Bid </a>
+                                                        </li>
+                                                        <li *ngIf="sell.IsBidAccepted==true ">
+                                                            <a href="javascript:void(0);" class="ylw-btn" [routerLink]="['/bidsellerty',sell.Id]" >
+                                                                <img src="assets/images/increase-icon.png" /> Bid Accepted</a>
+                                                        </li>
+        
+        
+                                                    </ul>
+                                                </div> -->
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </p-dataView>
+                        <!--Active bids div end-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade modal-bg" id="gridpopup" tabindex="-1" role="dialog" style="margin-top: 15%;">
+    <div class="modal-dialog" role="document" style="width: 900px;">
+        <div class="modal-content">
+            <!-- <img src="assets/images/modal-bg1.png" class="m-bg1" />
+            <img src="assets/images/modal-bg2.png" class="m-bg2" /> -->
+            <div class="modal-header head-center">
+                <!-- <img src="assets/images/change-pass-icon.png" /> -->
+                <button type="button" class="btn btn-link close-btn" data-dismiss="modal">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body email-pop-cont" style="width: 100%;">
+                <h1 style="font-size: 18px; color: rgb(102, 99, 99); text-align: left;">Listing Activity</h1>
+            
+               
+                    <table class="table">
+                        <thead style="background-color: #E8EDF7; font-size: 14px;">
+                          <tr>
+                            <th scope="col">FORM</th>
+                            <th scope="col">PROPERTY</th>
+                            <th scope="col">LISTING PRICE</th>
+                            <th scope="col">CLIENT OFFER</th>
+                            <th scope="col">ALL OFFER</th>
+                            <th scope="col">OFFER CLOSE</th>   
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Max romer</th>
+                            <td>27/7,Mallow, Fredik,CA </td>
+                            <td>$666666</td>
+                            <td>$76765656</td>
+                            <td>12</td>
+                            <td>20/04/2020</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Max romer</th>
+                            <td>27/7,Mallow, Fredik,CA </td>
+                            <td>$666666</td>
+                            <td>$76765656</td>
+                            <td>12</td>
+                            <td>20/04/2020</td>
+                          </tr>
+                        
+                        </tbody>
+                      </table>
+                
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

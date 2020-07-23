@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>PROPTECS</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&display=swap" rel="stylesheet">
+   <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <!-- <script src="assets/js/jquery.min.js"></script> -->
+  <!-- <script src="assets/js/bootstrap.min.js"></script> -->
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/jquery.scrollTo.js"></script>
+  <script src="assets/js/jquery.appear.js"></script>
+  <script src="assets/js/stellar.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/js/nivo-lightbox.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="https://js.stripe.com/v2/"></script>
+<script src="https://js.stripe.com/v3/"></script>
+  <script>
+    function openForm() {
+  document.getElementById("loginPopup").style.display="block";
+}
+function closeForm() {
+  document.getElementById("loginPopup").style.display= "none";
+}
+
+
+function openForm1() {
+  document.getElementById("loginPopup1").style.display="block";
+}
+function closeForm1() {
+  document.getElementById("loginPopup1").style.display= "none";
+}
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  var modal = document.getElementById('loginPopup');
+  if (event.target == modal) {
+    closeForm();
+  }
+
+ 
+}
+
+
+window.onclick = function(event) {
+  var modal = document.getElementById('loginPopup1');
+  if (event.target == modal) {
+    closeForm1();
+  }
+
+ 
+}
+  </script>
+
+</head>
+
+<body>
+  <!-- <div style="position: absolute;top: 50%;left:50%;z-index: 9999;">
+        <img style="width: 100px;"  src="assets/images/loader.gif" alt="">
+      </div> -->
+  <app-root></app-root>
+</body>
+
+</html>

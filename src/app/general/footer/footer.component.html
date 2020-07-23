@@ -1,0 +1,175 @@
+<!-- <section class="foot-div foot-index">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row clearfix">
+                    <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12  min-hgt">
+                        <div class="foot-logo">
+                            <img src="assets/images/foot-logo.png" />
+                        </div>
+                        <p>
+                            We celebrate those looking to take the next, or a new step. And cater to an increasingly mobile
+population. One that is less anchored to a location or job, and more willing than ever to
+embrace change. In fact, we’re all about change. Changing the way homes are bought and sold.
+                        </p>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 min-hgt">
+                        <h2>Useful Links</h2>
+                        <ul>
+                            <li>
+                                <a [routerLink]="['/']">Buy Properties</a>
+                            </li>
+                            <li *ngIf="checklogout ==0">
+                                <a [routerLink]="['/login',sellproperties]">Sell Properties</a>
+                            </li>
+                            <li *ngIf="checklogout ==1">
+                                <a [routerLink]="['/propertydetails/new']">Sell Properties</a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/howitworks']" >How it Works</a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/about']">About</a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/heatmap']">Heatmap</a>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 min-hgt">
+                        <h2>More Info</h2>
+                        <ul>
+                            <li>
+                                <a [routerLink]="['/career']">Career</a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/mobileapp']">Mobile Apps</a>
+                            </li>
+                            <li>
+                                <a [routerLink]="['/professionals']">Professionals</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 min-hgt">
+                        <h2>Follow Us</h2>
+                        <ul class="social">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="assets/images/fb-icon.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="assets/images/insta-icon.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="assets/images/twitter-icon.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="assets/images/linked-in-icon.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <img src="assets/images/g-plus-icon.png" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- <footer class="footer">
+<div class="container">
+    <p>Copyright {{current_year | date: 'yyyy' }} – EquityOne, LLC</p>
+</div>
+</footer> -->
+<footer>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 pr0 pl0">
+                <div class="widget">
+                    <h5>About Proptecs</h5>
+                    <p>
+                        We celebrate those looking to take the next, or a new step. And cater to an increasingly mobile
+                        population.
+                        One that is less anchored to a location or job, and more willing than ever to
+                        embrace change.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 pr0 pl0">
+                <div class="widget">
+                    <h5>Useful Links</h5>
+                    <ul>
+                        <li>
+                            <a [routerLink]="['/']">Buy Properties</a>
+                        </li>
+                        <li *ngIf="checklogout ==0" [hidden]>
+                            <a href="javascript:void(0);" onclick="openForm()">Sell Properties</a>
+                        </li>
+                        <li *ngIf="checklogout ==1">
+                            <a [routerLink]="['/propertydetails/new']">Sell Properties</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/howitworks']">How it Works</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/about']">About</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/heatmap']">Heatmap</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 pr0 pl0">
+                <div class="widget">
+                    <h5>Contact Us</h5>
+                    <p>
+                        contact@proptecs.co<br>
+                        US +1 858 429 9159<br>
+
+                        IN +91 761 878 0865
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 pr0 pl0">
+                <div class="widget">
+                    <h5>Follow us</h5>
+                    <ul class="company-social">
+                        <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                        <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="text-left">
+                        <p>&copy;Copyright 2020 - Proptecs. All rights reserved.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>

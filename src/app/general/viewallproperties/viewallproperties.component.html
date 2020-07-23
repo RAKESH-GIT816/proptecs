@@ -1,0 +1,188 @@
+<!-- <app-topnav-menu></app-topnav-menu> -->
+<app-topnav></app-topnav>
+
+<!-- Section: FeaturedProperties -->
+<section id="FeaturedProperties" class="home-section paddingbot-40 parallax">
+  <div class="container1 marginbot-0">
+    <div class="row">
+      <div class="col-md-8 col-lg-6">
+        <div class="breadcrumb_content style2">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active text-thm" aria-current="page">Properties</li>
+          </ol>
+          <h2 class="breadcrumb_title">All Properties</h2>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-6">
+        <div class="sidebar_switch text-right">
+          <div id="main2">
+            <span id="open2" class="flaticon-filter-results-button filter_open_btn"> Show Filter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"><br>
+      <div class="grid_list_search_result style2">
+        <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+          <div class="left_area">
+            <!-- <p>9 Search results</p> -->
+            <!-- <div class="search_left"> -->
+              <!-- <input type="text" placeholder="Search by Title..." [(ngModel)]="searchText">
+              <button><i class="fa fa-search" aria-hidden="true"></i></button> -->
+            <!-- </div> -->
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9">
+          <div class="right_area style2 text-right">
+            <ul>
+              <li class="list-inline-item"><span class="shrtby">Sort by: City</span>
+
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="carousel-reviews broun-block">
+    <div class="container1">
+      <div class="row">
+        <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="item active">
+              <p-dataView [value]="properties" [paginator]="paginination" [rows]="60" layout="grid" [loading]="loading"
+                loadingIcon="fa fa-spinner fa-pulse fa-3x fa-fw" emptyMessage="">
+                <ng-template let-prop pTemplate="gridItem">
+                  <div class="col-md-3 col-sm-6">
+                    <!-- | filter: searchText:['City'] -->
+                    <div class="prop-div feat_property">
+                      <a [routerLink]="['/viewproperty',prop.PropertyId]">
+                        <div class="person-text rel text-light">
+                          <div class="thumb">
+                            <img src="{{prop?.FilePath}}" style="height: 237px;">
+                          </div>
+                          <div class="prop-over-txt">
+                            <h2>$ {{prop?.ARV}}</h2>
+                            <!-- <h2>{{prop?.PropertyType}} <br>
+                          <span>{{prop?.City}}, {{prop?.State}} {{prop?.ZipCode}}</span></h2> -->
+                          </div>
+                        </div>
+                      </a>
+                      <div class="addressdetail">
+                        <div class="detail1">
+                          {{ prop?.PropertyType }}
+                        </div>
+                        <div class="detail_content">
+                          <!-- Renovated Apartment -->
+                          {{prop?.StreetAddress}}
+                        </div>
+                        <div class="tc_content">
+                          <!-- <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p> -->
+                          <p><span class="flaticon-placeholder" *ngIf="prop.ShowAddress">
+                              {{ prop?.City }}, {{ prop?.State }}, {{ prop?.ZipCode }}
+                            </span></p>
+                        </div>
+                      </div>
+      
+                      <div class="prop-cont">                    
+                        <ul class="det-list">
+                          <li>
+                            <p>
+                              <span>
+                                <img src="assets/images/bed-icon-grey.png" />
+                              </span>{{prop.Bedrooms}} bedrooms</p>
+                          </li>
+                          <li>
+                            <p>
+                              <span>
+                                <img src="assets/images/bath-icon-grey.png" />
+                              </span>{{ prop.Bathrooms}} bath</p>
+                          </li>
+                          <li>
+                            <p>
+                              <span>
+                                <img src="assets/images/sqft-icon-grey.png" />
+                              </span>{{ prop.FinishedSqFt }} sqft</p>
+                          </li>
+                        </ul>
+      
+                        <ul class="rate-list">
+                          <li class="head-li">
+                            <p>Estimated ARV
+                              <span>{{ prop.ARV  | currency :'USD':'symbol':'1.0-0'}}</span>
+                            </p>
+                          </li>
+                          <li>
+                            <p>Seller Asking Price
+                              <span>-{{ prop.MinimumStartBid  | currency :'USD':'symbol':'1.0-0'}}</span>
+                            </p>
+                          </li>
+                          <li *ngIf="prop.RepairCost != null && prop.RepairCost != 0 ">
+                            <p>Estimated Repair Cost
+                              <span>-{{ prop.RepairCost  | currency :'USD':'symbol':'1.0-0'}}</span>
+                            </p>
+                          </li>
+                          <li>
+                            <p>Estimated Escrow Cost
+                              <span>-{{ prop.EstimatedEscrowCost  | currency :'USD':'symbol':'1.0-0'}}</span>
+                            </p>
+                          </li>
+      
+                          <li *ngIf="prop.RepairCost == null || prop.RepairCost == 0 " style="height:16px;">
+                            <span> </span>
+      
+                          </li>
+                          <li class="foot-li">
+                            <p>Potential Profit
+                              <span>
+                                {{ prop.ARV - prop.MinimumStartBid - prop.RepairCost- prop.EstimatedEscrowCost  | currency :'USD':'symbol':'1.0-0'}}
+                              </span>
+                            </p>
+                          </li>
+                        </ul>
+                        <div class="fp_footer">
+                          <ul class="fp_meta float-left mb0">
+                            <li class="list-inline-item">
+                              <a href="#"><img src="../../assets/images/5.png" alt="pposter1.png"></a>
+                            </li>
+                            <li class="list-inline-item"><a href="#">{{prop?.UserName}}</a></li>
+                          </ul>
+                          <div class="float-right">
+                            <a class="fp_pdate float-right">{{prop?.AddedDate | date}}</a>
+                          </div>
+      
+                        </div>
+      
+                      </div>
+      
+                      <span *ngIf="prop.ISUserSavedProperty==0" class="heart-icon">
+                        <img (click)="saveProperty(prop.PropertyId)" src="assets/images/wishlist-ico.png" />
+                      </span>
+                      <span *ngIf="prop.ISUserSavedProperty==1 && checklogout!=0" class="heart-icon heart-icon-pink">
+                        <img (click)="unsaveProperty(prop.PropertyId)" src="assets/images/wishlist-ico1.png" />
+                      </span>
+                    </div>
+                  </div>
+                </ng-template>
+              </p-dataView>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+
+<!-- Section: footers -->
+<app-footer ></app-footer>
+<!-- /Section: footers -->
+
+<a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>

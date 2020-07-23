@@ -1,0 +1,155 @@
+
+<app-topnav></app-topnav>
+<app-sidemenu></app-sidemenu>
+<section class="content woz-div">
+    <div class="container-fluid">
+        <div class="buyer-div">
+            <h2 class="buy-title">Bids Accepted</h2>
+
+            <div class="row clearfix active-bids active-client">
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+                        <!--Active bids div -->
+                        <p-dataView [value]="bidsacceptedlist" [paginator]="paginination" [rows]="6" layout="grid"  [emptyMessage]="emptyMessage"
+                        [loading]="loading"   loadingIcon="fa fa-spinner fa-pulse fa-3x fa-fw">
+
+                            <ng-template let-prop pTemplate="gridItem">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="card">
+                                        <div class="head">
+                                            <h2>
+                                                <span>Single Family Residential</span>
+                                            </h2>
+                                            <div class="bid-place">
+                                                <div class="bid-img">
+                                                    <img src="{{prop.filepath}}" />
+                                                </div>
+                                                <div class="bid-area">
+                                                    <p>{{prop.StreetAddress}}, {{prop.City}}, {{prop.State}} {{prop.ZipCode}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="body">
+                                            <span class="status-tag">
+                                                <img src="assets/images/complete-icon.png" /> Complete</span>
+                                            <ul class="offers">
+                                                <li class="day">Offer Close
+                                                    <span class="off">{{prop.AuctionEndDate | date: 'dd/MM/yyyy'}}
+
+                                                            <!-- {{timeConvert('29/12/2019').days}}
+                                                            {{timeConvert(prop.AuctionEndDate).hours}}
+                                                             {{timeConvert(prop.AuctionEndDate).minutes}} -->
+
+                                                    </span>
+                                                </li>
+                                                <li class="tag">Your Offer
+                                                    <span class="off">${{prop.BidAmount}}</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="foot">
+                                            <ul class="action-btns">
+                                                <li>
+                                                    <a href="javascript:void(0);" class="blu-btn">Bid on 
+                                                            {{prop.BidDate| date: 'dd/MM/yyyy'}}</a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0);" class="blu-btn">Bid is in top
+                                                        {{prop.BidPosition}}</a>
+                                                </li>
+                                                <li *ngIf="prop.IsBidAccepted==false">
+                                                    <a href="javascript:void(0);" class="ylw-btn" [routerLink]="['/bidproperty',prop.Id]" >
+                                                        <img src="assets/images/increase-icon.png" /> Increase</a>
+                                                </li>
+
+                                                <li *ngIf="prop.IsBidAccepted==true">
+                                                    <a href="javascript:void(0);" class="ylw-btn">
+                                                        <img src="assets/images/increase-icon.png" /> Bid Accepted</a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </ng-template>
+
+                        </p-dataView>
+
+
+                        <!--Active bids div end-->
+
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
+
+<!-- Change Email popup -->
+<div class="modal fade modal-bg" id="changeEmail" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <img src="assets/images/modal-bg1.png" class="m-bg1" />
+            <img src="assets/images/modal-bg2.png" class="m-bg2" />
+            <div class="modal-header head-center">
+                <img src="assets/images/change-email-icon.png" />
+                <button type="button" class="btn btn-link close-btn" data-dismiss="modal">
+                    <i class="material-icons">close</i>
+                </button>
+            </div>
+            <div class="modal-body email-pop-cont">
+                <h1>Edit email address</h1>
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+                        <div class="col-sm-5">
+                            <div class="form-label">
+                                <label>Current email address</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <label>ferris.bueller@aol.com</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-12 form-div">
+                    <div class="row clearfix">
+                        <div class="col-sm-5">
+                            <div class="form-label">
+                                <label>New email address
+                                    <sup>*</sup>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" placeholder="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn bg-yellow waves-effect" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn bg-blue waves-effect">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

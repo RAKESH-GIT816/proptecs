@@ -1,0 +1,512 @@
+<div *ngIf="loading == true" class="overlay-gif">
+  <img src="assets/images/login-logo.png" alt="" />
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+
+<app-topnav></app-topnav>
+
+<div class="container">
+  <div class="row">
+    <div class="web-form-prop">
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-side">
+        <app-sell-sidemenu></app-sell-sidemenu>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pr-main">
+        <section class="content woz-div add-pro">
+          <form
+            (ngSubmit)="f.form.valid && saveEquity()"
+            #f="ngForm"
+            novalidate
+          >
+            <div class="">
+              <div class="">
+                <div
+                  class="alert alert-success wow fadeInLeft delay-03s"
+                  role="alert"
+                  *ngIf="hasMessage"
+                >
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">×</span>
+                  </button>
+                  {{ displayMessage }}
+                </div>
+                <div
+                  class="alert alert-danger wow fadeInLeft delay-03s"
+                  role="alert"
+                  *ngIf="hasErrorMesage"
+                >
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">×</span>
+                  </button>
+                  {{ displayMessage }}
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <div class="pro-detail p-b-10">
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 padding-0">
+                      <h1 class="margin-0 p-b-10">Wholesale Profit</h1>
+                    </div>
+                  </div>
+                  <div
+                    class="addre-prp p-t-15 col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-30 p-l-0"
+                  >
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 padding-0">
+                      <img src="assets/images/maskot.png" />
+                    </div>
+                    <div
+                      class="col-lg-11 col-md-11 col-sm-11 col-xs-10 padding-0"
+                    >
+                      <div
+                        class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                      >
+                        <h3
+                          *ngIf="property.ShowAddress == true"
+                          class="margin-0 p-l-20 font-20 p-t-15"
+                        >
+                          {{ property?.StreetAddress }}, {{ property?.City }},
+                          {{ property?.State }} {{ property?.ZipCode }}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="add-pro-form clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div
+                      class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                    >
+                      <div class="form-label">
+                        <label
+                          >Purchase Price
+                          <span>*</span>
+                        </label>
+                      </div>
+                      <div class="col-lg-12 p-l-0">
+                        <p class="col-grey">
+                          Price as determined by your Purchase Agreement
+                        </p>
+                      </div>
+                      <div
+                        class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                      >
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input
+                              type="number"
+                              min="0"
+                              name="PurchasePrice"
+                              class="input-text form-control"
+                              [(ngModel)]="equity.PurchasePrice"
+                              #PurchasePrice="ngModel"
+                              (input)="calculateBidAmount()"
+                              required
+                              placeholder="$"
+                              [ngClass]="{
+                                'is-invalid':
+                                  f.submitted && !PurchasePrice.valid
+                              }"
+                            />
+                          </div>
+                          <div
+                            *ngIf="f.submitted && !PurchasePrice.valid"
+                            class="text-danger"
+                          >
+                            Purchase Price Required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 p-r-0">
+                    <div
+                      class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                    >
+                      <div class="form-label m-t-20 wh-ttp">
+                        <label
+                          >Wholesale Fee
+                          <span>*</span>
+                        </label>
+                      </div>
+                      <div
+                        class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                        [ngClass]="{
+                          'has-error': f.submitted && !WholesaleFee.valid
+                        }"
+                      >
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input
+                              type="number"
+                              min="0"
+                              class="form-control"
+                              name="WholesaleFee"
+                              [(ngModel)]="equity.WholesaleFee"
+                              #WholesaleFee="ngModel"
+                              (input)="calculateBidAmount()"
+                              required
+                              placeholder="$"
+                              [ngClass]="{
+                                'is-invalid':
+                                  f.submitted && !PurchasePrice.valid
+                              }"
+                            />
+                          </div>
+                          <div
+                            *ngIf="f.submitted && !WholesaleFee.valid"
+                            class="text-danger"
+                          >
+                            Wholesale Fee Required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="col-lg-11 col-md-12 col-sm-12 col-xs-12 field-visible m-b-15"
+                  >
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 padding-0">
+                      <img src="assets/images/eye-blue.png" />
+                    </div>
+                    <div
+                      class="col-lg-11 col-md-11 col-sm-11 col-xs-10 padding-0 p-l-0"
+                    >
+                      <p>
+                        Only these fields are visible to buyers looking at your
+                        listing
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div
+                      class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                    >
+                      <div class="form-label">
+                        <label>Minimum Start Bid</label>
+                      </div>
+                      <div class="col-lg-12 padding-0">
+                        <p class="col-grey">Purchase Price + Wholesale Fee</p>
+                      </div>
+                      <div
+                        class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                      >
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input
+                              type="text"
+                              class="form-control"
+                              readonly
+                              value="{{ equity.MinimumStartBid }}"
+                              placeholder="$"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 p-l-0">
+                    <div
+                      class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                    >
+                      <div class="form-label m-t-20 med-devv">
+                        <label>Proptecs Fee</label>
+                      </div>
+
+                      <div
+                        class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                      >
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input
+                              type="text"
+                              class="form-control"
+                              readonly
+                              value="249"
+                              placeholder="$0"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 p-l-0 p-r-0">
+                    <div
+                      class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                    >
+                      <div class="form-label m-t-20 med-devv">
+                        <label>Profit from Sale </label>
+                      </div>
+
+                      <div
+                        class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                      >
+                        <div class="form-group">
+                          <div class="form-line">
+                            <input
+                              type="text"
+                              class="form-control"
+                              readonly
+                              placeholder="$0"
+                              value="{{ equity.ProfitfromSale }}"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-t-40"
+              >
+                <div class="pro-detail p-b-10 m-b-25">
+                  <div
+                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                  >
+                    <h1 class="margin-0 p-b-10">Supporting Documents</h1>
+                  </div>
+                </div>
+                <!-- <p class="col-grey  font-16">Supporting documents are optional however you will need to upload your purchase agreement if you want to
+                        accept offers from buyers, however a purchase document will need to uploaded to view and accept offers
+                        from buyers.</p>
+                      <div class="pro-detail p-b-10 m-t-20">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                          <h4 class="margin-0 p-b-10 font-22">Purchase Agreement</h4>
+                        </div>
+      
+      
+                      </div> -->
+                <div
+                  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-35 interest-check m-t-20 l-det"
+                >
+                  <div
+                    class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-t-5 p-l-0"
+                  >
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-l-0">
+                      <input
+                        type="checkbox"
+                        id="md_checkbox_18"
+                        class="filled-in chk-col-yellow"
+                        required
+                        checked=""
+                      />
+                      <label for="md_checkbox_18" class="ag-lag"
+                        >I agree to the following: <span>(i)</span> I am (or I
+                        have authority to act on behalf of) the owner of this
+                        home; <span>(ii)</span> I will not provide incorrect
+                        information or state a discriminatory preference; and
+                        <span>(iii)</span> I will comply with the Proptecs.com
+                        terms of service.
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-pro-form clearfix">
+            <ng-container *ngFor="let folder of folders;let i=index;">
+                <div class="form-group col-sm-8 text-left" style="width: 50%;">
+                  <label for="usr">Please Enter the Folder Name:</label>
+                  <input type="text" class="form-control"   [(ngModel)]="folder.folderName"  [ngModelOptions]="{standalone: true}" (input)="Addfoldername(folder)"/>
+                </div>
+                <div class="col-sm-4" >
+                  <!-- <input
+                    type="file"
+                    (click)="Addfoldername(folder,i)"
+                    #filePurchaseDocs
+                    ng2FileSelect
+                    [uploader]="purchaseaggrementuploader"
+                    multiple
+                    id="file-2"
+                    class="inputfile inputfile-1"
+                    data-multiple-caption="{count} files selected"
+                    multiple=""
+                    
+                  /> -->
+                  <input type="file"  #filePurchaseDocs
+                  ng2FileSelect
+                  [uploader]="purchaseaggrementuploader"
+                  multiple
+                  id="file-2"
+                  style="display: none" >
+                  <div class="form-group btn-field">
+           <input type="button" [disabled]="folder.folderName==''" class="supporting-docs" value="Upload" (click)="Addfoldername(folder);filePurchaseDocs.click()">
+           </div>       
+           <!-- <label for="file-2" class="attach">
+                    <span class="font-17">{{folder.folderName}}</span>
+                  </label> -->
+                </div>
+                
+                <div style="width: 70%;"
+                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20 whole-pro-upload"
+                *ngFor="let file of folder.supportingDocs"
+              >
+                <div
+                  class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pro-img-up p-l-10"
+                >
+                  <i
+                    class="fa fa-file-pdf-o"
+                    style="font-size: 40px; color: #ff902b;"
+                    aria-hidden="true"
+                  ></i>
+                  <h1>{{ file.FileName }}</h1>
+                  <p>Uploaded {{ file.UploadedDate | date: "MM/dd/yyyy" }}</p>
+                </div>
+
+                <div
+                  class="col-lg-4 col-md-4 col-sm-6 col-xs-12 padding-0 text-right"
+                >
+                  <a
+                    href="javascript:void(0);"
+                    class="change-link"
+                    (click)="removeDocument(file.Id)"
+                    >Remove</a
+                  >
+                </div>
+              </div>
+
+              <div
+                class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20 whole-pro-upload"
+                *ngFor="let item of folder.imageData"
+              >
+                <div
+                  class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pro-img-up p-l-10"
+                >
+                  <i
+                    class="fa fa-file-pdf-o"
+                    style="font-size: 40px; color: #ff902b;"
+                    aria-hidden="true"
+                  ></i>
+                  <h1>{{ item?.file?.name }}</h1>
+                </div>
+
+                <div
+                  class="col-lg-4 col-md-4 col-sm-6 col-xs-12 padding-0 text-right"
+                >
+                  <a
+                    href="javascript:void(0);"
+                    class="change-link"
+                    (click)="remove(item)"
+                    >Remove</a
+                  >
+                </div>
+              </div>
+              </ng-container>
+                </div>
+              <div  class="col-sm-8">
+                <input type="button" (click)="add()" value="Add Folder to Upload documents">
+              </div>
+             
+                <!-- <div
+                  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20 whole-pro-upload"
+                  *ngFor="let file of supportingDocs"
+                >
+                  <div
+                    class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pro-img-up p-l-10"
+                  >
+                    <i
+                      class="fa fa-file-pdf-o"
+                      style="font-size: 40px; color: #ff902b;"
+                      aria-hidden="true"
+                    ></i>
+                    <h1>{{ file.FileName }}</h1>
+                    <p>Uploaded {{ file.UploadedDate | date: "MM/dd/yyyy" }}</p>
+                  </div>
+
+                  <div
+                    class="col-lg-4 col-md-4 col-sm-6 col-xs-12 padding-0 text-right"
+                  >
+                    <a
+                      href="javascript:void(0);"
+                      class="change-link"
+                      (click)="removeDocument(file.Id)"
+                      >Remove</a
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0 m-b-20 whole-pro-upload"
+                  *ngFor="let item of purchaseaggrementuploader.queue"
+                >
+                  <div
+                    class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pro-img-up p-l-10"
+                  >
+                    <i
+                      class="fa fa-file-pdf-o"
+                      style="font-size: 40px; color: #ff902b;"
+                      aria-hidden="true"
+                    ></i>
+                    <h1>{{ item?.file?.name }}</h1>
+                  </div>
+
+                  <div
+                    class="col-lg-4 col-md-4 col-sm-6 col-xs-12 padding-0 text-right"
+                  >
+                    <a
+                      href="javascript:void(0);"
+                      class="change-link"
+                      (click)="item.remove()"
+                      >Remove</a
+                    >
+                  </div>
+                </div> -->
+
+                <!-- <div
+                  class="custom-file mb-3 col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0"
+                >
+                  <input
+                    type="file"
+                    #filePurchaseDocs
+                    ng2FileSelect
+                    [uploader]="purchaseaggrementuploader"
+                    multiple
+                    id="file-2"
+                    class="inputfile inputfile-1"
+                    data-multiple-caption="{count} files selected"
+                    multiple=""
+                  />
+                  <label for="file-2" class="attach">
+                    <span class="font-17">Upload Supporting Document</span>
+                  </label>
+                </div> -->
+
+                <div
+                  class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-50 m-t-50"
+                >
+                  <div class="row clearfix">
+                    <div class="col-sm-4 padding-0">
+                      <div class="form-group btn-field">
+                        <button
+                          type="submit"
+                          class="btn bg-amber waves-effect big-s-c m-t-0"
+                        >
+                          Save & Continue
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-sm-5"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

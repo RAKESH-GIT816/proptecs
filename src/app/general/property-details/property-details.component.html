@@ -1,0 +1,1144 @@
+<div *ngIf="loading == true" class="overlay-gif">
+  <img src="assets/images/login-logo.png" alt="" />
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+<app-topnav></app-topnav>
+<!-- <section class="content login-div prop-head"> -->
+<section class="content login-div home-div prop-head">
+  <!-- property detail section -->
+  <div class="prop-detail">
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="row clearfix">
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 prop-det-lft">
+              <div class="prd-img">
+                <div class="flexslider" id="big-img">
+                  <ul class="slides">
+                    <li *ngFor="
+                        let fileimg of propertyPhotosAndVideos;
+                        let i = index
+                      ">
+                      <img src="{{ fileimg.FilePath }}" alt="" />
+                      <div class="ampli-pad">
+                        <div class="fancybox-ampliar2 ampliar">
+                          <img src="assets/images/enlarge-ico.png" alt="" />Enlarge
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="hover-div">
+                    <div id="img-titol">
+                      <img src="assets/images/camera-ico.png" alt="" />
+                      <span class="current-slide">1</span> /
+                      <span class="total-slide"></span>
+                    </div>
+                  </div>
+                  <!-- <div class="wishlist-ico">
+                                        <a href="javascript:void(0);">
+                                            <img src="assets/images/wishlist-ico.png" alt="">
+                                        </a>
+                                    </div>
+
+                                    <div class="wishlist-ico">
+                                            <a href="javascript:void(0);" *ngIf="fav==0">
+                                                <img   
+                                                    src="assets/images/wishlist-ico.png" />
+                                            </a>
+                                            <a href="javascript:void(0);" *ngIf="fav==1">
+                                                <img  *ngIf="fav==1" 
+                                                    src="assets/images/wishlist-ico.png" />
+                                                    
+                                            </a>
+                                       
+                                    </div>     -->
+                </div>
+                <div class="flexslider" id="small-img">
+                  <ul class="slides">
+                    <li *ngFor="let fileimg of propertyPhotosAndVideos">
+                      <a *ngIf="propertyPhotosAndVideos?.length > 1">
+                        <img src="{{ fileimg.FilePath }}" alt="" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+
+              <div class="prop-tab">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active">
+                    <a href="#home_with_icon_title" data-toggle="tab">
+                      <span class="home"></span> Property Details
+                    </a>
+                  </li>
+                  <!-- <li role="presentation">
+                                        <a href="#profile_with_icon_title" data-toggle="tab">
+                                            <span class="floor-plan"></span> Floorplan
+                                        </a>
+                                    </li>
+                                    <li role="presentation">
+                                        <a href="#messages_with_icon_title" data-toggle="tab">
+                                            <span class="map"></span> Map & Streetview
+                                        </a>
+                                    </li> -->
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade in active" id="home_with_icon_title">
+                    <div class="detail-list">
+                      <ul class="det-list1">
+                        <li>
+                          <p>
+                            <span>
+                              <img src="assets/images/bed-icon-blue.png" /> </span>{{ propertyDetails.Bedrooms }}
+                            bedrooms
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <span>
+                              <img src="assets/images/bath-icon-blue.png" /> </span>{{ propertyDetails.Bathrooms }} bath
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <span>
+                              <img src="assets/images/sqft-icon-blue.png" /> </span>{{ propertyDetails.LotSize }}
+                            {{ propertyDetails.LotUnits }}
+                          </p>
+                        </li>
+                      </ul>
+                      <div class="area-det">
+                        <div class="area-det-lft">
+                          <ul>
+                            <li>
+                              <span> Property type:</span>
+                              {{ propertyDetails.PropertyType }}
+                            </li>
+                            <li><span>City:</span> {{ propDetail.City }}</li>
+                          </ul>
+                        </div>
+                        <div class="area-det-rgt">
+                          <ul>
+                            <li>
+                              <span>Year Built:</span>
+                              {{ propertyDetails.YearBuilt }}
+                            </li>
+                            <!-- <li>
+                                                            <span>Offer type:</span> -</li> -->
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="detail-list img-feat">
+                      <h2>Features</h2>
+                      <div class="feature-lft">
+                        <ul *ngFor="
+                            let Appliance of AppliancesList;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+
+                        <ul *ngFor="
+                            let Appliance of selectedfloorcovering;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+
+                        <ul *ngFor="
+                            let Appliance of selectedroomtypes;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+
+                        <ul *ngFor="
+                            let Appliance of selectedindoorfeatures;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+
+                        <ul *ngFor="
+                            let Appliance of selectedCoolingType;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                        <ul *ngFor="
+                            let Appliance of selectedHeatingTypes;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                        <ul *ngFor="
+                            let Appliance of selectedHeatingFuels;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                        <ul *ngFor="
+                            let Appliance of selectedBuildingDetails;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                        <ul *ngFor="
+                            let Appliance of selectedArchitecteralStyles;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                        <ul *ngFor="
+                            let Appliance of selectedExteriors;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                        <ul *ngFor="
+                            let Appliance of selectedOutDoorAmenities;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                        <ul *ngFor="
+                            let Appliance of selectedParkings;
+                            let i = index
+                          ">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                        <ul *ngFor="let Appliance of selectedRoofs; let i = index">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                        <ul *ngFor="let Appliance of selectedViews; let i = index">
+                          <li>{{ Appliance }}</li>
+                        </ul>
+                      </div>
+                      <!-- <div class="feature-rgt">
+                                                <img src="assets/images/feature-woozzl.png" />
+                                            </div> -->
+                    </div>
+
+                    <div class="detail-list">
+                      <h2>Details</h2>
+                      <p>{{ propertyDetails.PropertyDetails }}</p>
+
+                      <!-- <a href="javascript:void(0);" class="view-more-link">View more</a> -->
+                    </div>
+                    <div class="additional-info-acc">
+                      <h2>Additional Information</h2>
+                      <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-primary">
+                          <div class="panel-heading" role="tab" id="headingOne_1">
+                            <h4 class="panel-title">
+                              <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1"
+                                aria-expanded="true" aria-controls="collapseOne_1">
+                                Executive Summary
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="collapseOne_1" class="panel-collapse collapse in" role="tabpanel"
+                            aria-labelledby="headingOne_1">
+                            <div class="panel-body">
+                              <div class="summary-list">
+                                <ul class="list-three">
+                                  <li>
+                                    <h4>Property Address:</h4>
+                                    <p>
+                                      {{ propDetail.StreetAddress }},
+                                      {{ propDetail.City }},
+                                      {{ propDetail.State }},
+                                      {{ propDetail.ZipCode }}
+                                    </p>
+                                  </li>
+                                  <li>
+                                    <h4>Country:</h4>
+                                    <p>USA</p>
+                                  </li>
+                                  <li>
+                                    <h4>APN:</h4>
+                                    <p>--</p>
+                                  </li>
+                                </ul>
+                                <ul class="list-svn no-border">
+                                  <li>
+                                    <h4>Property Type:</h4>
+                                    <p>{{ propertyDetails.PropertyType }}</p>
+                                  </li>
+                                  <li>
+                                    <h4>Owner Occupied:</h4>
+                                    <p>--</p>
+                                  </li>
+                                  <li>
+                                    <h4>Bedrooms:</h4>
+                                    <p>{{ propertyDetails.Bedrooms }}</p>
+                                  </li>
+                                  <li>
+                                    <h4>Bathrooms:</h4>
+                                    <p>{{ propertyDetails.Bathrooms }}</p>
+                                  </li>
+                                  <li>
+                                    <h4>GLA:</h4>
+                                    <p>--</p>
+                                  </li>
+                                  <li>
+                                    <h4>Lot Size</h4>
+                                    <p>{{ propertyDetails.LotSize }}</p>
+                                  </li>
+                                  <li>
+                                    <h4>Year Built:</h4>
+                                    <p>{{ propertyDetails.YearBuilt }}</p>
+                                  </li>
+                                </ul>
+                                <ul class="list-three no-border">
+                                  <li>
+                                    <h4>Adjusted Property Value:</h4>
+                                    <h3>
+                                      {{
+                                        propertyEquities.ARV
+                                          | currency: "USD":"symbol":"1.0-0"
+                                      }}
+                                    </h3>
+                                  </li>
+                                  <li>
+                                    <h4>Wholequity Value:</h4>
+                                    <h3>
+                                      {{
+                                        propertyEquities.MinimumStartBid
+                                          | currency: "USD":"symbol":"1.0-0"
+                                      }}
+                                    </h3>
+                                  </li>
+                                  <li>
+                                    <h4>Comparable Value:</h4>
+                                    <h3>--</h3>
+                                  </li>
+                                </ul>
+                                <ul class="list-four border-li-two">
+                                  <li>
+                                    <h4>Rental Value:</h4>
+                                    <h3>--</h3>
+                                  </li>
+                                  <li>
+                                    <h4>Average Confidence:</h4>
+                                    <h3>--</h3>
+                                  </li>
+                                  <li>
+                                    <h4>Market Status:</h4>
+                                    <p>Market Status:</p>
+                                  </li>
+                                  <li>
+                                    <h4>MSA 1 Year Risk of Decline:</h4>
+                                    <p>--</p>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="panel panel-primary">
+                                                    <div class="panel-heading" role="tab" id="headingTwo_1">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse"
+                                                                data-parent="#accordion_1" href="#collapseTwo_1"
+                                                                aria-expanded="false" aria-controls="collapseTwo_1">
+                                                                Value Forecast Growth
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseTwo_1" class="panel-collapse collapse"
+                                                        role="tabpanel" aria-labelledby="headingTwo_1">
+                                                        <div class="panel-body">
+                                                            <div class="row clearfix">
+                                                                <div class="graph-div">
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>1 Year</h3>
+                                                                        <input type="text" class="knob" value="8.5"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#f7d42b">
+                                                                        <h2>$192,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>2 Year</h3>
+                                                                        <input type="text" class="knob" value="15"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#4dddff">
+                                                                        <h2>$202,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>3 Year</h3>
+                                                                        <input type="text" class="knob" value="20"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#ff436c">
+                                                                        <h2>$212,000</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading" role="tab" id="headingThree_1">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse"
+                                                                data-parent="#accordion_1" href="#collapseThree_1"
+                                                                aria-expanded="false" aria-controls="collapseThree_1">
+                                                                Recent Comps and Similar Sales
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseThree_1" class="panel-collapse collapse"
+                                                        role="tabpanel" aria-labelledby="headingThree_1">
+                                                        <div class="panel-body">
+                                                            <div class="row clearfix">
+                                                                <div class="graph-div">
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>1 Year</h3>
+                                                                        <input type="text" class="knob" value="8.5"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#f7d42b">
+                                                                        <h2>$192,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>2 Year</h3>
+                                                                        <input type="text" class="knob" value="15"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#4dddff">
+                                                                        <h2>$202,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>3 Year</h3>
+                                                                        <input type="text" class="knob" value="20"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#ff436c">
+                                                                        <h2>$212,000</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading" role="tab" id="headingFour_1">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse"
+                                                                data-parent="#accordion_1" href="#collapseFour_1"
+                                                                aria-expanded="false" aria-controls="collapseFour_1">
+                                                                Active Listings Within 1 Mile Radius
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseFour_1" class="panel-collapse collapse"
+                                                        role="tabpanel" aria-labelledby="headingFour_1">
+                                                        <div class="panel-body">
+                                                            <div class="row clearfix">
+                                                                <div class="graph-div">
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>1 Year</h3>
+                                                                        <input type="text" class="knob" value="8.5"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#f7d42b">
+                                                                        <h2>$192,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>2 Year</h3>
+                                                                        <input type="text" class="knob" value="15"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#4dddff">
+                                                                        <h2>$202,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>3 Year</h3>
+                                                                        <input type="text" class="knob" value="20"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#ff436c">
+                                                                        <h2>$212,000</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading" role="tab" id="headingFive_1">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse"
+                                                                data-parent="#accordion_1" href="#collapseFive_1"
+                                                                aria-expanded="false" aria-controls="collapseFive_1">
+                                                                Historical Similar Sales (0-4 Years)
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseFive_1" class="panel-collapse collapse"
+                                                        role="tabpanel" aria-labelledby="headingFive_1">
+                                                        <div class="panel-body">
+                                                            <div class="row clearfix">
+                                                                <div class="graph-div">
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>1 Year</h3>
+                                                                        <input type="text" class="knob" value="8.5"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#f7d42b">
+                                                                        <h2>$192,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>2 Year</h3>
+                                                                        <input type="text" class="knob" value="15"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#4dddff">
+                                                                        <h2>$202,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>3 Year</h3>
+                                                                        <input type="text" class="knob" value="20"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#ff436c">
+                                                                        <h2>$212,000</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading" role="tab" id="headingSix_1">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse"
+                                                                data-parent="#accordion_1" href="#collapseSix_1"
+                                                                aria-expanded="false" aria-controls="collapseSix_1">
+                                                                Market Analysis for Postal Code
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseSix_1" class="panel-collapse collapse"
+                                                        role="tabpanel" aria-labelledby="headingSix_1">
+                                                        <div class="panel-body">
+                                                            <div class="row clearfix">
+                                                                <div class="graph-div">
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>1 Year</h3>
+                                                                        <input type="text" class="knob" value="8.5"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#f7d42b">
+                                                                        <h2>$192,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>2 Year</h3>
+                                                                        <input type="text" class="knob" value="15"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#4dddff">
+                                                                        <h2>$202,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>3 Year</h3>
+                                                                        <input type="text" class="knob" value="20"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#ff436c">
+                                                                        <h2>$212,000</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="panel panel-primary">
+                                                    <div class="panel-heading" role="tab" id="headingSeven_1">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse"
+                                                                data-parent="#accordion_1" href="#collapseSeven_1"
+                                                                aria-expanded="false" aria-controls="collapseSeven_1">
+                                                                Questions & Answers Between Buyers and Seller
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseSeven_1" class="panel-collapse collapse"
+                                                        role="tabpanel" aria-labelledby="headingSeven_1">
+                                                        <div class="panel-body">
+                                                            <div class="row clearfix">
+                                                                <div class="graph-div">
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>1 Year</h3>
+                                                                        <input type="text" class="knob" value="8.5"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#f7d42b">
+                                                                        <h2>$192,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>2 Year</h3>
+                                                                        <input type="text" class="knob" value="15"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#4dddff">
+                                                                        <h2>$202,000</h2>
+                                                                    </div>
+                                                                    <div class="col-md-4 col-sm-6 col-xs-12">
+                                                                        <h3>3 Year</h3>
+                                                                        <input type="text" class="knob" value="20"
+                                                                            data-width="100" data-height="100"
+                                                                            data-thickness="0.20"
+                                                                            data-fgColor="#ff436c">
+                                                                        <h2>$212,000</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div role="tabpanel" class="tab-pane fade" id="profile_with_icon_title">
+                                        <div class="detail-list">
+                                            <h2>Floorplan</h2>
+                                            <p>I purchased this Townhouse property in Abita Springs from the Tammy
+                                                Parish
+                                                Sheriff's auction on April 5, 2017. This unit was abandoned by the
+                                                owners
+                                                two years ago after one of them passed away and I purchased it for cash
+                                                at the auction. Title is completely clean with no liens. When I opened
+                                                the unit it was exactly as it was the day it was sealed after the owner
+                                                abandoned it two years ago. I have paid for gas and electricity to be
+                                                turned back on, paying extra fees for the additional approval work since
+                                                both have been off for longer than 6 mos. This unit has been on auction
+                                                once before but the bank purchased it back.</p>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="messages_with_icon_title">
+                                        <div class="detail-list">
+                                            <h2>Map & Streetview</h2>
+                                            <p>I purchased this Townhouse property in Abita Springs from the Tammy
+                                                Parish
+                                                Sheriff's auction on April 5, 2017. This unit was abandoned by the
+                                                owners
+                                                two years ago after one of them passed away and I purchased it for cash
+                                                at the auction. Title is completely clean with no liens. When I opened
+                                                the unit it was exactly as it was the day it was sealed after the owner
+                                                abandoned it two years ago. I have paid for gas and electricity to be
+                                                turned back on, paying extra fees for the additional approval work since
+                                                both have been off for longer than 6 mos. This unit has been on auction
+                                                once before but the bank purchased it back.</p>
+
+                                            <a href="javascript:void(0);" class="view-more-link">View more</a>
+
+                                        </div>
+                                    </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 prop-det-rgt">
+              <div class="rgt-action">
+                <div class="addrs-section">
+                  <h2>{{ propertyDetails.PropertyType }}</h2>
+                  <p *ngIf="propDetail.ShowAddress == true" class="location-ico">
+                    {{ propDetail.StreetAddress }}, {{ propDetail.City }}
+                    <br />{{ propDetail.State }} {{ propDetail.ZipCode }}
+                  </p>
+                  <div class="under-cont">
+                    <h4>
+                      Under Contract
+                      <span>Close by
+                        {{
+                          propertyEquities.AuctionEndDate | date: "dd/MM/yyyy"
+                        }}
+                      </span>
+                    </h4>
+                  </div>
+                  <p class="current-price">Current Bid Price</p>
+                  <h3 class="price-pad">
+                    {{
+                      propertyEquities.MinimumStartBid
+                        | currency: "USD":"symbol":"1.0-0"
+                    }}
+                  </h3>
+                  <a href="javascript:void(0);" *ngIf="propDetail.UserId != CurUserid" (click)="viewbidproperty()">BID
+                    FOR THIS PROPERTY</a>
+                </div>
+                <div class="estimat-price">
+                  <ul>
+                    <li>
+                      <p>
+                        Estimated ARV
+                        <span>{{
+                          propertyEquities.ARV
+                            | currency: "USD":"symbol":"1.0-0"
+                        }}</span>
+                      </p>
+                    </li>
+                    <li class="p-l-25">
+                      <p>
+                        Current Bid Price
+                        <span>{{
+                          propertyEquities.MinimumStartBid
+                            | currency: "USD":"symbol":"1.0-0"
+                        }}</span>
+                      </p>
+                    </li>
+                    <li *ngIf="
+                        propertyEquities.RepairCost != null &&
+                        propertyEquities.RepairCost != 0
+                      ">
+                      <p>
+                        Estimated Repair Cost
+                        <span>{{
+                          propertyEquities.RepairCost
+                            | currency: "USD":"symbol":"1.0-0"
+                        }}</span>
+                      </p>
+                    </li>
+                    <li *ngIf="
+                    propertyEquities.EstimatedEscrowCost != null &&
+                    propertyEquities.EstimatedEscrowCost != 0
+                  ">
+                      <p>
+                        Estimated Escrow Cost
+                        <span>{{
+                          propertyEquities.EstimatedEscrowCost
+                            | currency: "USD":"symbol":"1.0-0"
+                        }}</span>
+                      </p>
+                    </li>
+                    <!-- <li>
+                                            <p>Other Costs
+                                                <span>$0</span>
+                                            </p>
+                                        </li> -->
+                    <li>
+                      <p>
+                        Equity Opportunity
+                        <span>{{
+                          propertyEquities.ARV -
+                            propertyEquities.MinimumStartBid -
+                            propertyEquities.EstimatedEscrowCost -
+                            propertyEquities.RepairCost
+                            | currency: "USD":"symbol":"1.0-0"
+                        }}</span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="purchase-section">
+                  <ul *ngFor="
+                      let documents of propDetail.PropertySupportingDocs
+                        | keyvalue
+                    ">
+                    <li>
+                      <a href="javascript:void(0);" data-toggle="modal" data-target="#suportingDocsModal"
+                        (click)="selectedDoc(documents)">
+                        {{ documents.key }}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div id="loginPopup1">
+                  <div class="form-popup" id="popupForm">
+                    <form action="#" class="form-container">
+                      <div class="row">
+                        <div class="">
+                          <button type="button" class="btn_close1" onclick="closeForm1()">
+                            X
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        welcome user
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+                <!-- <div class="bid-mem-in bid-jim">
+                                    <div class="bidder-per">
+                                        <div class="bidder-img">
+                                            <img src="assets/images/bidder-img1.png" />
+                                        </div>
+                                        <div class="bidder-det">
+                                            <div>
+                                                <h1>Jim92012
+                                                    <span>Home Builder</span>
+                                                </h1>
+                                                <p>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="assets/images/star.png" /> </a>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="assets/images/star.png" /> </a>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="assets/images/star.png" /> </a>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="assets/images/star.png" /> </a>
+                                                    <a href="javascript:void(0);">
+                                                        <img src="assets/images/star-half.png" /> </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="bidder-det">
+                                        <li>
+                                            <h2>Member for:</h2>
+                                            <p>2 Years</p>
+                                        </li>
+                                        <li>
+                                            <h2>Flipped:</h2>
+                                            <p>27 Homes</p>
+                                        </li>
+                                        <li>
+                                            <h2>Assigned:</h2>
+                                            <p>5 Homes</p>
+                                        </li>
+                                    </ul>
+                                    <div class="properties-div">
+                                        <ul>
+                                            <li>
+                                                <a href="javascript:void(0);">See all properties from this seller</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0);">Ask this seller a question</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                <div class="learning-div">
+                  <h3>Learning Resources</h3>
+                  <h4>Videos</h4>
+                  <ul>
+                    <li>
+                      <a href="javascript:void(0);">How to Review an Offering</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">How to Complete an Investment</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">How to Understand an Appraisal</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">How to Review an Offering</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="learning-div faq-pad">
+                  <h3>FAQs</h3>
+                  <ul>
+                    <li>
+                      <a href="javascript:void(0);">What is an ARV?</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">What is a contract?</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);">How do appraisals work?</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- property detail section -->
+
+  <!-- latest properties -->
+  <!-- <div class="latest-property similar-property">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row clearfix">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-20">
+                            <div class="title-div">
+                                <h1>Similar Properties</h1>
+                                <a href="javascript:void(0);" class="view-all">See All
+                                    <img src="assets/images/view-all-arw.png" />
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="row clearfix">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="prop-div">
+                                        <div class="prop-img">
+                                            <img src="assets/images/prop-img1.png" />
+                                            <div class="prop-profit">
+                                                <span class="profit-txt">25% Profit</span>
+                                                <span class="heart-icon">
+                                                    <img src="assets/images/heart-icon.png" />
+                                                </span>
+                                            </div>
+                                            <div class="prop-over-txt">
+                                                <h2>Single Family Home
+                                                    <br> Albita Springs, LA 70420</h2>
+                                            </div>
+                                        </div>
+                                        <div class="prop-cont">
+                                            <ul class="det-list">
+                                                <li>
+                                                    <p>
+                                                        <span>
+                                                            <img src="assets/images/bed-icon-grey.png" />
+                                                        </span>3 bedrooms</p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span>
+                                                            <img src="assets/images/bath-icon-grey.png" />
+                                                        </span>3 bath</p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span>
+                                                            <img src="assets/images/sqft-icon-grey.png" />
+                                                        </span>1565 sqft</p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="rate-list">
+                                                <li class="head-li">
+                                                    <p>Estimated ARV
+                                                        <span>$115,000</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>Current Bid Price
+                                                        <span>-$72,000</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>Repair Cost
+                                                        <span>-$7,500</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>Retail Closing Cost
+                                                        <span>-$8,500</span>
+                                                    </p>
+                                                </li>
+                                                <li class="foot-li">
+                                                    <p>Potential Profit
+                                                        <span>$27,000</span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="prop-div">
+                                        <div class="prop-img">
+                                            <img src="assets/images/prop-img2.png" />
+                                            <div class="prop-profit">
+                                                <span class="profit-txt">25% Profit</span>
+                                                <span class="heart-icon heart-icon-pink" *ngIf="userdetails!=null">
+                                                    <img src="assets/images/heart-icon.png" />
+                                                </span>
+
+                                            
+
+
+                                            </div>
+                                            <div class="prop-over-txt">
+                                                <h2>Single Family Home
+                                                    <br> Albita Springs, LA 70420</h2>
+                                            </div>
+                                        </div>
+                                        <div class="prop-cont">
+                                            <ul class="det-list">
+                                                <li>
+                                                    <p>
+                                                        <span>
+                                                            <img src="assets/images/bed-icon-grey.png" />
+                                                        </span>3 bedrooms</p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span>
+                                                            <img src="assets/images/bath-icon-grey.png" />
+                                                        </span>3 bath</p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span>
+                                                            <img src="assets/images/sqft-icon-grey.png" />
+                                                        </span>1565 sqft</p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="rate-list">
+                                                <li class="head-li">
+                                                    <p>Estimated ARV
+                                                        <span>$115,000</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>Current Bid Price
+                                                        <span>-$72,000</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>Repair Cost
+                                                        <span>-$7,500</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>Retail Closing Cost
+                                                        <span>-$8,500</span>
+                                                    </p>
+                                                </li>
+                                                <li class="foot-li">
+                                                    <p>Potential Profit
+                                                        <span>$27,000</span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="prop-div">
+                                        <div class="prop-img">
+                                            <img src="assets/images/prop-img3.png" />
+                                            <div class="prop-profit">
+                                                <span class="profit-txt">25% Profit</span>
+                                                <span class="heart-icon">
+                                                    <img src="assets/images/heart-icon.png" />
+                                                </span>
+                                            </div>
+                                            <div class="prop-over-txt">
+                                                <h2>Single Family Home
+                                                    <br> Albita Springs, LA 70420</h2>
+                                            </div>
+                                        </div>
+                                        <div class="prop-cont">
+                                            <ul class="det-list">
+                                                <li>
+                                                    <p>
+                                                        <span>
+                                                            <img src="assets/images/bed-icon-grey.png" />
+                                                        </span>3 bedrooms</p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span>
+                                                            <img src="assets/images/bath-icon-grey.png" />
+                                                        </span>3 bath</p>
+                                                </li>
+                                                <li>
+                                                    <p>
+                                                        <span>
+                                                            <img src="assets/images/sqft-icon-grey.png" />
+                                                        </span>1565 sqft</p>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="rate-list">
+                                                <li class="head-li">
+                                                    <p>Estimated ARV
+                                                        <span>$115,000</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>Current Bid Price
+                                                        <span>-$72,000</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>Repair Cost
+                                                        <span>-$7,500</span>
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p>Retail Closing Cost
+                                                        <span>-$8,500</span>
+                                                    </p>
+                                                </li>
+                                                <li class="foot-li">
+                                                    <p>Potential Profit
+                                                        <span>$27,000</span>
+                                                    </p>
+                                                </li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+  <!-- latest properties -->
+</section>
+
+<app-footer></app-footer>
+<!-- 
+<ng-template id="supportingDocs" #supportingDocs let-modal style="width:500px !important;">
+    <div class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <p>modal body goes here...</p>
+            </div>
+         </div>
+        </div>
+      </div>
+  </ng-template> -->
+<div class="modal fade modal-bg" id="suportingDocsModal" style="margin-top: 165px;" tabindex="-1" role="dialog"
+  data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <form #modalForm="ngForm">
+        <div class="modal-header head-center">
+          <!-- <img src="assets/images/pop-logo.png" alt="" class="l-pp"> -->
+          <button type="button" class="btn btn-link close-btn" data-dismiss="modal">
+            <i class="fa fa-close"></i>
+          </button>
+        </div>
+        <div class="modal-body email-pop-cont ad-p-cont" style="padding: 0px 15px 20px;">
+          <h4 style="text-align: center; margin-top: 1px;margin-bottom: 10px;">Supporting Documents</h4>
+          <ul *ngFor="let documents of selectedDocument">
+            <li>
+              <a target="_self" [href]="documents.FilePath" download="documents.FileName"><i class="fa fa-download"></i>
+                {{ documents.FileName }}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer ad-fo-poo"></div>
+      </form>
+    </div>
+  </div>
+</div>

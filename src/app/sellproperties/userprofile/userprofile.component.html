@@ -1,0 +1,316 @@
+<div *ngIf="loading==true" class="overlay-gif">
+    <img src="assets/images/login-logo.png" alt="">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+<app-topnav></app-topnav>
+
+<div class="container">
+    <div class="row">
+        <div class="web-form-prop">
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-side">
+                <app-sell-sidemenu></app-sell-sidemenu>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 pr-main">
+
+                <div class="">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                        <div class="pro-detail p-b-10">
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 padding-0">
+                                <h1 class="margin-0 p-b-10">Your Profile</h1>
+                            </div>
+
+                        </div>
+                        <div class="addre-prp p-t-15 col-lg-12 col-md-12 col-sm-12 col-xs-12 m-b-30 p-l-0">
+                            <!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 padding-0">
+                                    <img src="assets/images/maskot.png"> 
+                                </div> -->
+                            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-10 padding-0">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0">
+                                    <h3 class="margin-0 p-l-20 font-20 p-t-15">Complete Your Profile Information</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <section class="content woz-div add-pro">
+                    <form [formGroup]="userform">
+
+                        <div class="col-sm-12">
+                            <div class="row clearfix">
+                                <div class="col-sm">
+                                    <div class="form-label">
+                                        <label>First Name
+                                            <sup>*</sup>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" formControlName="fname" class="form-control"
+                                                placeholder="First Name" name="first name"
+                                                [(ngModel)]="UserValues.FirstName"
+                                                [ngClass]="{ 'is-invalid': submitted && f.fname.errors }" />
+                                        </div>
+                                        <div *ngIf="submitted && f.fname.errors" class="text-danger">
+                                            <div *ngIf="f.fname.errors.required">First Name is required
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-label">
+                                        <label>Last Name
+                                            <sup>*</sup>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" formControlName="lastName" class="form-control"
+                                                placeholder="Last Name" name="lastname"
+                                                [(ngModel)]="UserValues.LastName"
+                                                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                                        </div>
+                                        <div *ngIf="submitted && f.lastName.errors" class="text-danger">
+                                            <div *ngIf="f.lastName.errors.required">Last Name is
+                                                required</div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="row clearfix">
+                                <div class="col-sm">
+                                    <div class="form-label">
+                                        <label>Email
+                                            <sup>*</sup>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" formControlName="email" class="form-control"
+                                                placeholder="Email" name="email" [(ngModel)]="UserValues.EmailAddress"
+                                                readonly [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+
+                                        </div>
+                                        <div *ngIf="submitted && f.email.errors" class="text-danger">
+                                            <div *ngIf="f.email.errors.required">Email is required</div>
+                                            <div *ngIf="f.email.errors.email">Email must be a valid
+                                                email address</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-sm">
+                                    <div class="form-label">
+                                        <label>User Name
+                                            <sup>*</sup>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" formControlName="username" class="form-control"
+                                                placeholder="User Name" name="username"
+                                                [(ngModel)]="UserValues.UserName" 
+                                                [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                                        </div>
+                                        <div *ngIf="submitted && f.username.errors" class="text-danger">
+                                            <div *ngIf="f.username.errors.required">User Name is
+                                                required</div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <div class="row clearfix">
+                                <div class="col-sm">
+                                    <div class="form-label">
+                                        <label>Phone
+                                            <sup>*</sup>
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line" *ngIf="!isPhoneNumber">
+                                            <input type="text" formControlName="phone" class="form-control"
+                                                placeholder="Mobile Number" name="phone"
+                                                [(ngModel)]="UserValues.PhoneNumber" 
+                                                [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                                        </div>
+                                        <div class="form-line" *ngIf="isPhoneNumber">
+                                            <input type="text" readonly formControlName="phone" class="form-control"
+                                                placeholder="Mobile Number" name="phone"
+                                                [(ngModel)]="UserValues.PhoneNumber" 
+                                                [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                                        </div>
+                                        <div *ngIf="submitted && f.phone.errors" class="text-danger">
+                                            <div *ngIf="f.phone.errors.required">Phone Number is
+                                                required</div>
+
+                                            <div *ngIf="f.phone.errors.pattern">Only accepted Numbers</div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div>
+
+
+
+                                    <div class="col-sm">
+                                        <div class="form-label">
+                                            <label>Street Address 1
+                                                <sup>*</sup>
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" formControlName="address1" class="form-control"
+                                                    placeholder="Address 1" name="streetaddress1"
+                                                    [(ngModel)]="UserValues.Address1"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.address1.errors }" />
+                                            </div>
+                                            <div *ngIf="submitted && f.address1.errors" class="text-danger">
+                                                <div *ngIf="f.address1.errors.required">Address 1 is
+                                                    required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="col-sm-12">
+                                        <div class="row clearfix">
+                                            <div class="col-sm">
+                                                <div class="form-label">
+                                                    <label>Street Address 2
+                                                        <sup>*</sup>
+                                                    </label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input type="text" formControlName="address2"
+                                                            class="form-control" placeholder="Address 2"
+                                                            name="streetaddress2" [(ngModel)]="UserValues.Address2"
+                                                            [ngClass]="{ 'is-invalid': submitted && f.address2.errors }" />
+                                                    </div>
+                                                    <div *ngIf="submitted && f.address2.errors" class="text-danger">
+                                                        <div *ngIf="f.address2.errors.required">Address
+                                                            2 is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-label">
+                                                    <label>City
+                                                        <sup>*</sup>
+                                                    </label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input type="text" formControlName="city" class="form-control"
+                                                            placeholder="City" name="city" [(ngModel)]="UserValues.City"
+                                                            [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+                                                    </div>
+                                                    <div *ngIf="submitted && f.city.errors" class="text-danger">
+                                                        <div *ngIf="f.city.errors.required">City is
+                                                            required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                        <div class="row clearfix">
+                                            <div class="col-sm">
+                                                <div class="form-label">
+                                                    <label>State
+                                                        <sup>*</sup>
+                                                    </label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+
+                                                        <ng-select [items]="States"
+                                                            [ngClass]="{ 'is-invalid': submitted && f.state.errors }"
+                                                            placeholder="Select State" bindLabel="name" bindValue="id"
+                                                            formControlName="state" [(ngModel)]="UserValues.State">
+                                                        </ng-select>
+
+                                                    </div>
+                                                    <div *ngIf="submitted && f.state.errors" class="text-danger">
+                                                        <div *ngIf="f.state.errors.required">State is
+                                                            required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-label">
+                                                    <label>Zip
+                                                        <sup>*</sup>
+                                                    </label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input type="text" formControlName="zipcode"
+                                                            class="form-control" placeholder="Zip Code" name="zip"
+                                                            [(ngModel)]="UserValues.ZipCode"
+                                                            [ngClass]="{ 'is-invalid': submitted && f.zipcode.errors }" />
+                                                    </div>
+                                                    <div *ngIf="submitted && f.zipcode.errors" class="text-danger">
+                                                        <div *ngIf="f.zipcode.errors.required">Zipcode
+                                                            is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row clearfix">
+
+                        <div class="col-sm-4 padding-0">
+                            <div class="form-group btn-field">
+                                <button (click)="paymentmethod();" type="button"
+                                    class="btn bg-amber m-t-15 waves-effect">Save & Continue</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group btn-field">
+                                <button (click)="skip();" type="button"
+                                    class="btn bg-amber m-t-15 waves-effect">Continue</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,122 @@
+/*
+ * jQuery FlexSlider v1.8
+ * http://flex.madebymufffin.com
+ *
+ * Copyright 2011, Tyler Smith
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+#container {width: 80%; max-width: 800px; margin: 0 auto;}
+/* Browser Resets */
+.flex-container a:active, .flexslider a:active {outline: none;}
+.slides, .flex-control-nav, .flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {width: 100%; margin: 0; padding: 0;}
+.flexslider .slides > li {display: none;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {max-width: 100%; width:100%; display:block; }
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider { position: relative; zoom: 1; z-index:0; overflow:hidden;}
+.flexslider .slides {zoom: 1;}
+.flexslider .slides > li {position: relative; }
+.flexslider .slides > li::after { content:""; /*background:rgba(0,0,0,0.5);*/ width:100%; height:100%; top:0px; left:0px; position: absolute; z-index:0px;}
+/* Suggested container for "Slide" animation setups. Can replace this with your own, if you wish */
+.flex-container {zoom: 1; position: relative;}
+
+/* Caption style */
+/* IE rgba() hack */
+.flex-caption {background:none;zoom: 1; }
+.flex-caption {position:absolute; bottom:130px;  text-align:left; width:100%; z-index:99;}
+.flex-caption img{width:auto !important;}
+
+
+/* Direction Nav */
+.flex-direction-nav { display:block; }
+.banner-home .flex-direction-nav li a {width:26px; height:45px; margin: 0px 0 0; display: block;  position: absolute; top: 47%; cursor: pointer; text-indent: -9999px; z-index:9999;}
+.banner-home .flex-direction-nav li a:hover{ opacity:0.7}
+.banner-home .flex-direction-nav li .flex-next {background-position: -25px 0; right:5%; /*background: url(../images/arrow-right.png) no-repeat 0 0;*/ background-position: 0px 0; }
+.banner-home .flex-direction-nav li .flex-prev {left:5%; /*background: url(../images/arrow-left.png) no-repeat 0 0;*/ background-position: 0px 0; }
+.flex-direction-nav li .disabled {opacity: .3; filter:alpha(opacity=30); cursor: default;}
+.inner-banner-pad .flex-direction-nav li a {width:27px; height:45px; margin: 0px 0 0; display: block;  position: absolute; top: 50%; cursor: pointer; }
+
+/* Control Nav */
+.flex-control-nav { width:100%; position:absolute; bottom:100px; z-index:9999; text-align:center; right:0; left:0;}
+.flex-control-nav li { margin:0px 6px 0 6px; display: inline-block; zoom: 1; }
+.flex-control-nav li a { width:8px; height:8px; display: block; background:#ffffff; cursor:pointer; text-indent:-9999999px; border-radius:50%; -webkit-border-radius:50%; -o-border-radius:50%; -moz-border-radius:50%; }
+.flex-control-nav li a:hover, .flex-control-nav li a.flex-active {background:#892d38; }
+
+.banner-home .flex-caption { top:185px; width:100%; left:0px; }
+.caption-txt { width:100%; text-align:center;}
+.banner-home .flex-caption h1 { color:#fff; font-size:120px; font-family: 'CACChampagne'; line-height:120px; margin-bottom:85px; letter-spacing:1px; }
+
+.banner-home .flex-caption a{ background:none; font-family: 'Montserrat-Medium'; color:#fff; font-size:14px; line-height:15px; text-transform:uppercase; letter-spacing:0.5px; padding:16px 58px; transition:all .5s ease; -moz-transition:all .5s ease; -webkit-transition:all .5s ease; -o-transition:all .5s ease; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; -o-border-radius:5px; display: inline-block; box-shadow: 0px 0px 2px rgba(0,0,0,0.3); border:1px solid #fff; }
+.banner-home .flex-caption a.btn-rightbg:hover { color:#ffffff; }
+.banner-home .flex-control-nav { width:100%; position:absolute; bottom:40px; right:0; left:0px;}
+
+.banner-home .slides > li > img { transform: scale(1.1); }
+.banner-home li.flex-active-slide img {
+-webkit-animation:zoomout linear 1;
+-moz-animation:zoomout linear 1;
+-o-animation:zoomout linear 1;
+animation:zoomout linear 1;
+-webkit-animation-fill-mode:forwards;
+-moz-animation-fill-mode:forwards;
+-o-animation-fill-mode:forwards;
+animation-fill-mode:forwards;
+-webkit-animation-duration:8s;
+-moz-animation-duration:8s;
+-o-animation-duration:8s;
+animation-duration:8s;
+}
+@-webkit-keyframes zoomout {
+	0% { transform: scale(1);  }
+	100% { transform: scale(1.1);  }
+}
+@-moz-keyframes zoomout { 
+	0% { transform: scale(1);  }
+	100% { transform: scale(1.1);  }
+}
+@-o-keyframes zoomout {
+	0% { transform: scale(1);  }
+	100% { transform: scale(1.1);  }
+}
+@keyframes zoomout {
+	0% { transform: scale(1);  }
+	100% { transform: scale(1.1);  }
+}
+
+
+
+/* Direction Nav */
+.flex-direction-nav li a {width:31px; height:46px; margin:0 0 0 0; display: block; z-index:100;position: absolute; bottom: 27px; cursor: pointer; -webkit-transition: All 0.5s ease; -moz-transition: All 0.5s ease; -o-transition: All 0.5s ease; -ms-transition: All 0.5s ease; transition: All 0.5s ease;}
+.flex-direction-nav li .flex-next {background-position:0 0; right:62px; text-indent: -9999px; top:42%;}
+.flex-direction-nav li .flex-prev {left:40px; text-indent: -9999px; top:42%;}
+.flex-direction-nav li .flex-next:hover { /*opacity:0.7;*/ background-position:0 -54px}
+.flex-direction-nav li .flex-prev:hover { background-position:0 -54px}
+.flex-direction-nav li .disabled {opacity:.3; filter:alpha(opacity=30); cursor: default;}
+
+
+
+
+
+
+
+
+
+
+

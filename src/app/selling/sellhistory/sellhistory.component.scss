@@ -1,0 +1,73 @@
+.sellhistory.active-client .card .body { padding: 20px 15px;}
+.sellhistory.active-client .head {position: relative;float: left;width: 100%;}
+.sellhistory.active-client .head h2 span{text-align:left; padding: 10px 0;}
+.sellhistory.active-client .bid-img {
+  /* position: absolute; */
+  position: relative;
+  top: 0px; height: 100%;}
+.sellhistory.active-client .bid-place { display:block; flex-wrap:inherit;}
+.sellhistory.active-client .bid-area {float: right;display: block;}
+.sellhistory.active-client .head h2 {padding: 7px 28px 7px 28px;font-size: 14px;}
+.sellhistory.active-client .head h2 span{ float:right; width:100%;}
+.sellhistory.active-client .bid-area p {font-size: 14px;line-height: 24px;}
+.sellhistory.active-client .bid-img img { 
+  /* border-radius:8px 100px 100px 0px; */
+  border-radius: none;
+}
+ul.offers {
+    float: left;
+    width: 100%;
+    padding: 0px;
+    margin: 10px 0px;
+    
+}
+ul li { list-style:none;}
+h2.history-title { color:#9a9aa1; font-size: 18px;font-weight: 700; letter-spacing: 2px; margin: 0px 0px 20px; text-transform: uppercase; }
+.sellhistory { margin-bottom:25px;}
+.sellhistory .card { border-radius:8px;float: left; width: 100%;}
+.sellhistory .head h2{ float:left; width:100%; background: #e8edf7; color:#12a5d1; font-size: 16px;font-weight: 600;letter-spacing: 2px; padding:15px 28px; margin:0px;}
+.bidhistory-place { float: left; width: 100%; background: #f5f9fc; display:flex; flex-wrap:wrap;}
+.bidhistory-img { float: left; width: 25%;display: flex;}
+.bidhistory-img img{ float: left; width:100%;}
+.bidhistory-area { float: left; width: 75%; padding: 5px 5px; align-items: center;justify-content: left; display: flex; display: -webkit-flex;
+-webkit-align-items: center;-webkit-justify-content: left;}
+.bidhistory-area p { color:#8a8a8a; font-size:15px; line-height:26px;font-weight: 600; margin:0px;}
+.sellhistory .card .body { padding: 20px 28px 32px;float: left; width:100%;}
+
+
+
+// *-------------ActiveBidsList----------------------*/
+
+.sellhistorybids{float: left; width: 100%; padding: 0 5px; background: #fff;}
+.sellhistorybids ul{ float: left; width: 100%; padding: 0px; margin: 0px;}
+
+.sellhistorybids ul.active-list li { float: left; width: 100%; padding: 0px; margin: 0px 0px 12px 0px;}
+.sellhistorybids ul.active-list li p{ color: #58595b;font-size:13px; line-height:16px; 
+  font-family: 'montserratlight'; margin: 0px; }
+.sellhistorybids ul.active-list li p span{ float: right; }
+.sellhistorybids ul.active-list li.head-li p{ font-family:'montserratregular'; color:#383838;}
+
+.messageSticky
+{
+    background-color: #FEE239;
+    padding: 5px;
+    border-radius: 8px 100px 100px 0px;
+    float: left;
+    margin-top: -4%;
+}
+
+/*----------------footer------------------------*/
+
+.sellhistory.active-client .card .foot {padding: 0px 0px 0px;background:#F5F9FC;border-top:none;}
+.sellhistory .card .foot { padding: 34px 10px 25px; position: relative; border-radius:0px 0px 8px 8px; float: left; width:100%; background:#f4fbfd; border-top:1px solid #e8eef0;}
+
+ul.actionhistory-btns{ float: left; width:100%; padding:0px; margin:0px; display: flex;flex-wrap: wrap;}
+ul.actionhistory-btns li { float: left; width:32%; margin-right:2%; padding:0px 0px; display: flex; }
+ul.actionhistory-btns li:last-child { margin-right:0px;}
+ul.actionhistory-btns li a{font-size:11.5px;font-weight: 400;padding:5px 5px;width: 100%;height:50px; line-height: 15px; display: block; text-align:center; border-radius:4px; display:flex; align-items: center; justify-content:center;}
+ul.actionhistory-btns li a:hover, ul.action-btns li a:focus { text-decoration:none;}
+ul.actionhistory-btns li a.blu-btn {color:#12a5d1; background:#f1fafc;}
+ul.actionhistory-btns li a.blu-btn:hover { background:#cfe9ef;}
+ul.actionhistory-btns li a.ylw-btn {color:#000000; background:#ffe239; font-size:14px;}
+ul.actionhistory-btns li a.ylw-btn:hover { background:#eacb13;}
+ul.actionhistory-btns li a.ylw-btn img { margin-right:4px; float:left;}

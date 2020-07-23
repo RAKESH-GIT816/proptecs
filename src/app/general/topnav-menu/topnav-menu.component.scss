@@ -1,0 +1,655 @@
+
+
+
+
+/* ===========
+Navigation
+============= */
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+    content: "\f0c9";
+}
+
+
+.container_nav
+{
+	padding:0 50px 0 30px;
+}
+
+
+.navbar-custom ul.nav li .parner_reg_btn a.btn{
+	border-radius: 50px;
+	background-color:#fff;
+	-webkit-box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+	-moz-box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+	-o-box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+	box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+	height: 50px;
+	line-height: 40px;
+	text-transform: none;
+	font-size: 15px;
+	font-family: "Nunito";
+    color: #ff5a5f;
+	width: 150px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+  }
+
+
+
+.navbar-brand {
+  padding-top: 15px;
+  margin-top: 5px;
+  padding-bottom: 0;
+}
+.borderLogo
+{
+	border: 6px solid #DA4E47; width:70px; margin-bottom: 0.2em;
+}
+.logotext {
+	font-size: 32px;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 0.05;
+	font-weight: 900;
+	letter-spacing: 0.08em;
+	padding: 10px 0;
+	text-transform: uppercase;
+	/* color: #fff; */
+  }
+
+.navbar-brand.reduce {
+	margin-top:0;
+  padding-top: 5px;
+	padding-bottom: 60px;
+ 	-webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+	color: #000000;
+}
+
+
+
+.navbar.navbar-custom {
+	width: inherit;
+	margin: 0 auto;
+	padding-bottom:0;
+	/* box-shadow: 0 0 3px rgba(0,0,0,0.12);
+	box-shadow: 0 1px 6px rgba(0,0,0,.2); 
+	-webkit-box-shadow: 0 1px 6px rgba(0,0,0,.2); 
+	-moz-box-shadow: 0 1px 6px rgba(0,0,0,.2); 
+	-o-box-shadow: 0 1px 6px rgba(0,0,0,.2);  */
+}
+
+.navbar.navbar-custom .navigation {
+	padding-bottom: 15px;
+
+}
+
+
+.navbar {
+    margin-bottom: 0;
+	/* border-bottom: 1px solid rgba(255,255,255,.3);	 */
+	box-shadow: none;
+	
+}
+
+
+
+.navbar-brand {
+    font-weight: 700;
+    color: #fff;
+}
+
+.navbar-brand:focus {
+    outline: 0;
+}
+
+.navbar.navbar-custom.navbar-fixed-top  {
+	background: transparent;
+	/* background: #2D3B58; */
+}
+
+.navbar-custom.top-nav-collapse .nav.navbar-nav {
+    background-color: rgba(0,0,0,0);
+}
+
+.navbar.navbar-custom {
+	padding-top: 0;
+}
+
+.navbar.navbar-custom ul.nav.navbar-nav {
+	margin-top: 20px;
+ 	-webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+.navbar.navbar-custom.top-nav-collapse ul.nav.navbar-nav {
+	margin-top: 0;
+ 	-webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.navbar-custom ul.nav li a {
+	font-size: 13px;
+	letter-spacing: 1px;
+    color: #fff;
+	text-transform: uppercase;
+	font-weight: 400;
+    background: transparent;
+    border: none;
+}
+
+
+.navbar.navbar-custom.top-nav-collapse {
+	background: #fff;
+
+	box-shadow: 0 0 3px rgba(0,0,0,0.12);
+	box-shadow: 0 1px 6px rgba(0,0,0,.2); 
+	-webkit-box-shadow: 0 1px 6px rgba(0,0,0,.2); 
+	-moz-box-shadow: 0 1px 6px rgba(0,0,0,.2); 
+	-o-box-shadow: 0 1px 6px rgba(0,0,0,.2); 
+
+	border-bottom: 2px solid rgba(255,255,255,.3);
+	
+}
+
+.navbar.navbar-custom.top-nav-collapse .navigation {
+	padding-bottom: 10px;
+}
+
+.navbar-custom.top-nav-collapse ul.nav li a {
+	-webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+	color: #666;
+}
+
+.navbar-custom ul.nav ul.dropdown-menu {
+	border-radius: 0;	
+	margin-top: 16px;
+}
+
+.navbar-custom ul.nav ul.dropdown-menu li {
+	border-bottom: 1px solid #f5f5f5;
+
+}
+
+.navbar-custom ul.nav ul.dropdown-menu li:last-child{
+	border-bottom: none;
+}
+
+.navbar-custom ul.nav ul.dropdown-menu li a {
+	padding: 10px 20px;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+
+.navbar-custom ul.nav ul.dropdown-menu li a:hover {
+	background: #fefefe;
+}
+
+.navbar-custom.top-nav-collapse ul.nav ul.dropdown-menu li a {
+	color: #fff;
+}
+
+.navbar-custom .nav li a:hover,.navbar-custom .nav li a:focus  {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+
+
+.navbar-custom.navbar-fixed-top .nav li a:hover,
+.navbar-custom.navbar-fixed-top .nav li a:focus,
+.navbar-custom.navbar-fixed-top .nav li.active a,
+.navbar-custom.navbar-fixed-top .nav li.active {
+    outline: 0;
+	color:#DA4E47;
+	font-weight: 900;
+}
+.navbar-custom.top-nav-collapse .nav li a:hover,
+.navbar-custom.top-nav-collapse .nav li a:focus,
+.navbar-custom.top-nav-collapse .nav li.active {
+    outline: 0;
+    background-color: transparent;
+}
+
+.navbar-toggle {
+    padding: 4px 6px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.navbar-toggle:focus,
+.navbar-toggle:active {
+    outline: 0;
+}
+									
+
+/*-----------------Login Form Popup-------------------------*/
+
+#loginPopup {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 90px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow-y: auto; /* Enable scroll if needed */
+	overflow-x: hidden;
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+	}
+	/* Fix the button on the left side of the page */
+	.open-btn {
+	display: flex;
+	justify-content: left;
+	}
+	/* Style and fix the button on the page */
+	.open-button {
+	background-color: #1c87c9;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	opacity: 0.8;
+	position: fixed;
+	}
+	/* Hide the Popup form */
+	.form-popup { 
+
+	z-index: 9;
+	max-width: 72%;
+	margin: 0 auto;
+	}
+	/* Styles for the form container */
+	.form-container {
+	max-width: 100%;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 20px;
+	background-color: #fff;
+	}
+	/* Full-width for input fields */
+	.form-container input[type=text], .form-container input[type=password] {
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #eee;
+	}
+	/* When the inputs get focus, do something */
+	.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+	background-color: #ddd;
+	outline: none;
+	}
+	/* Style submit/login button */
+	.form-container .btn_close {
+	    background-color: #ff5a5f;
+    border-radius: 50%;
+    border: none;
+    height: 35px;
+    position: absolute;
+    right: 180px;
+    text-align: center;
+    color: #fff;
+    top: 80px;
+    width: 35px;
+    z-index: 9;
+	}
+.float-right
+{
+	float:right
+}
+.btn-fpswd
+{
+	color: #ff5a5f;
+	text-decoration: underline;
+	font-size: 14px;
+}
+	/* Hover effects for buttons */
+	.form-container .btn:hover, .open-button:hover {
+	opacity: 1;
+	}
+
+	.form-container .btn_login
+	{
+		border-radius: 10px;
+		background-color:#ff5a5f;
+		-webkit-box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+		-moz-box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+		-o-box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+		box-shadow:0px 1px 4px 0px rgba(255, 90, 95, 0.3);
+		height: 50px;
+		line-height: 40px;
+		text-transform: none;
+		font-size: 15px;
+		font-family: "Nunito";
+		color: #fff;
+		width: 100%;
+		outline: none;
+		border: none;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		transition: all 0.3s ease;
+	}
+	.form-container .btn_login:hover,
+	.form-container .btn_login:active,
+	.form-container .btn_login:focus{
+	  background-color: #ffffff;
+	  color: #ff5a5f;
+	  border: 1px solid #ff5a5f;
+	}
+  
+/* Theme Styler :: End */
+
+
+/* Media queries */
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.navbar-brand {
+		float: none;
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+	}
+	.intro-content {
+		padding:250px 0 0;
+    }
+    .logotext
+	{
+		color:#000;
+	}
+
+
+
+}
+
+@media (max-width:767px) {
+
+	.logotext
+	{
+		color:#000;
+	}
+
+	.header-heading
+	{
+	
+		margin-top: 0%;
+	}
+
+	.navbar-custom ul.nav li a {
+		color: #666;
+	}
+	.navbar-brand.reduce {
+		color: #000;
+	}
+
+	.navbar-custom.top-nav-collapse ul.nav li a {
+		color: #666;
+	}
+	.navbar-custom ul.nav li .parner_reg_btn a.btn{
+
+		background-color:#ff5a5f;
+		color: #fff;
+
+	  }
+	.top-area p {
+		text-align: center;
+	}
+	#owl-works {
+		width:100%
+	}
+	.navbar.navbar-custom.navbar-fixed-top {
+		background-color: #fff;
+	}
+
+	/* .navbar.navbar-custom.top-nav-collapse {
+		background: #353535;
+	} */
+
+	.tab-slider--trigger {
+		padding: 15px 40px;
+	}
+	
+	.badge.custom-badge {
+		margin: 0 0 0 0;
+	}
+	
+	.navbar-header button {
+		border-color: #ccc;
+		background-color: #eee;
+		padding: 5px 20px;
+	}
+	.navbar-header i{
+		color: #666;
+	}
+	
+	.boxes3 {
+	width: 100%;
+	}
+	.navbar-custom ul.nav li {
+		border-bottom: 1px solid #eee;
+	}
+	.navbar-custom ul.nav li:last-child {
+		padding-bottom:0;
+	}
+	.navbar-custom ul.nav ul.dropdown-menu li {
+		border-bottom: 1px solid #eee;
+		padding-left: 20px;
+	}
+	
+	.service-box {
+		margin: 20px 0 30px;
+	}
+
+	.pricing-content.featured {
+		margin-top: 20px;
+	}
+	
+	.pricing-content:hover {
+		margin-top:20px;
+		-webkit-transition:none;
+		-moz-transition:none;
+		-o-transition:none;
+		transition:none;
+		-webkit-box-shadow:none;
+		box-shadow:none;
+	}
+
+	.cta-text {
+		float: none;
+		text-align: center;
+	}
+	
+	.cta-btn {
+		float: none;
+		text-align: center;
+	}
+	
+	.sub-footer p {
+		float: none;
+		text-align: center;
+	}
+	.sub-footer p {
+		float: none;
+		text-align: center;
+	}
+
+}
+
+@media (max-width:480px) {
+    .logotext
+	{
+		color:#000;
+	}
+
+
+	.navbar-custom .nav.navbar-nav {
+    background-color: rgba(255,255,255,.4);
+	}
+	
+	.navbar.navbar-custom.navbar-fixed-top {
+		margin-bottom: 30px;
+	}
+	
+
+	
+
+
+	.box {
+		padding: 45px;
+	}
+
+	.box i {
+		margin-bottom: 30px;
+	}
+		
+}
+
+@media (max-width:320px) {
+	.navbar-brand {
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+	}
+	
+	.intro-content {
+		padding:250px 0 0;
+	}
+}
+
+
+
+
+
+
+
+
+/*----------------tabs slider---------------------*/
+
+$white-rock: #FFFFFF;
+$white-rock1: #000;
+$rum-swizzle: #F5F5F5;
+$buddha-gold: #25beea;
+$citrus: #25beea;
+$mountain-meadow: #25beea;
+$blue-green: #25beea;
+$medium-slate-blue: #25beea;
+
+$tabs-list: (
+  login: $buddha-gold, 
+  register: $citrus
+);
+
+// General styles
+
+
+// Tab styling
+.tabs {
+  height: 100%;
+  margin-top: 20px;
+
+}
+input[name="tabs"] {
+  float: left;
+  opacity: 0;
+  position: absolute;
+}
+input[name="tabs"] ~ label {
+    // padding: 1em;
+    width: 50%;
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+    height: 80px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition:background .3s;
+    &:hover {
+      background:#f0f0f0;
+    }
+    &:focus {
+      outline: 0;
+      text-shadow: 1px 1px 3px #888;
+    }
+}
+.tab {
+    height: 100%;
+    display: none;
+    padding: 6em 2em 2em;
+    
+    // border-top: 1px solid #cccccc;
+}
+
+@each $current-tab, $colour in $tabs-list {
+    label[for="toggle-#{$current-tab}"] {
+      border-top: 8px solid transparent;
+        background: $rum-swizzle;
+        // border-left: 1px solid darken($white-rock1, 20%);
+        text-transform: uppercase;
+        line-height: 50px;
+    }
+    #toggle-#{$current-tab}:checked ~ .tab-#{$current-tab} { 
+        display:block;
+        // background: $white-rock1;
+    }
+    #toggle-#{$current-tab}:checked ~ label[for="toggle-#{$current-tab}"] {
+        cursor: default;
+        // border-top: 8px solid #{$colour};
+        background: $white-rock;
+        color: $white-rock1;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}
+svg {
+  height: 2rem;
+  width: 2rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+.text-title {
+  display: none;
+  @media screen and (min-width: 900px) {
+    display: inline-block;
+    vertical-align: middle;
+    
+  }
+}
+.kaomoji {
+  white-space: nowrap;
+}      
+
+
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:not(:checked) + label:after {
+display: none;
+}
+
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:after { 
+display: none;
+}
+
+
+

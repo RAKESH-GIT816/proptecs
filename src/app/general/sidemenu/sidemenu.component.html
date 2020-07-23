@@ -1,0 +1,95 @@
+<section>
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <!-- Menu -->
+        <div class="menu">
+            <ul class="list">
+                <li >
+                    <a  class="dash-link">
+                        <!-- [routerLink]="['/mydashboard/Buying']" -->
+                        <i>
+                            <img src="assets/images/dash-icon.png" />
+                        </i>
+                        <span>My Dashboard</span>
+                    </a>
+                </li>
+                <li routerLinkActive="active">
+                    <a href="javascript:void(0);" class="menu-toggle active">
+                        <i>
+                            <img src="assets/images/buying-icon.png" />
+                        </i>
+                        <span>Buying</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a routerLinkActive="active" [routerLink]="['/mydashboard/Buying/activebids']">Active Bids
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLinkActive="active" [routerLink]="['/mydashboard/Buying/bidsaccepted']">Bids Accepted
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLinkActive="active" [routerLink]="['/mydashboard/Buying/history']">Bidding History
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLinkActive="active" [routerLink]="['/mydashboard/Buying/savedproperties']">Saved Properties</a>
+                        </li>
+                    </ul>
+                </li>
+                <li routerLinkActive="active">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i>
+                            <img src="assets/images/selling-icon.png" />
+                        </i>
+                        <span>Selling</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a routerLinkActive="active" [routerLink]="['/mydashboard/Selling/allsellingactivity']" href="javascript:void(0);">Properties for Sale</a>
+                        </li>
+                        <li>
+                            <a routerLinkActive="active"  [routerLink]="['/mydashboard/Selling/history']"  href="javascript:void(0);">History</a>
+                        </li>
+                    </ul>
+                </li>
+                <li routerLinkActive="active" >
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i>
+                            <img src="assets/images/profile-icon.png" />
+                        </i>
+                        <span>Account</span>
+                    </a>
+                    <!-- <a [routerLink]="['/accountpreferences']">
+                        <i>
+                            <img src="assets/images/profile-icon.png" />
+                        </i>
+                        <span>Account Preferences</span>
+                    </a> -->
+                    <ul class="ml-menu">
+                        <li>
+                            <a routerLinkActive="active" [routerLink]="['/accountpreferences']" href="javascript:void(0);">Account Preferences</a>
+                        </li>
+                        <li>
+                            <a routerLinkActive="active" [routerLink]="['/accountcards']" href="javascript:void(0);">Card</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- #Menu -->
+        <!-- Footer -->
+        <div class="legal">
+            <a href="javascript:void(0);">
+                <i>
+                    <img src="assets/images/support-icon.png" />
+                </i>
+                <span>Support</span>
+            </a>
+        </div>
+        <!-- #Footer -->
+    </aside>
+    <!-- #END# Left Sidebar -->
+
+</section>

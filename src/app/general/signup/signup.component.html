@@ -1,0 +1,148 @@
+<!-- #END# Page Loader -->
+<!-- Overlay For Sidebars -->
+<!-- #END# Overlay For Sidebars -->
+
+<app-topnav></app-topnav>
+
+<section class="content login-div">
+    <div class="container">
+        <div class="login-top">
+            <h1 class="login-title">Create An Account</h1>
+            <p>Becoming a buyer or seller on Woozzl is easy.</p>
+        </div>
+        <form [formGroup]="registerForm">
+            <div class="login-form">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="row clearfix">
+
+                        <div class="col-sm-6 login-lft">
+                            <div class="col-sm-12">
+                                <div class="row clearfix">
+                                    <div class="form-label">
+                                        <label>Your E-mail </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="email" formControlName="EmailAddress" class="form-control"
+                                                placeholder="Email Address"
+                                                [ngClass]="{ 'is-invalid': submitted && f.EmailAddress.errors }" />
+                                        </div>
+                                        <div *ngIf="submitted && f.EmailAddress.errors" class="text-danger">
+                                            <div *ngIf="f.EmailAddress.errors.required">Email is required</div>
+                                            <div *ngIf="f.EmailAddress.errors.email">Email must be a valid
+                                                email address</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="row clearfix">
+                                    <div class="form-label">
+                                        <label>Create Password</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="password" formControlName="password" class="form-control"
+                                                placeholder="Password"
+                                                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                        </div>
+                                        <div *ngIf="submitted && f.password.errors" class="text-danger">
+                                            <div *ngIf="f.password.errors.required">Password is required</div>
+                                            <div *ngIf="f.password.errors.minlength">Password Should be Minimum 6
+                                                characters</div>
+                                            <div *ngIf="f.password.errors.maxlength">Password Should Not be Maxmimum 20
+                                                characters</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row clearfix">
+                                    <div class="form-label">
+                                        <label>Confirm Password</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="password" formControlName="cpassword" class="form-control"
+                                                placeholder="Confirm Password"
+                                                [ngClass]="{ 'is-invalid': submitted && f.cpassword.errors }" />
+                                        </div>
+                                        <div *ngIf="submitted && f.cpassword.errors" class="text-danger">
+                                            <div *ngIf="f.cpassword.errors.required">Confirm Password is required</div>
+
+                                        </div>
+                                        <div class="text-danger" *ngIf="checkpassword==false">password and confirm
+                                            password should be same</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="row clearfix">
+                                    <div class="form-group btn-field">
+                                        <button type="button" (click)="onsignup()"
+                                            class="btn bg-amber m-t-0 waves-effect" id="loadbtn"
+                                            data-loading-text=" <i class='fa fa-circle-o-notch fa-spin'></i>&nbsp;Signing Up">
+                                            Sign Up</button>
+                                    </div>
+                                    <div *ngIf="Emailcheck==false">
+                                        <div class="text-danger">{{errMsg}}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6 login-rgt">
+                            <div class="login-logo">
+                                <img src="assets/images/login-logo.png" />
+                            </div>
+                            <h1>Already have a
+                                <br> Woozzl account ?</h1>
+                            <a class="login-link" [routerLink]="['/login']">Log In</a>
+                            <div class="or-line">
+                                <span>Or</span>
+                            </div>
+                            <a href="javascript:void(0);" class="g-link">
+                                <span>
+                                    <img src="assets/images/g-logo.png" />
+                                </span>Continue With Google</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section>
+<app-footer></app-footer>
+
+
+
+
+<div id="showmodel" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-lg-12 white-bg mrg-btm-30 m-t-20">
+                    <br>
+                    <br>
+
+                    <h1 class='main-tlt'>You’re on the way to greatness.</h1>
+                    <p>We’ve sent you an email with a confirmation link. Once you confirm your email, you’re ready to
+                        rock and roll.</p>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-lg-12"> <button type="button" class="btn bg-yellow waves-effect" data-dismiss="modal"
+                        (click)="dismissmodal()">Ok</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
